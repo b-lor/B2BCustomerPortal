@@ -56,15 +56,7 @@ export class UserService {
       }
     }
 
-    getRoleId() {
-      const userToken = this.getToken();
-      if (userToken) {
-        const roleId = atob(userToken.split('.')[2]);
-        return JSON.parse(roleId);
-      } else {
-        return null;
-      }
-    }
+
 
     isLoggedIn() {
       const userPayload = this.getUserPayload();
@@ -76,6 +68,16 @@ export class UserService {
     }
 
 
+    getRoleId() {
+      const token = this.getToken();
+      if (token) {
+        const roleId = atob(token.split('.')[1]);
+        const userId = JSON.parse(roleId);
+        return userId['roleId'];
+      } else {
+        return null;
+      }
+    }
 
 
 }

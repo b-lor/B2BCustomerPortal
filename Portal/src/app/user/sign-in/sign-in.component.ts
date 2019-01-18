@@ -3,10 +3,6 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { UserService } from '../../shared/user.service';
-import { UserProfileComponent } from '../../user-profile/user-profile.component';
-
-
-
 
 @Component({
   selector: 'app-sign-in',
@@ -39,28 +35,28 @@ export class SignInComponent implements OnInit {
     );
   }
 
+
   onSubmit(form: NgForm) {
     this.userService.login(form.value).subscribe(
       res => {
-        this.userService.setToken(res['token']);
-console.log(this.userDetails.roleId);
-        // ---reroutes to different page
-        if (this.userDetails.roleId === 10) {
-          this.router.navigateByUrl('/customer');
 
-        } else if (this.userDetails.roleId === 20) {
+        this.userService.setToken(res['token']);
+        console.log(this.userService.getRoleId());
+
+        if (this.userService.getRoleId() === 20) {
           this.router.navigateByUrl('/employee');
 
-        } else if (this.userDetails.roleId === 30) {
+        } else if (this.userService.getRoleId() === 30) {
           this.router.navigateByUrl('/manager');
 
-        } else if (this.userDetails.roleId === 99) {
+        } else if (this.userService.getRoleId() === 99) {
           this.router.navigateByUrl('/admin');
 
         } else {
-          this.router.navigateByUrl('/userprofile');
+          this.router.navigateByUrl('/customer');
           return;
         }
+
       },
       err => {
         this.serverErrorMessages = err.error.message;

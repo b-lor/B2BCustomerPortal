@@ -11,6 +11,9 @@ import { TicketComponent } from './ticket/ticket.component';
 import { CustomerComponent } from './customer/customer.component';
 
 import { AuthGuard } from './auth/auth.guard';
+// import { AdminGuard } from '../../../server/guards/isAdmin';
+// import { ManagerGuard } from '../../../server/guards/isManager';
+// import { EmployeeGuard } from '../../../server/guards/isEmployee';
 
 
 

@@ -17,5 +17,6 @@ export class ManagerComponent implements OnInit {
   onLogout() {
     this.userService.deleteToken();
     this.router.navigate(['/login']);
+
   }
 }
