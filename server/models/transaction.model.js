@@ -23,23 +23,23 @@ var transactionSchema = mongoose.Schema({
 	},
 	extAmount: {
 		type: Number
-    },
-    qtyOrdered: {
+  },
+  qtyOrdered: {
 		type: Number
-    },
-    qtyShipped: {
+  },
+  qtyShipped: {
 		type: Number
-    },
-    status: {
+  },
+  status: {
 		type: String
-    },
-    customerNo: {
+  },
+  customerNo: {
 		type: Number
-    },
-		orderedDate: {
+  },
+	orderedDate: {
 		type: Date
-    },
-    shippedDate: {
+  },
+  shippedDate: {
 		type: Date
 	}
 });

@@ -25,6 +25,11 @@ import { UserService } from './shared/user.service';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { CustomerComponent } from './customer/customer.component';
+import { FlashMessagesModule } from 'angular2-flash-messages';
+import { ErrorComponent } from './error/error.component';
+import { ProfileComponent } from './admin/profile/profile.component';
+import { SalesComponent } from './customer/sales/sales.component';
+import { InvoicesComponent } from './customer/invoices/invoices.component';
 
 
 @NgModule({
@@ -39,13 +44,18 @@ import { CustomerComponent } from './customer/customer.component';
     AdminComponent,
     ManagerComponent,
     TicketComponent,
-    CustomerComponent
+    CustomerComponent,
+    ErrorComponent,
+    ProfileComponent,
+    SalesComponent,
+    InvoicesComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
-    HttpClientModule
+    HttpClientModule,
+    FlashMessagesModule.forRoot()
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

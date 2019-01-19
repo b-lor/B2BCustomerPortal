@@ -17,5 +17,3 @@ router.post('/roles', ctrlRole.roles);
 router.post('/transaction', ctrlTransaction.addTransaction);
 
 module.exports = router;
-
-

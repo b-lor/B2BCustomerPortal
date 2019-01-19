@@ -9,11 +9,12 @@ import { AdminComponent } from './admin/admin.component';
 import { ManagerComponent } from './manager/manager.component';
 import { TicketComponent } from './ticket/ticket.component';
 import { CustomerComponent } from './customer/customer.component';
+import { ErrorComponent } from './error/error.component';
 
 import { AuthGuard } from './auth/auth.guard';
-// import { AdminGuard } from '../../../server/guards/isAdmin';
-// import { ManagerGuard } from '../../../server/guards/isManager';
-// import { EmployeeGuard } from '../../../server/guards/isEmployee';
+import { AdminGuard } from './auth/admin.guard';
+import { ManagerGuard } from './auth/manager.guard';
+import { EmployeeGuard } from './auth/employee.guard';
 
 
 
@@ -33,19 +34,22 @@ export const appRoutes: Routes = [
         path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]
     },
     {
-        path: 'employee', component: EmployeeComponent, canActivate: [AuthGuard]
+        path: 'employee', component: EmployeeComponent, canActivate: [AuthGuard, EmployeeGuard]
     },
     {
-        path: 'admin',  component:  AdminComponent, canActivate: [AuthGuard]
+        path: 'admin',  component:  AdminComponent, canActivate: [AuthGuard, AdminGuard]
     },
     {
-        path: 'manager', component: ManagerComponent, canActivate: [AuthGuard]
+        path: 'manager', component: ManagerComponent, canActivate: [AuthGuard, ManagerGuard]
     },
     {
         path: 'ticket',  component:  TicketComponent, canActivate: [AuthGuard]
     },
     {
         path: 'customer',  component:  CustomerComponent, canActivate: [AuthGuard]
+    },
+    {
+        path: 'error', component: ErrorComponent
     },
     {
         path: '', redirectTo: '/login', pathMatch: 'full'
