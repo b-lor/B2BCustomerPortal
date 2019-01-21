@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 
 User = require('../models/user.model.js');
-Transaction = require('../models/transaction.model.js');
 
 // Get All Users
 router.get('/', function (req, res) {

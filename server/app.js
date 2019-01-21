@@ -9,6 +9,7 @@ const passport = require('passport');
 
 const rtsIndex = require('./routes/index.router');
 const rtsUser = require('./routes/user.router');
+const rtsRole = require('./routes/role.router');
 const rtsTransaction = require('./routes/transactions.router');
 const rtsProfile = require('./routes/user.profile');
 
@@ -23,6 +24,7 @@ app.use('/api', rtsIndex);
 app.use('/api/user', rtsUser);
 app.use('/api/transaction', rtsTransaction);
 app.use('/api/profile', rtsProfile);
+app.use('/api/role', rtsRole);
 
 // error handler
 app.use((err, req, res, next) => {
