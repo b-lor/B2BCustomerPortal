@@ -8,7 +8,9 @@ const cors = require('cors');
 const passport = require('passport');
 
 const rtsIndex = require('./routes/index.router');
-
+const rtsUser = require('./routes/user.router');
+const rtsTransaction = require('./routes/transactions.router');
+const rtsProfile = require('./routes/user.profile');
 
 var app = express();
 
@@ -16,7 +18,11 @@ var app = express();
 app.use(bodyParser.json());
 app.use(cors());
 app.use(passport.initialize());
+
 app.use('/api', rtsIndex);
+app.use('/api/user', rtsUser);
+app.use('/api/transaction', rtsTransaction);
+app.use('/api/profile', rtsProfile);
 
 // error handler
 app.use((err, req, res, next) => {

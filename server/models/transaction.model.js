@@ -7,10 +7,10 @@ var transactionSchema = mongoose.Schema({
 		ref: 'User'
 	},
 	invoiceNumber: {
-		type: Number
+		type: String
 	},
 	salesOrder: {
-		type: Number
+		type: String
 	},
 	itemNumber: {
 		type: Number
@@ -18,37 +18,45 @@ var transactionSchema = mongoose.Schema({
 	itemDescription: {
 		type: String
 	},
+	productLine: {
+		type: Number
+	},
 	unitPrice: {
 		type: Number
 	},
 	extAmount: {
 		type: Number
-  },
-  qtyOrdered: {
+	},
+	qtyOrdered: {
 		type: Number
-  },
-  qtyShipped: {
+	},
+	qtyShipped: {
 		type: Number
-  },
-  status: {
+	},
+	status: {
 		type: String
-  },
-  customerNo: {
+	},
+	customerNo: {
 		type: Number
-  },
+	},
+	salespersonNo: {
+	type: Number
+	},
 	orderedDate: {
 		type: Date
-  },
-  shippedDate: {
+	},
+	shippedDate: {
 		type: Date
 	}
 });
+
+////////////////////////////////////
 
 var Transaction = module.exports = mongoose.model('Transaction', transactionSchema);
 
 // Get Transactions
 module.exports.getTransactions = function (callback, limit) {
-	Transaction.find(callback).limit(limit).populate('user').sort([['createdAt', 'ascending']]);
+	Transaction.find(callback).limit(limit).populate('user').sort([['salesOrder', 'ascending']]);
 }
 
 // Get Single Transaction
@@ -60,20 +68,21 @@ module.exports.getTransactionById = function (id, callback) {
 // Add Transaction
 module.exports.addTransaction = function (transaction, callback) {
 	var add = {
-		user: transaction.user_id,
+		user: transaction.user,
 		invoiceNumber: transaction.invoiceNumber,
 		salesOrder: transaction.salesOrder,
 		itemNumber: transaction.itemNumber,
-        itemDescription: transaction.itemDescription, 
+		itemDescription: transaction.itemDescription,
+		productLine: transaction.productLine,
         unitPrice: transaction.unitPrice, 
         extAmount: transaction.extAmount, 
         qtyOrdered: transaction.qtyOrdered, 
         qtyShipped: transaction.qtyShipped,  
-        status: transaction.status, 
+        status: transaction.status,
         customerNo: transaction.customerNo, 
         orderedDate: transaction.orderedDate,  
         shippedDate: transaction.shippedDate
-        
+
 	}
 	Transaction.create(add, callback);
 }
@@ -85,7 +94,8 @@ module.exports.updateTransaction = function (id, transaction, options, callback)
 		invoiceNumber: transaction.invoiceNumber,
 		salesOrder: transaction.salesOrder,
 		itemNumber: transaction.itemNumber,
-        itemDescription: transaction.itemDescription, 
+		itemDescription: transaction.itemDescription,
+		productLine: transaction.productLine,
         unitPrice: transaction.unitPrice, 
         extAmount: transaction.extAmount, 
         qtyOrdered: transaction.qtyOrdered, 

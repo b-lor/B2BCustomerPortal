@@ -8,6 +8,9 @@ const User = mongoose.model('User');
 module.exports.register = (req, res, next) => {
     var user = new User();
     user.roleId = 10;
+    user.userType = req.body.userType;
+    user.salesCode = req.body.salesCode;
+    user.customerNumber = req.body.customerNumber;
     user.email = req.body.email;
     user.password = req.body.password;
     user.save((err, doc) => {
@@ -25,7 +28,7 @@ module.exports.register = (req, res, next) => {
 
 module.exports.authenticate = (req, res, next) => {
     // call for passport authentication
-    passport.authenticate('local', (err, user, info) => {       
+    passport.authenticate('local', (err, user, info) => {
         // error from passport middleware
         if (err) return res.status(400).json(err);
         // registered user
@@ -46,4 +49,5 @@ module.exports.userProfile = (req, res, next) =>{
                 return res.status(200).json({ status: true, user : _.pick(user,['roleId','email']) });
         }
     );
+
 }

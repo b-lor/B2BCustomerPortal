@@ -3,7 +3,20 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 var userSchema = new mongoose.Schema({
+    profile: {
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'Profile'
+    },
     roleId: {
+        type: Number
+    },
+    userType: {
+        type: String
+    },
+    salesCode: {
+        type: Number
+    },
+    customerNumber: {
         type: Number
     },
     email: {
@@ -50,7 +63,41 @@ userSchema.methods.generateJwt = function () {
 }
 
 
-mongoose.model('User', userSchema);
+// mongoose.model('User', userSchema);
 
+
+/** ///////////////////////////////////// */
+
+var User = module.exports = mongoose.model('User', userSchema);
+
+// Get users
+module.exports.getUsers = function (callback, limit) {
+	User.find(callback).limit(limit).sort([['customerNumber', 'ascending']]);
+}
+
+// Get user
+module.exports.getUserById = function (id, callback) {
+	User.findById(id, callback);
+}
+
+// Update User
+module.exports.updateUser = function (id, user, options, callback) {
+	var query = { _id: id };
+	var update = {
+		roleId: user.roleId,
+		userType: user.userType,
+		salesCode: user.salesCode,
+		customerNumber: user.customerNumber,
+		email: user.email
+	}
+	User.findOneAndUpdate(query, update, options, callback);
+}
+
+
+// Remove User
+module.exports.removeUser = function (id, callback) {
+	var query = { _id: id };
+	User.remove(query, callback);
+}
 
 

@@ -8,3 +8,4 @@ mongoose.set('useCreateIndex', true);
 require('./user.model');
 require('./role.model');
 require('./transaction.model');
+require('./user.profile');
