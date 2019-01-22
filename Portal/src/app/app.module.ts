@@ -17,11 +17,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ErrorComponent } from './error/error.component';
 
-import { AdminComponent } from './admin/admin.component';
-import { AdminProfileComponent } from './admin/admin-profile/admin-profile.component';
-import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
-import { AdminEmployeeComponent } from './admin/admin-employee/admin-employee.component';
-import { AdminCustomerComponent } from './admin/admin-customer/admin-customer.component';
+// modules
+import { AdminModule } from './admin/admin.module';
 
 import { CustomerComponent } from './customer/customer.component';
 import { CustomerProfileComponent } from './customer/customer-profile/customer-profile.component';
@@ -70,11 +67,6 @@ import { TransactionService } from './shared/transaction.service';
     EmployeeDashboardComponent,
     EmployeeProfileComponent,
     EmployeeTicketComponent,
-    AdminComponent,
-    AdminProfileComponent,
-    AdminDashboardComponent,
-    AdminEmployeeComponent,
-    AdminCustomerComponent,
     ManagerComponent,
     ManagerDashboardComponent,
     ManagerProfileComponent,
@@ -87,14 +79,15 @@ import { TransactionService } from './shared/transaction.service';
     ErrorComponent,
     TicketComponent,
     TicketDashboardComponent,
-    IssueComponent,
+    IssueComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
-    FlashMessagesModule.forRoot()
+    FlashMessagesModule.forRoot(),
+    AdminModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
