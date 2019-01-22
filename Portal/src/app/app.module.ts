@@ -21,6 +21,7 @@ import { ErrorComponent } from './error/error.component';
 import { AdminModule } from './admin/admin.module';
 import { CustomerModule } from './customer/customer.module';
 import { EmployeeModule } from './employee/employee.module';
+import { ManagerModule } from './manager/manager.module';
 
 import { EmployeeComponent } from './employee/employee.component';
 import { EmployeeDashboardComponent } from './employee/employee-dashboard/employee-dashboard.component';
@@ -48,6 +49,7 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import { UserService } from './shared/user.service';
 import { ProfileService } from './shared/profile.service';
 import { TransactionService } from './shared/transaction.service';
+import { IssueAddComponent } from './ticket/issue/issue-add/issue-add.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +70,8 @@ import { TransactionService } from './shared/transaction.service';
     ErrorComponent,
     TicketComponent,
     TicketDashboardComponent,
-    IssueComponent
+    IssueComponent,
+    IssueAddComponent
   ],
   imports: [
     BrowserModule,
@@ -78,7 +81,8 @@ import { TransactionService } from './shared/transaction.service';
     FlashMessagesModule.forRoot(),
     AdminModule,
     CustomerModule,
-    EmployeeModule
+    EmployeeModule,
+    ManagerModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

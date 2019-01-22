@@ -34,7 +34,7 @@ import { EmployeeTicketEditComponent } from './employee-ticket/employee-ticket-e
     EmployeeRoutingModule,
   ],
   providers: [],
-  bootstrap: [CustomerModule]
+  bootstrap: [EmployeeDashboardComponent]
 })
 
 export class EmployeeModule { }

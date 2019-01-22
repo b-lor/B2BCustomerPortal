@@ -50,7 +50,7 @@ import { AdminProfileEditComponent } from './admin-profile/admin-profile-edit/ad
     AdminRoutingModule,
   ],
   providers: [],
-  bootstrap: [AdminModule]
+  bootstrap: [AdminDashboardComponent]
 })
 
 export class AdminModule { }
