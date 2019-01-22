@@ -23,6 +23,17 @@ router.get('/:id', function (req, res) {
 	});
 });
 
+// Add User
+router.post('/', function (req, res) {
+	var user = req.body;
+	User.addUser(user, function (err, user) {
+		if (err) {
+			res.send(err);
+		}
+		res.json(user);
+	});
+});
+
 // Update User
 router.put('/:id', function (req, res) {
 

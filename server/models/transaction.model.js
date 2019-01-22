@@ -13,13 +13,13 @@ var transactionSchema = mongoose.Schema({
 		type: String
 	},
 	itemNumber: {
-		type: Number
+		type: String
 	},
 	itemDescription: {
 		type: String
 	},
 	productLine: {
-		type: Number
+		type: String
 	},
 	unitPrice: {
 		type: Number
@@ -79,7 +79,8 @@ module.exports.addTransaction = function (transaction, callback) {
         qtyOrdered: transaction.qtyOrdered, 
         qtyShipped: transaction.qtyShipped,  
         status: transaction.status,
-        customerNo: transaction.customerNo, 
+		customerNo: transaction.customerNo, 
+		salespersonNo: transaction.salespersonNo,
         orderedDate: transaction.orderedDate,  
         shippedDate: transaction.shippedDate
 
@@ -101,7 +102,8 @@ module.exports.updateTransaction = function (id, transaction, options, callback)
         qtyOrdered: transaction.qtyOrdered, 
         qtyShipped: transaction.qtyShipped,  
         status: transaction.status, 
-        customerNo: transaction.customerNo, 
+		customerNo: transaction.customerNo, 
+		salespersonNo: transaction.salespersonNo,
         orderedDate: transaction.orderedDate,  
         shippedDate: transaction.shippedDate
 	}

@@ -53,7 +53,8 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 
 import { UserService } from './shared/user.service';
-
+import { ProfileService } from './shared/profile.service';
+import { TransactionService } from './shared/transaction.service';
 
 
 
@@ -99,7 +100,8 @@ import { UserService } from './shared/user.service';
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
-  }, AuthGuard, UserService],
+  }, AuthGuard, UserService,
+  ProfileService, TransactionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

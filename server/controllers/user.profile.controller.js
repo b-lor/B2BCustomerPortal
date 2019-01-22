@@ -1,0 +1,16 @@
+const mongoose = require('mongoose');
+
+const Profile = mongoose.model('Profile');
+
+
+module.exports.userProfile = (req, res, next) =>{
+    Profile.findOne({ _id: req._id },
+        (err, profile) => {
+            if (!profile)
+                return res.status(404).json({ status: false, message: 'User record not found.' });
+            else
+                return res.status(200).json({ status: true, profile : _.pick(profile,['user','customerNumber','firstName','lastName','company','email','phone','street','city','state','zip']) });
+        }
+    );
+
+}

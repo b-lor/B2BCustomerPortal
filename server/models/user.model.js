@@ -80,6 +80,18 @@ module.exports.getUserById = function (id, callback) {
 	User.findById(id, callback);
 }
 
+// Add User
+module.exports.addUser = function (user, callback) {
+	var add = {
+		roleId: user.roleId,
+		userType: user.userType,
+		salesCode: user.salesCode,
+		customerNumber: user.customerNumber,
+		email: user.email
+	}
+	User.create(add, callback);
+}
+
 // Update User
 module.exports.updateUser = function (id, user, options, callback) {
 	var query = { _id: id };
