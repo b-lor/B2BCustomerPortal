@@ -20,6 +20,7 @@ import { ErrorComponent } from './error/error.component';
 // modules
 import { AdminModule } from './admin/admin.module';
 import { CustomerModule } from './customer/customer.module';
+import { EmployeeModule } from './employee/employee.module';
 
 import { EmployeeComponent } from './employee/employee.component';
 import { EmployeeDashboardComponent } from './employee/employee-dashboard/employee-dashboard.component';
@@ -47,14 +48,6 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import { UserService } from './shared/user.service';
 import { ProfileService } from './shared/profile.service';
 import { TransactionService } from './shared/transaction.service';
-import { CustomerProfileEditComponent } from './customer/customer-profile/customer-profile-edit/customer-profile-edit.component';
-import { CustomerTicketAddComponent } from './customer/customer-ticket/customer-ticket-add/customer-ticket-add.component';
-import { CustomerTicketEditComponent } from './customer/customer-ticket/customer-ticket-edit/customer-ticket-edit.component';
-import { CustomerTicketDetailsComponent } from './customer/customer-ticket/customer-ticket-details/customer-ticket-details.component';
-import { CustomerTransactionsSalesComponent } from './customer/customer-transactions/customer-transactions-sales/customer-transactions-sales.component';
-import { CustomerTransactionsInvoicesComponent } from './customer/customer-transactions/customer-transactions-invoices/customer-transactions-invoices.component';
-
-
 
 @NgModule({
   declarations: [
@@ -72,21 +65,10 @@ import { CustomerTransactionsInvoicesComponent } from './customer/customer-trans
     ManagerDashboardComponent,
     ManagerProfileComponent,
     ManagerTicketComponent,
-    CustomerComponent,
-    CustomerProfileComponent,
-    CustomerDashboardComponent,
-    CustomerTicketComponent,
-    CustomerTransactionsComponent,
     ErrorComponent,
     TicketComponent,
     TicketDashboardComponent,
-    IssueComponent,
-    CustomerProfileEditComponent,
-    CustomerTicketAddComponent,
-    CustomerTicketEditComponent,
-    CustomerTicketDetailsComponent,
-    CustomerTransactionsSalesComponent,
-    CustomerTransactionsInvoicesComponent
+    IssueComponent
   ],
   imports: [
     BrowserModule,
@@ -95,7 +77,8 @@ import { CustomerTransactionsInvoicesComponent } from './customer/customer-trans
     HttpClientModule,
     FlashMessagesModule.forRoot(),
     AdminModule,
-    CustomerModule
+    CustomerModule,
+    EmployeeModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
