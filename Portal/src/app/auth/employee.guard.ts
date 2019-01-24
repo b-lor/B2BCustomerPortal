@@ -15,7 +15,7 @@ export class EmployeeGuard implements CanActivate {
   constructor(private userService: UserService, private router: Router, private flashMessagesService: FlashMessagesService) {}
 
     canActivate() {
-        if (this.userService.getRoleId() === 20) {
+        if (this.userService.getRoleId() === 20 || this.userService.getRoleId() === 30 || this.userService.getRoleId() === 99) {
             return true;
         } else {
             // this.flashMessagesService.show('Employee only, not authorized', {

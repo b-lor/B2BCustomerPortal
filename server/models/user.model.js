@@ -72,12 +72,13 @@ var User = module.exports = mongoose.model('User', userSchema);
 
 // Get users
 module.exports.getUsers = function (callback, limit) {
-	User.find(callback).limit(limit).sort([['customerNumber', 'ascending']]);
+    User.find(callback).limit(limit).populate('profile').sort([['customerNumber', 'ascending']]);
 }
 
 // Get user
 module.exports.getUserById = function (id, callback) {
-	User.findById(id, callback);
+    var query = { _id: id };
+    User.findOne(query, callback).populate('profile');
 }
 
 // Add User

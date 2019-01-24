@@ -23,16 +23,6 @@ import { CustomerModule } from './customer/customer.module';
 import { EmployeeModule } from './employee/employee.module';
 import { ManagerModule } from './manager/manager.module';
 
-import { EmployeeComponent } from './employee/employee.component';
-import { EmployeeDashboardComponent } from './employee/employee-dashboard/employee-dashboard.component';
-import { EmployeeProfileComponent } from './employee/employee-profile/employee-profile.component';
-import { EmployeeTicketComponent } from './employee/employee-ticket/employee-ticket.component';
-
-import { ManagerComponent } from './manager/manager.component';
-import { ManagerDashboardComponent } from './manager/manager-dashboard/manager-dashboard.component';
-import { ManagerProfileComponent } from './manager/manager-profile/manager-profile.component';
-import { ManagerTicketComponent } from './manager/manager-ticket/manager-ticket.component';
-
 import { TicketComponent } from './ticket/ticket.component';
 import { TicketDashboardComponent } from './ticket/ticket-dashboard/ticket-dashboard.component';
 import { IssueComponent } from './ticket/issue/issue.component';
@@ -59,14 +49,6 @@ import { IssueAddComponent } from './ticket/issue/issue-add/issue-add.component'
     UserProfileComponent,
     SignInComponent,
     DashboardComponent,
-    EmployeeComponent,
-    EmployeeDashboardComponent,
-    EmployeeProfileComponent,
-    EmployeeTicketComponent,
-    ManagerComponent,
-    ManagerDashboardComponent,
-    ManagerProfileComponent,
-    ManagerTicketComponent,
     ErrorComponent,
     TicketComponent,
     TicketDashboardComponent,

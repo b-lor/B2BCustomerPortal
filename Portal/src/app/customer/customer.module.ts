@@ -40,7 +40,7 @@ import { CustomerTransactionsSalesComponent } from './customer-transactions/cust
     CustomerRoutingModule,
   ],
   providers: [],
-  bootstrap: [CustomerModule]
+  bootstrap: [CustomerDashboardComponent]
 })
 
 export class CustomerModule { }

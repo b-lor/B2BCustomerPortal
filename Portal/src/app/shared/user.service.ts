@@ -11,17 +11,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  // selectedUser: User = {
-  //   _id: '',
-  //   roleId: null,
-  //   userType: '',
-  //   salesCode:null,
-  //   customerNumber:null,
-  //   email: '',
-  //   password: ''
-  // };
-
-  selectedUser = new User();
+  selectedUser: User = {
+    roleId: null,
+    email: '',
+    password: ''
+  };
 
   noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True' })};
 
@@ -40,34 +34,6 @@ export class UserService {
     getUserProfile() {
       return this.http.get(environment.apiBaseUrl + '/userProfile');
     }
-///////////////////////////////
-
-    getUsers() {
-      return this.http.get(environment.apiBaseUrl + '/user/', this.noAuthHeader).pipe(map((response: any) =>
-        response.map(user => new User().deserialize(user)))
-      );
-    }
-  
-    getUser(id): Observable<User> {
-      return this.http.get(environment.apiBaseUrl + '/user/' + id, this.noAuthHeader).pipe(map((response: any) => new User().deserialize(response)));
-    }
-  
-    addUser(user) {
-      return this.http.post(environment.apiBaseUrl + '/user/', user, this.noAuthHeader);
-    }
-    
-    updateUser(id, user) {
-      console.log('service file');
-      return this.http.put(environment.apiBaseUrl + '/user/' + id, user, this.noAuthHeader);
-    }
-  
-    deleteUser(id) {
-      console.log("client service file: " + id);
-  
-      return this.http.delete(environment.apiBaseUrl + '/user/' + id, this.noAuthHeader);
-    }
-
-    ////////////////////////////
 
     // Helper
     setToken(token: string) {

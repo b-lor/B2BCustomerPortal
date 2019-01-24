@@ -74,25 +74,24 @@ module.exports.addProfile = function (profile, callback) {
 	Profile.create(add, callback);
 }
 
-// Update profile
-module.exports.updateprofile = function (id, profile, options, callback) {
-	var query = { _id: id };
-	var update = {
-        customerNumber: profile.customerNumber,
-		firstName: profile.firstName,
-		lastName: profile.lastName,
-		company: profile.company,
-		logoUrl: profile.logoUrl,
-		email: profile.email,
-		phone: profile.phone,
-		street: profile.street,
-		city: profile.city,
-		state: profile.state,
-		zip: profile.zip
+// // Update profile
+// module.exports.updateprofile = function (id, profile, options, callback) {
+// 	var query = { _id: id };
+// 	var update = {
+//         customerNumber: profile.customerNumber,
+// 		firstName: profile.firstName,
+// 		lastName: profile.lastName,
+// 		company: profile.company,
+// 		email: profile.email,
+// 		phone: profile.phone,
+// 		street: profile.street,
+// 		city: profile.city,
+// 		state: profile.state,
+// 		zip: profile.zip
 
-	}
-	Profile.findOneAndUpdate(query, update, options, callback);
-}
+// 	}
+// 	Profile.findOneAndUpdate(query, update, options, callback);
+// }
 
 
 // Remove profile
@@ -101,3 +100,14 @@ module.exports.removeprofile = function (id, callback) {
 	Profile.remove(query, callback);
 }
 
+// user profile
+module.exports.getProfiled = (req, res, next) => {
+    Profile.findOne({ _id: req._id },
+        (err, profile) => {
+            if (!profile)
+                return res.status(404).json({ status: false, message: 'User record not found.' });
+            else
+                return res.status(200).json({ status: true, profile: _.pick(profile, ['customerNumber', 'firstName', 'lastName', 'company', 'email', 'phone', 'street', 'city', 'state','zip']) });
+        }
+    );
+}
