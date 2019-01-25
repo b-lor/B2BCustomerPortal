@@ -70,9 +70,17 @@ userSchema.methods.generateJwt = function () {
 
 var User = module.exports = mongoose.model('User', userSchema);
 
+// // Get users
+// module.exports.getUsers = function (callback, limit) {
+//     User.find(callback).limit(limit).populate('profile').sort([['customerNumber', 'ascending']]);
+// }
+
 // Get users
 module.exports.getUsers = function (callback, limit) {
-    User.find(callback).limit(limit).populate('profile').sort([['customerNumber', 'ascending']]);
+    User.find(callback)
+    .limit(limit)
+    .populate('profile')
+    .sort([['customerNumber', 'ascending']]);
 }
 
 // Get user

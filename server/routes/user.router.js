@@ -4,15 +4,26 @@ var ObjectId = require('mongoose').Types.ObjectId;
 
 User = require('../models/user.model.js');
 
+// // Get All Users
+// router.get('/', function (req, res) {
+// 	User.getUsers(function (err, users) {
+// 		if (err) {
+// 			res.send(err);
+// 		}
+// 		res.json(users);
+// 	});
+// });
+ 
 // Get All Users
-router.get('/', function (req, res) {
-	User.getUsers(function (err, users) {
+router.get('/', function (req, res, next) {
+	User.find(function (err, users) {
 		if (err) {
-			res.send(err);
+			return next(err);
 		}
 		res.json(users);
 	});
 });
+
 
 // Get Single User
 router.get('/:id', function (req, res) {

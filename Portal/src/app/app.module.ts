@@ -37,6 +37,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 
 import { UserService } from './shared/user.service';
+import { UserAdminService } from './shared/user-admin.service';
 import { ProfileService } from './shared/profile.service';
 import { TransactionService } from './shared/transaction.service';
 import { IssueAddComponent } from './ticket/issue/issue-add/issue-add.component';
@@ -71,6 +72,7 @@ import { IssueAddComponent } from './ticket/issue/issue-add/issue-add.component'
     useClass: AuthInterceptor,
     multi: true
   }, AuthGuard, UserService,
+  UserAdminService,
   ProfileService, TransactionService],
   bootstrap: [AppComponent]
 })
