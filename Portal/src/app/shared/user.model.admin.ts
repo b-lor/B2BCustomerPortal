@@ -1,4 +1,5 @@
 export class User {
+    _id: string;
     profile: any;
     roleId: number;
     userType: string;
@@ -8,6 +9,7 @@ export class User {
 
     deserialize(data: any): User {
         return <User>Object.assign({}, {
+            _id: data._id,
             profile: data.profile,
             roleId: data.profile,
             userType: data.profile,

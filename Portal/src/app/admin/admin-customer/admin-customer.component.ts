@@ -26,6 +26,20 @@ export class AdminCustomerComponent implements OnInit {
     );
   }
 
+  deleteUser(id) {
+    console.log('del clicked' + id);
+
+    this.userAdminService.deleteUser(id).subscribe(res => {
+      console.log(res)
+      this.router.navigateByUrl('admin');
+    },
+      err => {
+        console.log(err);
+        this.router.navigateByUrl('admin');
+      }
+    );
+
+  }
 
   // ngOnInit() {
   //   const userSub = this.userAdminService.getUsers().subscribe(users => {

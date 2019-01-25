@@ -1,3 +1,29 @@
-<p>
-  admin-customer-edit works!
-</p>
+<h2 class="sub-header">Edit Customer</h2>
+<form *ngIf="user" (ngSubmit)="onSubmit()">
+   <div class="form-group">
+    <label>profile</label>
+    <input type="text" class="form-control" #profile="ngModel" name="profile" [(ngModel)]="user.profile" placeholder="profile">
+  </div>
+  <div class="form-group">
+    <label>roleId</label>
+    <input type="text" class="form-control" #roleId="ngModel" [(ngModel)]="user.roleId" name="roleId" placeholder="roleId">
+  </div>
+  <div class="form-group">
+    <label>userType</label>
+    <input type="text" class="form-control" #userType="ngModel" name="userType" [(ngModel)]="user.userType"placeholder="userType">
+  </div>
+  <div class="form-group">
+    <label>salesCode</label>
+    <input type="text" class="form-control" #salesCode="ngModel" name="salesCode" [(ngModel)]="user.salesCode"placeholder="salesCode">
+  </div>
+  <div class="form-group">
+    <label>Email</label>
+    <input type="email" class="form-control" #email="ngModel" name="email" [(ngModel)]="user.email" placeholder="Email">
+  </div>
+  <div class="form-group">
+    <label>customerNumber</label>
+    <input type="text" class="form-control" #customerNumber="ngModel" name="customerNumber" [(ngModel)]="user.customerNumber" placeholder="customerNumber">
+  </div>
+
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
