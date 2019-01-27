@@ -96,7 +96,8 @@ module.exports.addUser = function (user, callback) {
 		userType: user.userType,
 		salesCode: user.salesCode,
 		customerNumber: user.customerNumber,
-		email: user.email
+        email: user.email,
+        password: user.password
 	}
 	User.create(add, callback);
 }

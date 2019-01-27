@@ -10,17 +10,30 @@ var roleSchema = new mongoose.Schema({
 });
 
 
-var Role = module.exports = mongoose.model('Role', roleSchema); 
+var Role = module.exports = mongoose.model('Role', roleSchema);
 
 module.exports.addRole = (req, res, next) => {
     var role =  new Role();
     role.roleId = req.body.roleId;
     role.role = req.body.role;
+
     role.save((err, doc) => {
         if (!err)
         res.send(doc);
+        else {
+            return next(err);
+        }
     });
-}
+};
+
+// module.exports.addRole = function (role, callback) {
+// 	var add = {
+// 		roleId: role.roleId,
+//         role: role.role
+// 	}
+// 	Role.create(add, callback);
+// }
+
 
 // Get roles
 module.exports.getRoles = function (callback, limit) {

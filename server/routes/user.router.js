@@ -36,14 +36,28 @@ router.get('/:id', function (req, res) {
 });
 
 // Add User
-router.post('/', function (req, res) {
-	var user = req.body;
-	User.addUser(user, function (err, user) {
-		if (err) {
-			res.send(err);
-		}
-		res.json(user);
-	});
+// router.post('/', function (req, res) {
+// 	var user = req.body;
+// 	User.addUser(user, function (err, user) {
+// 		if (err) {
+// 			res.send(err);
+// 		}
+// 		res.json(user);
+// 	});
+// });
+
+router.post('/', (req, res) => {
+    var emp = new User({
+        roleId: req.body.roleId,
+        userType: req.body.userType,
+        customerNumber: req.body.customerNumber,
+		email: req.body.email,
+		password: req.body.password
+    });
+    emp.save((err, doc) => {
+        if (!err) { res.send(doc); }
+        else { console.log('Error in User Save :' + JSON.stringify(err, undefined, 2)); }
+    });
 });
 
 // // Update User
@@ -70,7 +84,7 @@ router.put('/:id', (req, res) => {
 		profile: req.body.profile,
         roleId: req.body.roleId,
 		userType: req.body.userType,
-		// salesCode: req.body.salesCode,
+		salesCode: req.body.salesCode,
 		customerNumber: req.body.customerNumber,
 		email: req.body.email
     };

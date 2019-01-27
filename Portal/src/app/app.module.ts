@@ -26,6 +26,8 @@ import { ManagerModule } from './manager/manager.module';
 import { TicketComponent } from './ticket/ticket.component';
 import { TicketDashboardComponent } from './ticket/ticket-dashboard/ticket-dashboard.component';
 import { IssueComponent } from './ticket/issue/issue.component';
+import { IssueAddComponent } from './ticket/issue/issue-add/issue-add.component';
+
 
 // routes
 import { appRoutes } from './routes';
@@ -33,14 +35,17 @@ import { appRoutes } from './routes';
 // other
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
+import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { FlashMessagesModule } from 'angular2-flash-messages';
 
+import { RoleService } from './shared/role.service';
 import { UserService } from './shared/user.service';
 import { UserAdminService } from './shared/user-admin.service';
 import { ProfileService } from './shared/profile.service';
 import { TransactionService } from './shared/transaction.service';
-import { IssueAddComponent } from './ticket/issue/issue-add/issue-add.component';
+
 
 @NgModule({
   declarations: [
@@ -65,14 +70,16 @@ import { IssueAddComponent } from './ticket/issue/issue-add/issue-add.component'
     AdminModule,
     CustomerModule,
     EmployeeModule,
-    ManagerModule
+    ManagerModule,
+    SlimLoadingBarModule,
+    ReactiveFormsModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
   }, AuthGuard, UserService,
-  UserAdminService,
+  UserAdminService, RoleService,
   ProfileService, TransactionService],
   bootstrap: [AppComponent]
 })

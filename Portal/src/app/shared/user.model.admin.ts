@@ -6,16 +6,18 @@ export class User {
     salesCode: number;
     customerNumber: number;
     email: string;
+    password: string;
 
     deserialize(data: any): User {
         return <User>Object.assign({}, {
             _id: data._id,
             profile: data.profile,
-            roleId: data.profile,
-            userType: data.profile,
-            salesCode: data.profile,
-            customerNumber: data.profile,
-            email: data.profile,
+            roleId: data.roleId,
+            userType: data.userType,
+            salesCode: data.salesCode,
+            customerNumber: data.customerNumber,
+            email: data.email,
+            password: data.password
 
         });
     }
