@@ -101,7 +101,7 @@ module.exports.removeprofile = function (id, callback) {
 }
 
 // user profile
-module.exports.getProfiled = (req, res, next) => {
+module.exports.getProfile = (req, res, next) => {
     Profile.findOne({ _id: req._id },
         (err, profile) => {
             if (!profile)

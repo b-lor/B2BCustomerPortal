@@ -11,10 +11,25 @@ import { UserAdminService } from '../../../shared/user-admin.service';
   styleUrls: ['./admin-user-detail.component.css']
 })
 export class AdminUserDetailComponent implements OnInit {
+  user: User;
+  userID;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private router: Router, private userAdminService: UserAdminService) { 
+    this.route.params.subscribe(params => {
+      this.userID = params['id'];
+    });
+  }
+
+  
 
   ngOnInit() {
+    const userSub = this.userAdminService.getUser(this.userID).subscribe(user => {
+      this.user = user;
+
+      console.log(user);
+
+      userSub.unsubscribe();
+    })
   }
 
 }

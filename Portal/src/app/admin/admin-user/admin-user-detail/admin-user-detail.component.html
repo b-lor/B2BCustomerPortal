@@ -1,3 +1,35 @@
-<p>
-  admin-user-detail works!
-</p>
+<h2 class="sub-header">user Details</h2>
+<form *ngIf="user">
+   <div class="form-group">
+    <label>profile</label>
+
+    <table class="table">
+      <thead>
+      <tr>
+        <th class="col">customerNumber:</th>
+        <th class="col">firstName:</th>
+        <th class="col">lastName:</th>
+        <th class="col">company:</th>
+        <th class="col">email:</th>
+        <th class="col">phone:</th>
+        <th class="col">street:</th>
+        <th class="col">city:</th>
+        <th class="col">state:</th>
+        <th class="col">zip:</th>
+      </tr>
+    </thead>
+      <tr>
+        <td class="col">{{user.profile.customerNumber}}</td>
+        <td class="col">{{user.profile.firstName}}</td>
+        <td class="col">{{user.profile.lastName}}</td>
+        <td class="col">{{user.profile.company}}</td>
+        <td class="col">{{user.profile.email}}</td>
+        <td class="col">{{user.profile.phone}}</td>
+        <td class="col">{{user.profile.street}}</td>
+        <td class="col">{{user.profile.city}}</td>
+        <td class="col">{{user.profile.state}}</td>
+        <td class="col">{{user.profile.zip}}</td>
+      </tr>
+      </table>
+      </div>
+</form>

@@ -97,7 +97,7 @@ router.delete('/:id', (req, res) => {
     });
 });
 
-router.get('/userProfile',jwtHelper.verifyJwtToken, Profile.getProfiled);
+// router.get('/userProfile',jwtHelper.verifyJwtToken, Profile.getProfiled);
 
 
 module.exports = router;

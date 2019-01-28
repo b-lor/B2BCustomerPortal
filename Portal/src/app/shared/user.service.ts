@@ -6,6 +6,8 @@ import { environment } from '../../environments/environment';
 import { User } from './user.model';
 import { Observable } from 'rxjs';
 
+import { Profile } from '../shared/profile.model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -34,6 +36,14 @@ export class UserService {
     getUserProfile() {
       return this.http.get(environment.apiBaseUrl + '/userProfile');
     }
+
+
+
+    // getUser(id): Observable<any> {
+    //   return this.http.get(environment.apiBaseUrl + '/user/' + id, httpOptions).pipe(map(this.userData),
+    //     catchError(this.handleError));
+    // }
+
 
     // Helper
     setToken(token: string) {
