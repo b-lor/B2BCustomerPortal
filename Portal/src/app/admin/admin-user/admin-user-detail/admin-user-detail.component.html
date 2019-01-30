@@ -1,4 +1,4 @@
-<h2 class="sub-header">user Details</h2>
+<!-- <h2 class="sub-header">user Details</h2>
 <form *ngIf="user">
    <div class="form-group">
     <label>profile</label>
@@ -33,3 +33,101 @@
       </table>
       </div>
 </form>
+ -->
+
+<div *ngIf="user">
+  <div class="clearfix"></div>
+	<h2 class="sub-header">User Details</h2>
+	<table class="table">
+		<tbody>
+			<tr>
+				<th scope="row">customerNumber:</th>
+				<td>{{ user.profile.customerNumber}}</td>
+			</tr>
+			<tr>
+				<th scope="row">firstName:</th>
+				<td>{{ user.profile.firstName}}</td>
+			</tr>
+			<tr>
+				<th scope="row">lastName:</th>
+				<td>{{ user.profile.lastName}}</td>
+			</tr>
+			<tr>
+				<th scope="row">company:</th>
+				<td>{{ user.profile.company}}</td>
+			</tr>
+			<tr>
+				<th scope="row">email:</th>
+				<td>{{ user.profile.email}}</td>
+			</tr>
+			<tr>
+				<th scope="row">phone:</th>
+				<td>{{ user.profile.phone}}</td>
+			</tr>
+			<tr>
+				<th scope="row">street:</th>
+				<td>{{ user.profile.street}}</td>
+      </tr>
+      <tr>
+				<th scope="row">city:</th>
+				<td>{{ user.profile.city}}</td>
+			</tr>
+			<tr>
+				<th scope="row">state:</th>
+				<td>{{ user.profile.state}}</td>
+			</tr>
+			<tr>
+				<th scope="row">zip:</th>
+				<td>{{ user.profile.zip}}</td>
+			</tr>
+		</tbody>
+	</table>
+  <br>
+  <h3>Customer Transactions</h3>
+	<table class="table table-striped">
+          <thead>
+            <tr>
+              <!-- <th>#</th> -->
+              <th>invoiceNumber</th>
+              <th>salesOrder</th>
+              <th>itemNumber</th>
+              <th>itemDescription</th>
+              <th>productLine</th>
+              <th>unitPrice</th>
+              <th>extAmount</th>
+              <th>qtyOrdered</th>
+              <th>qtyShipped</th>
+              <th>status</th>
+              <th>customerNo</th>
+              <th>salespersonNo</th>
+              <th>orderedDate</th>
+              <th>shippedDate</th>
+              <th>balance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let transaction of transactions">
+            	  <!-- <td>{{transaction._id}}</td> -->
+              	<td>{{transaction.invoiceNumber}}</td>
+              	<td>{{transaction.salesOrder}}</td>
+                <td>{{transaction.itemNumber}}</td>
+                <td>{{transaction.itemDescription}}</td>
+              	<td>{{transaction.productLine}}</td>
+              	<td>{{transaction.unitPrice}}</td>
+                <td>{{transaction.extAmount}}</td>
+                <td>{{transaction.qtyOrdered}}</td>
+              	<td>{{transaction.qtyShipped}}</td>
+              	<td>{{transaction.status}}</td>
+                <td>{{transaction.customerNo}}</td>
+                <td>{{transaction.salespersonNo}}</td>
+              	<td>{{transaction.orderedDate}}</td>
+                <td>{{transaction.shippedDate}}</td>
+                <td>{{transaction.balance}}</td>
+								<td><a href="/dashboard/transaction/detail/{{transaction._id}}" class="btn btn-primary">Details</a> <a href="/dashboard/transaction/edit/{{transaction._id}}" class="btn btn-default">Edit</a> <button (click)="deleteInvoice(transaction._id)" class="btn btn-danger">Delete</button></td>
+            </tr>
+          </tbody>
+        </table>
+
+ </div>
+
+

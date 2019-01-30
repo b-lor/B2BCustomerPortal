@@ -17,6 +17,12 @@
     <label>Email</label>
     <input type="email" class="form-control" #email="ngModel" name="email" [(ngModel)]="user.email" placeholder="Email">
   </div>
+  <div class="form-group">
+    <label>Password</label>
+    <input type="password" class="form-control" #password="ngModel" name="password" [(ngModel)]="user.password" placeholder="password">
+  </div>
+
+
 
   <div class="form-group">
     <label>customerNumber</label>
@@ -59,5 +65,5 @@
     <input type="text" class="form-control" #profile.zip="ngModel" name="profile.zip" [(ngModel)]="user.profile.zip" placeholder="zip">
   </div>
   
-  <button type="submit" class="btn btn-default">Submit</button>
+  <button type="submit" class="btn btn-default">Edit Login</button>
 </form>

@@ -4,6 +4,7 @@ import { map } from 'rxjs/internal/operators';
 
 import { environment } from '../../environments/environment';
 import { Transaction } from './transaction.model';
+import { Globals } from './global';
 import { User } from './user.model';
 import { Observable } from 'rxjs';
 
@@ -11,25 +12,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class TransactionService {
-  // selectedTransaction: Transaction = {
-  //   invoiceNumber:'',
-  //   salesOrder:'',
-  //   itemNumber:'',
-  //   itemDescription:'',
-  //   productLine:'',
-  //   unitPrice: null,
-  //   extAmount: null,
-  //   qtyOrdered: null,
-  //   qtyShipped: null,
-  //   status:'',
-  //   customerNo: null,
-  //   salespersonNo: null,
-  //   orderedDate: null,
-  //   shippedDate: null
-  // }
-
-  selectedTransaction = new Transaction();
-
+  globals: Globals;
   noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True' })};
 
   constructor(private http: HttpClient) { }
@@ -59,7 +42,11 @@ export class TransactionService {
     return this.http.post(environment.apiBaseUrl + '/transaction/', transaction, this.noAuthHeader);
   }
 
-
+  getCustomerTransaction(id) {
+    return this.http.get(environment.apiBaseUrl + '/transaction/customer/' + id, this.noAuthHeader).pipe(map((response: any) =>
+      response.map(transaction => new Transaction().deserialize(transaction)))
+    );
+  }
 
 
 }

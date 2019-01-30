@@ -33,6 +33,7 @@ import { IssueAddComponent } from './ticket/issue/issue-add/issue-add.component'
 import { appRoutes } from './routes';
 
 // other
+import { Globals } from './shared/global';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
@@ -80,7 +81,7 @@ import { TransactionService } from './shared/transaction.service';
     multi: true
   }, AuthGuard, UserService,
   UserAdminService, RoleService,
-  ProfileService, TransactionService],
+  ProfileService, TransactionService, Globals],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 
+
 import { User } from '../../../shared/user.model.admin';
+import { Transaction } from '../../../shared/transaction.model';
+import { TransactionService } from '../../../shared/transaction.service';
 import { UserAdminService } from '../../../shared/user-admin.service';
 
 @Component({
@@ -12,9 +15,10 @@ import { UserAdminService } from '../../../shared/user-admin.service';
 })
 export class AdminUserDetailComponent implements OnInit {
   user: User;
+  transactions : Transaction[];
   userID;
 
-  constructor(private route: ActivatedRoute, private router: Router, private userAdminService: UserAdminService) { 
+  constructor(private route: ActivatedRoute, private router: Router, private transactionService: TransactionService, private userAdminService: UserAdminService) { 
     this.route.params.subscribe(params => {
       this.userID = params['id'];
     });
@@ -25,8 +29,16 @@ export class AdminUserDetailComponent implements OnInit {
   ngOnInit() {
     const userSub = this.userAdminService.getUser(this.userID).subscribe(user => {
       this.user = user;
-
+      console.log('user');
       console.log(user);
+
+      const transactionSub = this.transactionService.getCustomerTransaction(this.user._id).subscribe(transactions => {
+        this.transactions = transactions;
+        // console.log('transactions');
+        // console.log(transactions);
+
+        transactionSub.unsubscribe();
+      });
 
       userSub.unsubscribe();
     })

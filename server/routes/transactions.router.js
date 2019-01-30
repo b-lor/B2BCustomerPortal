@@ -8,6 +8,22 @@ Transaction = require('../models/transaction.model.js');
 
 const ctrlTransactions = require('../controllers/transaction.controller');
 
+router.get('/customer/:customer_id', function (req, res) {
+    console.log('server invoice/customer/' + req.params.customer_id);
+
+    var customer_id = req.params.customer_id;
+    Transaction.getCustomerTransactions(customer_id, function (err, transaction) {
+        console.log('transaction');
+        console.log(transaction);
+
+        if (err) {
+            res.send(err);
+        }
+        res.json(transaction);
+    });
+});
+
+
 // get all transaction
 router.get('/', ctrlTransactions.getTransactions);
 
@@ -15,7 +31,7 @@ router.get('/', ctrlTransactions.getTransactions);
 router.get('/detail/:id', ctrlTransactions.getTransactionById);
 
 // add single transaction
-router.post('/', ctrlTransactions.addTransaction);
+router.post('/add', ctrlTransactions.addTransaction);
 
 // update single transaction
 // router.put('/update/:id', ctrlTransactions.updateTransaction);

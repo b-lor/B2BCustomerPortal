@@ -35,7 +35,8 @@ module.exports.updateTransaction = function (id, transaction, options, callback)
         customerNo: transaction.customerNo, 
         salespersonNo: transaction.salespersonNo,
         orderedDate: transaction.orderedDate,  
-        shippedDate: transaction.shippedDate
+        shippedDate: transaction.shippedDate,
+        balance: transaction.balance,
 	}
 	Transaction.findOneAndUpdate(query, update, options, callback);
 }
@@ -113,6 +114,7 @@ module.exports.addTransaction = (req, res, next) => {
     transaction.salespersonNo= req.body.salespersonNo;
     transaction.orderedDate= req.body.orderedDate;
     transaction.shippedDate= req.body.shippedDate;
+    transaction.balance= req.body.balance;
 
     console.log(transaction);
 

@@ -47,7 +47,10 @@ var transactionSchema = mongoose.Schema({
 	},
 	shippedDate: {
 		type: Date
-	}
+	},
+	balance: {
+	type: Number
+	},
 });
 
 ////////////////////////////////////
@@ -82,7 +85,8 @@ module.exports.addTransaction = function (transaction, callback) {
 		customerNo: transaction.customerNo, 
 		salespersonNo: transaction.salespersonNo,
         orderedDate: transaction.orderedDate,  
-        shippedDate: transaction.shippedDate
+		shippedDate: transaction.shippedDate,
+		balance: transaction.balance
 
 	}
 	Transaction.create(add, callback);
@@ -105,7 +109,8 @@ module.exports.updateTransaction = function (id, transaction, options, callback)
 		customerNo: transaction.customerNo, 
 		salespersonNo: transaction.salespersonNo,
         orderedDate: transaction.orderedDate,  
-        shippedDate: transaction.shippedDate
+		shippedDate: transaction.shippedDate,
+		balance: transaction.balance
 	}
 	Transaction.findOneAndUpdate(query, update, options, callback);
 }

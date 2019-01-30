@@ -14,6 +14,7 @@ export class Transaction {
     salespersonNo: number;
     orderedDate: number;
     shippedDate: number;
+    balance: number;
 
     deserialize(data: any): Transaction {
         console.log('deserialize');
@@ -34,7 +35,8 @@ export class Transaction {
             customerNo: data.customerNo,
             salespersonNo: data.salespersonNo,
             orderedDate: data.orderedDate,
-            shippedDate: data.shippedDate
+            shippedDate: data.shippedDate,
+            balance: data.balance
         });
     }
 }
