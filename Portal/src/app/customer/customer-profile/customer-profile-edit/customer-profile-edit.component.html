@@ -1,3 +1,42 @@
-<p>
-  customer-profile-edit works!
-</p>
+<h2 class="sub-header">Edit Customer</h2>
+<form *ngIf="userDetails" (ngSubmit)="onSubmit()">
+
+  <div class="form-group">
+    <label>firstName</label>
+    <input type="text" class="form-control" #userDetails.profile.firstName="ngModel" name="userDetails.profile.firstName" [(ngModel)]="userDetails.profile.firstName" placeholder="firstName">
+  </div>
+  <div class="form-group">
+    <label>lastName</label>
+    <input type="text" class="form-control" #userDetails.profile.lastName="ngModel" name="userDetails.profile.lastName" [(ngModel)]="userDetails.profile.lastName" placeholder="lastName">
+  </div>
+  <div class="form-group">
+    <label>company</label>
+    <input type="text" class="form-control" #userDetails.profile.company="ngModel" name="userDetails.profile.company" [(ngModel)]="userDetails.profile.company" placeholder="company">
+  </div>
+  <div class="form-group">
+    <label>email</label>
+    <input type="text" class="form-control" #userDetails.email="ngModel" name="userDetails.email" [(ngModel)]="userDetails.email" placeholder="email">
+  </div>
+  <div class="form-group">
+    <label>phone</label>
+    <input type="text" class="form-control" #userDetails.userDetails.profile.phone="ngModel" name="userDetails.profile.phone" [(ngModel)]="userDetails.profile.phone" placeholder="phone">
+  </div>
+  <div class="form-group">
+    <label>street</label>
+    <input type="text" class="form-control" #userDetails.profile.street="ngModel" name="userDetails.profile.street" [(ngModel)]="userDetails.profile.street" placeholder="street">
+  </div>
+  <div class="form-group">
+    <label>city</label>
+    <input type="text" class="form-control" #userDetails.profile.city="ngModel" name="userDetails.profile.city" [(ngModel)]="userDetails.profile.city" placeholder="city">
+  </div>
+  <div class="form-group">
+    <label>state</label>
+    <input type="text" class="form-control" #userDetails.profile.state="ngModel" name="userDetails.profile.state" [(ngModel)]="userDetails.profile.state" placeholder="state">
+  </div>
+  <div class="form-group">
+    <label>zip</label>
+    <input type="text" class="form-control" #userDetails.profile.zip="ngModel" name="userDetails.profile.zip" [(ngModel)]="userDetails.profile.zip" placeholder="zip">
+  </div>
+  
+  <button type="submit" class="btn btn-default">Edit Login</button>
+</form>

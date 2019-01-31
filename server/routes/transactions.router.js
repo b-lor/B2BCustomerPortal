@@ -13,8 +13,11 @@ router.get('/customer/:customer_id', function (req, res) {
 
     var customer_id = req.params.customer_id;
     Transaction.getCustomerTransactions(customer_id, function (err, transaction) {
-        console.log('transaction');
-        console.log(transaction);
+        console.log('customer_id');
+        console.log(customer_id);
+
+        // console.log('transaction');
+        // console.log(transaction);
 
         if (err) {
             res.send(err);

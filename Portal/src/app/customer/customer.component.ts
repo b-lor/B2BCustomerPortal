@@ -8,10 +8,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./customer.component.css']
 })
 export class CustomerComponent implements OnInit {
-
+  
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
+
   }
 
   onLogout() {

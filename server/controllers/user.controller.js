@@ -66,6 +66,7 @@ module.exports.userProfile = (req, res, next) =>{
                 [
                 'email',
                 'customerNumber',
+                'profile.customerNumber',
                 'profile.company',
                 'profile.phone',
                 'profile.firstName',
@@ -81,9 +82,6 @@ module.exports.userProfile = (req, res, next) =>{
 
 module.exports.getUsersProfile = (req, res, next) =>{
     User.findOne({ _id: req.params.id }).populate('profile')
-    console.log('1: ' + _id)
-    console.log('2: ' + req._id)
-    console.log('3: ' + req.params.id)
         .exec((err, user) => {
             if (!user)
                 return res.status(404).json({ status: false, message: 'User record not found.' });

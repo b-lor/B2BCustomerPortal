@@ -14,20 +14,20 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ProfileService {
-  selectedProfile: Profile = {
-    _id: '',
-    customerNumber: null,
-    firstName: '',
-    lastName: '',
-    company: '',
-    email: '',
-    phone: '',
-    street: '',
-    city: '',
-    state: '',
-    zip: ''
-  };
-  // selectedProfile = new Profile();
+  // selectedProfile: Profile = {
+  //   _id: '',
+  //   customerNumber: null,
+  //   firstName: '',
+  //   lastName: '',
+  //   company: '',
+  //   email: '',
+  //   phone: '',
+  //   street: '',
+  //   city: '',
+  //   state: '',
+  //   zip: ''
+  // };
+  selectedProfile = new Profile();
 
   noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True' })};
 
@@ -106,4 +106,5 @@ export class ProfileService {
       catchError(this.handleError)
       );
   }
+
 }
