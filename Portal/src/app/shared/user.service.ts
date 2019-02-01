@@ -14,10 +14,12 @@ import { Profile } from '../shared/profile.model';
 })
 export class UserService {
   selectedUser: User = {
+    _id: '',
     roleId: null,
     email: '',
     password: ''
   };
+  // selectedUser = new User();
 
   noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True' })};
 
@@ -91,5 +93,15 @@ export class UserService {
       }
     }
 
+    getLoginId() {
+      const token = this.getToken();
+      if (token) {
+        const _id = atob(token.split('.')[1]);
+        const LoginUserId = JSON.parse(_id);
+        return LoginUserId['_id'];
+      } else {
+        return null;
+      }
+    }
 
 }

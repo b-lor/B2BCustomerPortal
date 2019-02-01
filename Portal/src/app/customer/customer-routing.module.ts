@@ -18,6 +18,7 @@ import { CustomerTicketEditComponent } from './customer-ticket/customer-ticket-e
 import { CustomerTransactionsComponent } from './customer-transactions/customer-transactions.component';
 import { CustomerTransactionsInvoicesComponent } from './customer-transactions/customer-transactions-invoices/customer-transactions-invoices.component';
 import { CustomerTransactionsSalesComponent } from './customer-transactions/customer-transactions-sales/customer-transactions-sales.component';
+import { CustomerTransactionsDetailComponent } from './customer-transactions/customer-transactions-detail/customer-transactions-detail.component';
 
 const routes: Routes = [
 
@@ -37,6 +38,7 @@ const routes: Routes = [
       { path: 'transactions', component: CustomerTransactionsComponent },
       { path: 'transactions/invoices', component: CustomerTransactionsInvoicesComponent },
       { path: 'transactions/sales', component: CustomerTransactionsSalesComponent },
+      { path: 'transactions/detail/:id', component: CustomerTransactionsDetailComponent },
 
       { path: 'profile', component: CustomerProfileComponent },
       { path: 'profile/edit', component: CustomerProfileEditComponent }

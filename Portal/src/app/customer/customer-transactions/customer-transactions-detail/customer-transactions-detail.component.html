@@ -1,0 +1,45 @@
+<div *ngIf="transaction">
+    <div class="row">
+      <div class="col-md-8">
+        <h3>Details</h3>
+        <ul class="list-group">
+          <!-- <li class="list-group-item">{{user.customerNumber}}</li>
+          <li class="list-group-item">{{user.profile.firstName}}</li> -->
+        </ul>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-12">
+        <h4>Invoice Info</h4>
+  
+        <table class="table">
+          <thead>
+          <tr>
+            <th class="col">invoiceNumber:</th>
+            <th class="col">salesOrder:</th>
+            <th class="col">itemNumber:</th>
+          </tr>
+        </thead>
+          <tr>
+            <td class="col">{{transaction.invoiceNumber}}</td>
+            <td class="col">{{transaction.salesOrder}}</td>
+            <td class="col">{{transaction.itemNumber}}</td>
+          </tr>
+          </table>
+          
+          <div class="modal-body">
+            <p>How would you like to export?</p>
+            <button type="button" onclick="fnAction('excel');" class="btn btn-primary">Text</button>
+            <button type="button" onclick="fnAction('pdf');" class="btn btn-success">PDF</button>
+            <button type="button" onclick="fnAction('copy');" class="btn btn-secondary">CSV</button>
+            <button type="button" onclick="fnAction('copy');" class="btn btn-danger">Print</button>
+        </div>
+        <!-- <ul class="list-group">
+          <li class="list-group-item">Service: {{transaction.service}}</li>
+          <li class="list-group-item">Amount: {{transaction.price}}</li>
+          <li class="list-group-item">Due Date: {{transaction.due}}</li>
+        </ul> -->
+      </div>
+    </div>
+  </div>

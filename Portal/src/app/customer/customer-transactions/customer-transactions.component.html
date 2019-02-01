@@ -1,3 +1,70 @@
-<p>
-  customer-transactions works!
-</p>
+<div *ngIf="user">
+	<img class="pull-right img-small" src="{{ user.logoUrl}}">
+  <div class="clearfix"></div>
+	<!-- <ul class="list-group">
+		<li class="list-group-item"><strong>Company: </strong> {{ user.company}}</li>
+		<li class="list-group-item"><strong>Email: </strong> {{ user.email}}</li>
+		<li class="list-group-item"><strong>Phone: </strong> {{ user.phone}}</li>
+		<li class="list-group-item"><strong>Street Address: </strong> {{ user.street}}</li>
+		<li class="list-group-item"><strong>City: </strong> {{ user.city}}</li>
+		<li class="list-group-item"><strong>State: </strong> {{ user.state}}</li>
+		<li class="list-group-item"><strong>Zip: </strong> {{ user.zip}}</li>
+	</ul> -->
+	<table class="table">
+		<tbody>
+			<tr>
+				<th scope="row">customerNumber:</th>
+				<td>{{ user.customerNumber}}</td>
+			</tr>
+		</tbody>
+	</table>
+  <br>
+  <h3>Customer Transaction</h3>
+	<table class="table table-striped">
+          <thead>
+            <tr>
+                <th>#</th>
+                <th>Customer</th>
+              <th>invoiceNumber</th>
+              <th>salesOrder</th>
+              <th>itemNumber</th>
+              <th>itemDescription</th>
+              <th>productLine</th>
+              <th>unitPrice</th>
+              <th>extAmount</th>
+              <th>qtyOrdered</th>
+              <th>qtyShipped</th>
+              <th>status</th>
+              <th>Price</th>
+              <th>Status</th>
+              <th>orderedDate</th>
+              <th>shippedDate</th>
+              <th>balance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let transaction of transactions">
+                <td>{{transaction._id}}</td>
+                <td>{{transaction.customerNo}}</td>
+            	  <td>{{transaction.invoiceNumber}}</td>
+              	<td>{{transaction.salesOrder}}</td>
+              	<td>{{transaction.itemNumber}}</td>
+                <td>{{transaction.itemDescription}}</td>
+                <td>{{transaction.productLine}}</td>
+              	<td>{{transaction.unitPrice}}</td>
+              	<td>{{transaction.extAmount}}</td>
+                <td>{{transaction.qtyOrdered}}</td>
+                <td>{{transaction.qtyShipped}}</td>
+              	<td>{{transaction.status}}</td>
+              	<td>{{transaction.price}}</td>
+                <td>{{transaction.status}}</td>
+                <td>{{transaction.orderedDate}}</td>
+              	<td>{{transaction.shippedDate}}</td>
+              	<td>{{transaction.balance}}</td>
+                
+								<td><a href="/customer/transactions/detail/{{transaction._id}}" class="btn btn-primary">Details</a></td>
+            </tr>
+          </tbody>
+        </table>
+
+ </div>

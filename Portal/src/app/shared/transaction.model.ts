@@ -17,8 +17,8 @@ export class Transaction {
     balance: number;
 
     deserialize(data: any): Transaction {
-        console.log('deserialize');
-        console.log(data);
+        // console.log('deserialize');
+        // console.log(data);
 
         return <Transaction>Object.assign({}, {
             _id: data._id,

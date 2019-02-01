@@ -15,7 +15,6 @@ export class SignInComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) { }
 
   model = {
-    roleId: null,
     email : '',
     password: ''
   };
@@ -42,6 +41,7 @@ export class SignInComponent implements OnInit {
 
         this.userService.setToken(res['token']);
         console.log(this.userService.getRoleId());
+        console.log(this.userService.getLoginId());
 
         if (this.userService.getRoleId() === 20) {
           this.router.navigateByUrl('/employee');
