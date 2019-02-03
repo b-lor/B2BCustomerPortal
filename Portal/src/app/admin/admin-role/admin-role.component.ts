@@ -17,9 +17,9 @@ roleInfo: any;
 
   ngOnInit() {
     this.roleService.getRoles()
-    .subscribe( res=> {
+    .subscribe( res => {
   this.roleInfo = res;
-      }, err=> {
+      }, err => {
         console.log(err);
       }
     );
@@ -29,7 +29,7 @@ roleInfo: any;
     console.log('del clicked' + id);
 
     this.roleService.deleteRole(id).subscribe(res => {
-      console.log(res)
+      console.log(res);
       this.router.navigateByUrl('admin');
     },
       err => {

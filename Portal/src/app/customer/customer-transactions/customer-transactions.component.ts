@@ -17,7 +17,8 @@ export class CustomerTransactionsComponent implements OnInit {
   user: User;
   transactions: Transaction[];
   userID;
-  constructor(private route: ActivatedRoute, private userService: UserService, private transactionService: TransactionService, private userAdminService: UserAdminService) { 
+  // tslint:disable-next-line:max-line-length
+  constructor(private userService: UserService, private transactionService: TransactionService, private userAdminService: UserAdminService) {
 
 
   }
@@ -43,7 +44,7 @@ export class CustomerTransactionsComponent implements OnInit {
 
       userSub.unsubscribe();
 
-    })
+    });
   }
 
 }

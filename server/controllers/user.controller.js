@@ -5,6 +5,8 @@ const _ = require('lodash');
 const User = mongoose.model('User');
 const Profile = mongoose.model('Profile');
 
+mongoose.set('useFindAndModify', false);
+
 //export index router js to register
 module.exports.register = (req, res, next) => {
     var user = new User();

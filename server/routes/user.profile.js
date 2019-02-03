@@ -26,7 +26,7 @@ router.get('/:id', function (req, res) {
 });
 
 // Add profile
-router.post('/add', function (req, res) {
+router.post('/', function (req, res) {
 	var profile = req.body;
 	Profile.addProfile(profile, function (err, profile) {
 		if (err) {
@@ -34,6 +34,17 @@ router.post('/add', function (req, res) {
 		}
 		res.json(profile);
 	});
+});
+
+// Delete Profile
+router.delete('/:id', (req, res) => {
+    if (!ObjectId.isValid(req.params.id))
+        return res.status(400).send(`No record with given id : ${req.params.id}`);
+
+    Profile.findByIdAndRemove(req.params.id, (err, doc) => {
+        if (!err) { res.send(doc); }
+        else { console.log('Error in Profile Delete :' + JSON.stringify(err, undefined, 2)); }
+    });
 });
 
 // // Update Profile
@@ -51,6 +62,7 @@ router.post('/add', function (req, res) {
 // 	});
 // });
 
+// Update Profile
 router.put('/:id', (req, res) => {
     if (!ObjectId.isValid(req.params.id))
         return res.status(400).send(`No record with given id : ${req.params.id}`);
@@ -87,15 +99,7 @@ router.put('/:id', (req, res) => {
 // 	});
 // });
 
-router.delete('/:id', (req, res) => {
-    if (!ObjectId.isValid(req.params.id))
-        return res.status(400).send(`No record with given id : ${req.params.id}`);
 
-    Profile.findByIdAndRemove(req.params.id, (err, doc) => {
-        if (!err) { res.send(doc); }
-        else { console.log('Error in Profile Delete :' + JSON.stringify(err, undefined, 2)); }
-    });
-});
 
 // router.get('/userProfile',jwtHelper.verifyJwtToken, Profile.getProfiled);
 

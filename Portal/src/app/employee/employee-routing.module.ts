@@ -16,6 +16,8 @@ import { EmployeeTicketAddComponent } from './employee-ticket/employee-ticket-ad
 import { EmployeeTicketDetailsComponent } from './employee-ticket/employee-ticket-details/employee-ticket-details.component';
 import { EmployeeTicketEditComponent } from './employee-ticket/employee-ticket-edit/employee-ticket-edit.component';
 
+import { EmployeeLoginComponent } from './employee-login/employee-login.component';
+
 const routes: Routes = [
 
   {
@@ -29,6 +31,8 @@ const routes: Routes = [
       { path: 'ticket/add', component: EmployeeTicketAddComponent },
       { path: 'ticket/detail/:id', component: EmployeeTicketDetailsComponent },
       { path: 'ticket/edit/:id', component: EmployeeTicketEditComponent },
+
+      { path: 'login', component: EmployeeLoginComponent },
 
       { path: 'profile', component: EmployeeProfileComponent },
       { path: 'profile/edit', component: EmployeeProfileEditComponent }

@@ -104,4 +104,16 @@ export class UserService {
       }
     }
 
+
+    getProfileId() {
+      const token = this.getToken();
+      if (token) {
+        const profile = atob(token.split('.')[1]);
+        const profileId = JSON.parse(profile);
+        return profileId['profile'];
+      } else {
+        return null;
+      }
+    }
+
 }

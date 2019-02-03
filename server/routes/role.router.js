@@ -45,6 +45,7 @@ router.get('/:id', function (req, res) {
 // 	});
 // });
 
+// Add profile
 router.post('/', (req, res) => {
     var emp = new Role({
         roleId: req.body.roleId,
@@ -56,6 +57,16 @@ router.post('/', (req, res) => {
     });
 });
 
+// Delete Profile
+router.delete('/:id', (req, res) => {
+    if (!ObjectId.isValid(req.params.id))
+        return res.status(400).send(`No record with given id : ${req.params.id}`);
+
+		Role.findByIdAndRemove(req.params.id, (err, doc) => {
+        if (!err) { res.send(doc); }
+        else { console.log('Error in Role Delete :' + JSON.stringify(err, undefined, 2)); }
+    });
+});
 
 // // Update Profile
 // router.put('/:id', function (req, res) {
@@ -72,6 +83,7 @@ router.post('/', (req, res) => {
 // 	});
 // });
 
+// Update Profile
 router.put('/:id', (req, res) => {
     if (!ObjectId.isValid(req.params.id))
         return res.status(400).send(`No record with given id : ${req.params.id}`);
@@ -97,14 +109,6 @@ router.put('/:id', (req, res) => {
 // 	});
 // });
 
-router.delete('/:id', (req, res) => {
-    if (!ObjectId.isValid(req.params.id))
-        return res.status(400).send(`No record with given id : ${req.params.id}`);
 
-		Role.findByIdAndRemove(req.params.id, (err, doc) => {
-        if (!err) { res.send(doc); }
-        else { console.log('Error in Role Delete :' + JSON.stringify(err, undefined, 2)); }
-    });
-});
 
 module.exports = router;

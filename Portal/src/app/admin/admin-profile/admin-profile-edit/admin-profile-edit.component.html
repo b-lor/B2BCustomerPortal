@@ -1,3 +1,38 @@
-<p>
-  admin-profile-edit works!
-</p>
+<h2 class="sub-header">Edit Profile</h2>
+<form *ngIf="profile" (ngSubmit)="onSubmit()">
+
+  <div class="form-group">
+    <label>firstName</label>
+    <input type="text" class="form-control" #profile.firstName="ngModel" name="profile.firstName" [(ngModel)]="profile.firstName" placeholder="firstName">
+  </div>
+  <div class="form-group">
+    <label>lastName</label>
+    <input type="text" class="form-control" #profile.lastName="ngModel" name="profile.lastName" [(ngModel)]="profile.lastName" placeholder="lastName">
+  </div>
+  <div class="form-group">
+    <label>company</label>
+    <input type="text" class="form-control" #profile.company="ngModel" name="profile.company" [(ngModel)]="profile.company" placeholder="company">
+  </div>
+  <div class="form-group">
+    <label>phone</label>
+    <input type="text" class="form-control" #profile.phone="ngModel" name="profile.phone" [(ngModel)]="profile.phone" placeholder="phone">
+  </div>
+  <div class="form-group">
+    <label>street</label>
+    <input type="text" class="form-control" #profile.street="ngModel" name="profile.street" [(ngModel)]="profile.street" placeholder="street">
+  </div>
+  <div class="form-group">
+    <label>city</label>
+    <input type="text" class="form-control" #profile.city="ngModel" name="profile.city" [(ngModel)]="profile.city" placeholder="city">
+  </div>
+  <div class="form-group">
+    <label>state</label>
+    <input type="text" class="form-control" #profile.state="ngModel" name="profile.state" [(ngModel)]="profile.state" placeholder="state">
+  </div>
+  <div class="form-group">
+    <label>zip</label>
+    <input type="text" class="form-control" #profile.zip="ngModel" name="profile.zip" [(ngModel)]="profile.zip" placeholder="zip">
+  </div>
+  
+  <button type="submit" class="btn btn-default">Edit Profile</button>
+</form>

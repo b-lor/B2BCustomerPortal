@@ -38,7 +38,7 @@ selectedRole = new Role();
   }
 
   getRoles(): Observable<any> {
-    return this.http.get(environment.apiBaseUrl + '/role', httpOptions).pipe(map(this.roleData),
+    return this.http.get(environment.apiBaseUrl + '/role/', httpOptions).pipe(map(this.roleData),
       catchError(this.handleError));
   }
 
@@ -47,12 +47,11 @@ selectedRole = new Role();
       catchError(this.handleError));
   }
 
-  updateRole(id, role): Observable<any> {
-    return this.http.put(environment.apiBaseUrl + '/role/' + id, role, httpOptions).pipe(
+  addRole(role): Observable<any>  {
+    return this.http.post(environment.apiBaseUrl + '/role/', role, httpOptions).pipe(
       catchError(this.handleError)
       );
   }
-
   deleteRole(id): Observable<any> {
     console.log("client service file: " + id);
 
@@ -61,11 +60,11 @@ selectedRole = new Role();
       );
   }
 
-  addRole(role): Observable<any>  {
-    return this.http.post(environment.apiBaseUrl + '/role/', role, httpOptions).pipe(
+  updateRole(id, role): Observable<any> {
+    return this.http.put(environment.apiBaseUrl + '/role/' + id, role, httpOptions).pipe(
       catchError(this.handleError)
       );
-      console.log('hello dude' + role);
   }
+
 
 }

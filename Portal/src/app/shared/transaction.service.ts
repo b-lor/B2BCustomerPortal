@@ -49,9 +49,9 @@ export class TransactionService {
   //   return this.http.get(environment.apiBaseUrl + '/transaction/detail/' + id, this.noAuthHeader).pipe(map((response: any) => new Transaction().deserialize(response)));
   // }
 
-  
+
   getTransaction(id): Observable<any> {
-    return this.http.get(environment.apiBaseUrl + '/transaction/detail/' + id, httpOptions).pipe(map(this.userData),
+    return this.http.get(environment.apiBaseUrl + '/transaction/' + id, httpOptions).pipe(map(this.userData),
       catchError(this.handleError));
   }
 
@@ -60,8 +60,7 @@ export class TransactionService {
   }
 
   updateTransaction(id, transaction) {
-    console.log('service file');
-    return this.http.put(environment.apiBaseUrl + '/transaction/update/' +id , transaction, this.noAuthHeader);
+    return this.http.put(environment.apiBaseUrl + '/transaction/' +id , transaction, this.noAuthHeader);
   }
 
   addTransaction(transaction) {

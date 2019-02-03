@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const passport = require('passport');
+const _ = require('lodash');
 
 const Ticket = mongoose.model('Ticket');
 
@@ -19,19 +21,6 @@ module.exports.getTicketById = (req, res, next) => {
     });
 }
 
-// Update Ticket
-module.exports.updateTicket = function (id, ticket, options, callback) {
-	var query = { _id: id };
-	var update = {
-		user: ticket.user,
-		ticketId: ticket.ticketId,
-		description: ticket.description,
-		priority: ticket.priority,
-		status: ticket.status,
-        text: ticket.text
-	}
-	Ticket.findOneAndUpdate(query, update, options, callback);
-}
 
 
 module.exports.addTicket = (req, res, next) => {
@@ -43,6 +32,8 @@ module.exports.addTicket = (req, res, next) => {
     ticket.user= req.body.user;
     ticket.ticketId= ticketID;
     ticket.description= req.body.description;
+    ticket.submittedBy= req.body.submittedBy;
+    ticket.resolution= req.body.resolution;
     ticket.priority= req.body.priority;
     ticket.status= req.body.status;
     ticket.text= req.body.text;
@@ -59,8 +50,28 @@ module.exports.addTicket = (req, res, next) => {
         }
     });
 
-    //////////////////////////////////////
+}
 
+
+
+// Update Ticket
+module.exports.updateTicket = function (id, ticket, options, callback) {
+	var query = { _id: id };
+	var update = {
+		user: ticket.user,
+		ticketId: ticket.ticketId,
+		description: ticket.description,
+		priority: ticket.priority,
+		status: ticket.status,
+        text: ticket.text
+	}
+	Ticket.findOneAndUpdate(query, update, options, callback);
+}
+
+// Remove Ticket
+module.exports.removeTicket = function (id, callback) {
+	var query = { _id: id };
+	Ticket.remove(query, callback);
 }
 
 var generateID = function (){

@@ -31,10 +31,24 @@ router.get('/customer/:customer_id', function (req, res) {
 router.get('/', ctrlTransactions.getTransactions);
 
 // get single transaction
-router.get('/detail/:id', ctrlTransactions.getTransactionById);
+router.get('/:id', ctrlTransactions.getTransactionById);
 
 // add single transaction
-router.post('/add', ctrlTransactions.addTransaction);
+router.post('/', ctrlTransactions.addTransaction);
+
+
+// Delete transaction
+router.delete('/:id', (req, res) => {
+    if (!ObjectId.isValid(req.params.id))
+        return res.status(400).send(`No record with given id : ${req.params.id}`);
+
+		Transaction.findByIdAndRemove(req.params.id, (err, doc) => {
+        if (!err) { res.send(doc); }
+        else { console.log('Error in Transaction Delete :' + JSON.stringify(err, undefined, 2)); }
+    });
+});
+
+
 
 // update single transaction
 // router.put('/update/:id', ctrlTransactions.updateTransaction);
@@ -52,6 +66,8 @@ router.post('/add', ctrlTransactions.addTransaction);
 // 	});
 // });
 
+
+// update single transaction
 router.put('/:id', (req, res) => {
     if (!ObjectId.isValid(req.params.id))
         return res.status(400).send(`No record with given id : ${req.params.id}`);
@@ -91,15 +107,5 @@ router.put('/:id', (req, res) => {
 //     });
 // });
 
-
-router.delete('/:id', (req, res) => {
-    if (!ObjectId.isValid(req.params.id))
-        return res.status(400).send(`No record with given id : ${req.params.id}`);
-
-		Transaction.findByIdAndRemove(req.params.id, (err, doc) => {
-        if (!err) { res.send(doc); }
-        else { console.log('Error in Transaction Delete :' + JSON.stringify(err, undefined, 2)); }
-    });
-});
 
 module.exports = router;

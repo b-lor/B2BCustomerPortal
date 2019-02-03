@@ -14,6 +14,7 @@ import { EmployeeTicketComponent } from './employee-ticket/employee-ticket.compo
 import { EmployeeTicketAddComponent } from './employee-ticket/employee-ticket-add/employee-ticket-add.component';
 import { EmployeeTicketDetailsComponent } from './employee-ticket/employee-ticket-details/employee-ticket-details.component';
 import { EmployeeTicketEditComponent } from './employee-ticket/employee-ticket-edit/employee-ticket-edit.component';
+import { EmployeeLoginComponent } from './employee-login/employee-login.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { EmployeeTicketEditComponent } from './employee-ticket/employee-ticket-e
     EmployeeTicketComponent,
     EmployeeTicketAddComponent,
     EmployeeTicketDetailsComponent,
-    EmployeeTicketEditComponent
+    EmployeeTicketEditComponent,
+    EmployeeLoginComponent
 
   ],
   imports: [

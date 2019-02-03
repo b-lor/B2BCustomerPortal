@@ -123,7 +123,7 @@
               	<td>{{transaction.orderedDate}}</td>
                 <td>{{transaction.shippedDate}}</td>
                 <td>{{transaction.balance}}</td>
-								<td><a href="/dashboard/transaction/detail/{{transaction._id}}" class="btn btn-primary">Details</a> <a href="/dashboard/transaction/edit/{{transaction._id}}" class="btn btn-default">Edit</a> <button (click)="deleteInvoice(transaction._id)" class="btn btn-danger">Delete</button></td>
+								<td><a href="/admin/user/transaction/{{transaction._id}}" class="btn btn-primary">Update</a> <button (click)="deleteInvoice(transaction._id)" class="btn btn-danger">Delete</button></td>
             </tr>
           </tbody>
         </table>

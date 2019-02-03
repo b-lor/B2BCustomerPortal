@@ -12,12 +12,12 @@ export class CustomerTransactionsDetailComponent implements OnInit {
   transaction: Transaction;
   transactionID: string;
 
-  constructor(private transactionService: TransactionService, private route: ActivatedRoute) { 
+  constructor(private transactionService: TransactionService, private route: ActivatedRoute) {
     this.route.params.subscribe(params => {
-      this.transactionID = params["id"];
+      this.transactionID = params['id'];
       console.log('component2');
       console.log(this.transactionID);
-    })
+    });
   }
 
   ngOnInit() {
@@ -26,7 +26,7 @@ export class CustomerTransactionsDetailComponent implements OnInit {
       console.log('component');
       console.log(transaction);
       transactionSub.unsubscribe();
-    })
+    });
   }
   }
 

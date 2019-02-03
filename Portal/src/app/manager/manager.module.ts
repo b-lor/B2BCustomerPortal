@@ -10,10 +10,8 @@ import { ManagerDashboardComponent } from './manager-dashboard/manager-dashboard
 import { ManagerProfileComponent } from './manager-profile/manager-profile.component';
 import { ManagerProfileEditComponent } from './manager-profile/manager-profile-edit/manager-profile-edit.component';
 
-import { ManagerTicketComponent } from './manager-ticket/manager-ticket.component';
-import { ManagerTicketAddComponent } from './manager-ticket/manager-ticket-add/manager-ticket-add.component';
-import { ManagerTicketDetailsComponent } from './manager-ticket/manager-ticket-details/manager-ticket-details.component';
-import { ManagerTicketEditComponent } from './manager-ticket/manager-ticket-edit/manager-ticket-edit.component';
+import { ManagerSalesComponent } from './manager-sales/manager-sales.component';
+import { ManagerLoginComponent } from './manager-login/manager-login.component';
 
 
 @NgModule({
@@ -22,10 +20,8 @@ import { ManagerTicketEditComponent } from './manager-ticket/manager-ticket-edit
     ManagerDashboardComponent,
     ManagerProfileComponent,
     ManagerProfileEditComponent,
-    ManagerTicketComponent,
-    ManagerTicketAddComponent,
-    ManagerTicketDetailsComponent,
-    ManagerTicketEditComponent
+    ManagerSalesComponent,
+    ManagerLoginComponent
 
   ],
   imports: [

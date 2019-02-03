@@ -46,6 +46,7 @@ router.get('/:id', function (req, res) {
 // 	});
 // });
 
+// Add User
 router.post('/', (req, res) => {
     var emp = new User({
         roleId: req.body.roleId,
@@ -76,23 +77,6 @@ router.post('/', (req, res) => {
 // });
 
 
-router.put('/:id', (req, res) => {
-    if (!ObjectId.isValid(req.params.id))
-        return res.status(400).send(`No record with given id : ${req.params.id}`);
-
-    var emp = {
-		profile: req.body.profile,
-        roleId: req.body.roleId,
-		userType: req.body.userType,
-		salesCode: req.body.salesCode,
-		customerNumber: req.body.customerNumber,
-		email: req.body.email
-    };
-    User.findByIdAndUpdate(req.params.id, { $set: emp }, { new: true }, (err, doc) => {
-        if (!err) { res.send(doc); }
-        else { console.log('Error in user Update :' + JSON.stringify(err, undefined, 2)); }
-    });
-});
 
 
 // // Delete User
@@ -116,4 +100,22 @@ router.delete('/:id', (req, res) => {
     });
 });
 
+// Update User
+router.put('/:id', (req, res) => {
+    if (!ObjectId.isValid(req.params.id))
+        return res.status(400).send(`No record with given id : ${req.params.id}`);
+
+    var emp = {
+		profile: req.body.profile,
+        roleId: req.body.roleId,
+		userType: req.body.userType,
+		salesCode: req.body.salesCode,
+		customerNumber: req.body.customerNumber,
+		email: req.body.email
+    };
+    User.findByIdAndUpdate(req.params.id, { $set: emp }, { new: true }, (err, doc) => {
+        if (!err) { res.send(doc); }
+        else { console.log('Error in user Update :' + JSON.stringify(err, undefined, 2)); }
+    });
+});
 module.exports = router;

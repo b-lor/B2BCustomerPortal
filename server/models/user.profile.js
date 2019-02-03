@@ -74,30 +74,32 @@ module.exports.addProfile = function (profile, callback) {
 	Profile.create(add, callback);
 }
 
-// // Update profile
-// module.exports.updateprofile = function (id, profile, options, callback) {
-// 	var query = { _id: id };
-// 	var update = {
-//         customerNumber: profile.customerNumber,
-// 		firstName: profile.firstName,
-// 		lastName: profile.lastName,
-// 		company: profile.company,
-// 		email: profile.email,
-// 		phone: profile.phone,
-// 		street: profile.street,
-// 		city: profile.city,
-// 		state: profile.state,
-// 		zip: profile.zip
 
-// 	}
-// 	Profile.findOneAndUpdate(query, update, options, callback);
-// }
 
 
 // Remove profile
 module.exports.removeprofile = function (id, callback) {
 	var query = { _id: id };
 	Profile.remove(query, callback);
+}
+
+// Update profile
+module.exports.updateprofile = function (id, profile, options, callback) {
+	var query = { _id: id };
+	var update = {
+        customerNumber: profile.customerNumber,
+		firstName: profile.firstName,
+		lastName: profile.lastName,
+		company: profile.company,
+		email: profile.email,
+		phone: profile.phone,
+		street: profile.street,
+		city: profile.city,
+		state: profile.state,
+		zip: profile.zip
+
+	}
+	Profile.findOneAndUpdate(query, update, options, callback);
 }
 
 // user profile

@@ -27,7 +27,7 @@ export class AdminRoleEditComponent implements OnInit {
       console.log(role);
 
       roleSub.unsubscribe();
-    })
+    });
   }
 
   onSubmit() {

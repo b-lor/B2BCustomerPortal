@@ -1,6 +1,9 @@
-<h2 class="sub-header">CustomerDetails</h2>
+<h2 class="sub-header">Account Roles</h2>
 <div class="table-responsive">
 <table *ngIf="roleInfo" class="table table-striped">
+    <thead>
+        <a href="/admin/role/add" class="btn btn-primary">Add</a>
+      </thead>
   <thead>
     <tr>
       <th>Role ID</th>
@@ -11,7 +14,7 @@
     <tr *ngFor="let role of roleInfo">
       <td>{{ role.roleId }}</td>
       <td>{{ role.role }}</td>
-      <td><a href="/admin/role/detail/{{ role._id}}" class="btn btn-primary">Details</a> <a href="/admin/role/edit/{{ role._id }}" class="btn btn-default">Edit</a> <button id="deleteRole" (click)="deleteRole(role._id)" class="btn btn-danger">Delete</button></td>
+      <td> <a href="/admin/role/edit/{{ role._id }}" class="btn btn-default">Edit</a> <button id="deleteRole" (click)="deleteRole(role._id)" class="btn btn-danger">Delete</button></td>
     </tr>
   </tbody>
 </table>

@@ -16,9 +16,14 @@ import { CustomerTicketDetailsComponent } from './customer-ticket/customer-ticke
 import { CustomerTicketEditComponent } from './customer-ticket/customer-ticket-edit/customer-ticket-edit.component';
 
 import { CustomerTransactionsComponent } from './customer-transactions/customer-transactions.component';
+// tslint:disable-next-line:max-line-length
 import { CustomerTransactionsInvoicesComponent } from './customer-transactions/customer-transactions-invoices/customer-transactions-invoices.component';
+// tslint:disable-next-line:max-line-length
 import { CustomerTransactionsSalesComponent } from './customer-transactions/customer-transactions-sales/customer-transactions-sales.component';
+// tslint:disable-next-line:max-line-length
 import { CustomerTransactionsDetailComponent } from './customer-transactions/customer-transactions-detail/customer-transactions-detail.component';
+
+import { CustomerLoginComponent } from './customer-login/customer-login.component';
 
 
 @NgModule({
@@ -34,7 +39,8 @@ import { CustomerTransactionsDetailComponent } from './customer-transactions/cus
     CustomerTransactionsComponent,
     CustomerTransactionsInvoicesComponent,
     CustomerTransactionsSalesComponent,
-    CustomerTransactionsDetailComponent
+    CustomerTransactionsDetailComponent,
+    CustomerLoginComponent
   ],
   imports: [
     CommonModule,

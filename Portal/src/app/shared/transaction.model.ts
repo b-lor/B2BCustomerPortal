@@ -15,10 +15,9 @@ export class Transaction {
     orderedDate: number;
     shippedDate: number;
     balance: number;
+    description: string;
 
     deserialize(data: any): Transaction {
-        // console.log('deserialize');
-        // console.log(data);
 
         return <Transaction>Object.assign({}, {
             _id: data._id,
@@ -36,7 +35,8 @@ export class Transaction {
             salespersonNo: data.salespersonNo,
             orderedDate: data.orderedDate,
             shippedDate: data.shippedDate,
-            balance: data.balance
+            balance: data.balance,
+            description: data.description
         });
     }
 }

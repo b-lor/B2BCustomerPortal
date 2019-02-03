@@ -55,7 +55,7 @@ userSchema.methods.verifyPassword = function (password) {
 };
 
 userSchema.methods.generateJwt = function () {
-    return jwt.sign({ _id: this._id, roleId: this.roleId},
+    return jwt.sign({ _id: this._id, roleId: this.roleId, profile: this.profile },
         process.env.JWT_SECRET,
     {
         expiresIn: process.env.JWT_EXP
@@ -102,6 +102,16 @@ module.exports.addUser = function (user, callback) {
 	User.create(add, callback);
 }
 
+
+
+
+// Remove User
+module.exports.removeUser = function (id, callback) {
+	var query = { _id: id };
+	User.remove(query, callback);
+}
+
+
 // Update User
 module.exports.updateUser = function (id, user, options, callback) {
 	var query = { _id: id };
@@ -114,12 +124,3 @@ module.exports.updateUser = function (id, user, options, callback) {
 	}
 	User.findOneAndUpdate(query, update, options, callback);
 }
-
-
-// Remove User
-module.exports.removeUser = function (id, callback) {
-	var query = { _id: id };
-	User.remove(query, callback);
-}
-
-

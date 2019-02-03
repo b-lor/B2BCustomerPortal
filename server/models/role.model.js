@@ -12,19 +12,6 @@ var roleSchema = new mongoose.Schema({
 
 var Role = module.exports = mongoose.model('Role', roleSchema);
 
-module.exports.addRole = (req, res, next) => {
-    var role =  new Role();
-    role.roleId = req.body.roleId;
-    role.role = req.body.role;
-
-    role.save((err, doc) => {
-        if (!err)
-        res.send(doc);
-        else {
-            return next(err);
-        }
-    });
-};
 
 // module.exports.addRole = function (role, callback) {
 // 	var add = {
@@ -45,6 +32,29 @@ module.exports.getRoleById = function (id, callback) {
 	Role.findById(id, callback);
 }
 
+
+module.exports.addRole = (req, res, next) => {
+    var role =  new Role();
+    role.roleId = req.body.roleId;
+    role.role = req.body.role;
+
+    role.save((err, doc) => {
+        if (!err)
+        res.send(doc);
+        else {
+            return next(err);
+        }
+    });
+};
+
+
+
+// Remove User
+module.exports.removeRole = function (id, callback) {
+	var query = { _id: id };
+	Role.remove(query, callback);
+}
+
 // Update role
 module.exports.updateRole = function (id, role, options, callback) {
 	var query = { _id: id };
@@ -55,12 +65,6 @@ module.exports.updateRole = function (id, role, options, callback) {
 	Role.findOneAndUpdate(query, update, options, callback);
 }
 
-
-// Remove User
-module.exports.removeRole = function (id, callback) {
-	var query = { _id: id };
-	Role.remove(query, callback);
-}
 
  // Role Ids
 //  10 = customer

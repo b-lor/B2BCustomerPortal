@@ -22,12 +22,7 @@ import { AdminModule } from './admin/admin.module';
 import { CustomerModule } from './customer/customer.module';
 import { EmployeeModule } from './employee/employee.module';
 import { ManagerModule } from './manager/manager.module';
-
-import { TicketComponent } from './ticket/ticket.component';
-import { TicketDashboardComponent } from './ticket/ticket-dashboard/ticket-dashboard.component';
-import { IssueComponent } from './ticket/issue/issue.component';
-import { IssueAddComponent } from './ticket/issue/issue-add/issue-add.component';
-
+import { TicketModule } from './ticket/ticket.module';
 
 // routes
 import { appRoutes } from './routes';
@@ -46,6 +41,7 @@ import { UserService } from './shared/user.service';
 import { UserAdminService } from './shared/user-admin.service';
 import { ProfileService } from './shared/profile.service';
 import { TransactionService } from './shared/transaction.service';
+import { TicketService } from './shared/ticket.service';
 
 
 @NgModule({
@@ -56,11 +52,7 @@ import { TransactionService } from './shared/transaction.service';
     UserProfileComponent,
     SignInComponent,
     DashboardComponent,
-    ErrorComponent,
-    TicketComponent,
-    TicketDashboardComponent,
-    IssueComponent,
-    IssueAddComponent
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
@@ -72,6 +64,7 @@ import { TransactionService } from './shared/transaction.service';
     CustomerModule,
     EmployeeModule,
     ManagerModule,
+    TicketModule,
     SlimLoadingBarModule,
     ReactiveFormsModule
   ],
@@ -81,7 +74,8 @@ import { TransactionService } from './shared/transaction.service';
     multi: true
   }, AuthGuard, UserService,
   UserAdminService, RoleService,
-  ProfileService, TransactionService, Globals],
+  ProfileService, TransactionService,
+  TicketService, Globals],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

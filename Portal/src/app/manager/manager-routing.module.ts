@@ -11,10 +11,8 @@ import { ManagerDashboardComponent } from './manager-dashboard/manager-dashboard
 import { ManagerProfileComponent } from './manager-profile/manager-profile.component';
 import { ManagerProfileEditComponent } from './manager-profile/manager-profile-edit/manager-profile-edit.component';
 
-import { ManagerTicketComponent } from './manager-ticket/manager-ticket.component';
-import { ManagerTicketAddComponent } from './manager-ticket/manager-ticket-add/manager-ticket-add.component';
-import { ManagerTicketDetailsComponent } from './manager-ticket/manager-ticket-details/manager-ticket-details.component';
-import { ManagerTicketEditComponent } from './manager-ticket/manager-ticket-edit/manager-ticket-edit.component';
+import { ManagerSalesComponent } from './manager-sales/manager-sales.component';
+import { ManagerLoginComponent } from './manager-login/manager-login.component';
 
 const routes: Routes = [
 
@@ -25,10 +23,8 @@ const routes: Routes = [
     children: [
       { path: '', component: ManagerDashboardComponent },
 
-      { path: 'ticket', component: ManagerTicketComponent },
-      { path: 'ticket/add', component: ManagerTicketAddComponent },
-      { path: 'ticket/detail/:id', component: ManagerTicketDetailsComponent },
-      { path: 'ticket/edit/:id', component: ManagerTicketEditComponent },
+      { path: 'sales', component: ManagerSalesComponent },
+      { path: 'login', component: ManagerLoginComponent },
 
       { path: 'profile', component: ManagerProfileComponent },
       { path: 'profile/edit', component: ManagerProfileEditComponent }

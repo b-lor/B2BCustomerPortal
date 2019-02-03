@@ -42,10 +42,10 @@ export class ProfileService {
         `body was: ${error.error}`);
     }
     return throwError('Something bad happened; please try again later.');
-  };
+  }
 
   private userData(res: Response) {
-    let body = res;
+    const body = res;
     return body || { };
   }
 
@@ -53,7 +53,7 @@ export class ProfileService {
   //   return this.http.get(environment.apiBaseUrl + '/admin/profile', this.noAuthHeader);
   // }
 
-  getProfiles() : Observable<any> {
+  getProfiles(): Observable<any> {
     return this.http.get(environment.apiBaseUrl + '/profile/', httpOptions).pipe(map(this.userData),
       catchError(this.handleError));
   }
@@ -67,9 +67,7 @@ export class ProfileService {
       catchError(this.handleError));
   }
 
-  getUsersProfile(id) {
-    return this.http.get(environment.apiBaseUrl + 'user/detail/' + id, this.noAuthHeader);
-  }
+
 
   // addProfile(profile) {
   //   return this.http.post(environment.apiBaseUrl + '/profile/', profile, this.noAuthHeader);
@@ -81,7 +79,13 @@ export class ProfileService {
       );
   }
 
+  deleteProfile(id): Observable<any> {
+    console.log('client service file: ' + id);
 
+    return this.http.delete(environment.apiBaseUrl + '/profile/' + id, httpOptions).pipe(
+      catchError(this.handleError)
+      );
+  }
   // updateProfile(id, profile) {
   //   console.log('service file');
   //   return this.http.put(environment.apiBaseUrl + '/profile/' + id, profile, this.noAuthHeader);
@@ -98,13 +102,8 @@ export class ProfileService {
   //   return this.http.delete(environment.apiBaseUrl + '/profile/' + id, this.noAuthHeader);
   // }
 
-  
-  deleteProfile(id): Observable<any> {
-    console.log("client service file: " + id);
-
-    return this.http.delete(environment.apiBaseUrl + '/profile/' + id, httpOptions).pipe(
-      catchError(this.handleError)
-      );
+  getUsersProfile(id) {
+    return this.http.get(environment.apiBaseUrl + '/user/' + id, this.noAuthHeader);
   }
 
 }

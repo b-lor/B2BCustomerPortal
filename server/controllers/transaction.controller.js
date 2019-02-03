@@ -18,28 +18,7 @@ module.exports.getTransactionById = (req, res, next) => {
     });
 }
 
-// Update Transaction
-module.exports.updateTransaction = function (id, transaction, options, callback) {
-	var query = { _id: id };
-	var update = {
-		invoiceNumber: transaction.invoiceNumber,
-		salesOrder: transaction.salesOrder,
-		itemNumber: transaction.itemNumber,
-		itemDescription: transaction.itemDescription,
-		productLine: transaction.productLine,
-        unitPrice: transaction.unitPrice, 
-        extAmount: transaction.extAmount, 
-        qtyOrdered: transaction.qtyOrdered, 
-        qtyShipped: transaction.qtyShipped,  
-        status: transaction.status, 
-        customerNo: transaction.customerNo, 
-        salespersonNo: transaction.salespersonNo,
-        orderedDate: transaction.orderedDate,  
-        shippedDate: transaction.shippedDate,
-        balance: transaction.balance,
-	}
-	Transaction.findOneAndUpdate(query, update, options, callback);
-}
+
 // module.exports.updateTransaction = (req, res, next) => {
 
 //     console.log('update transaction');
@@ -123,14 +102,40 @@ module.exports.addTransaction = (req, res, next) => {
             res.send(doc);
         else {
             if (err.code == 11000)
-                res.status(422).send(['Duplicate email address found.']);
+                res.status(422).send(['Duplicate transaction address found.']);
             else
                 return next(err);
         }
     });
+}
 
-    //////////////////////////////////////
+// Update Transaction
+module.exports.updateTransaction = function (id, transaction, options, callback) {
+	var query = { _id: id };
+	var update = {
+		invoiceNumber: transaction.invoiceNumber,
+		salesOrder: transaction.salesOrder,
+		itemNumber: transaction.itemNumber,
+		itemDescription: transaction.itemDescription,
+		productLine: transaction.productLine,
+        unitPrice: transaction.unitPrice, 
+        extAmount: transaction.extAmount, 
+        qtyOrdered: transaction.qtyOrdered, 
+        qtyShipped: transaction.qtyShipped,
+        status: transaction.status, 
+        customerNo: transaction.customerNo,
+        salespersonNo: transaction.salespersonNo,
+        orderedDate: transaction.orderedDate,
+        shippedDate: transaction.shippedDate,
+        balance: transaction.balance,
+	}
+	Transaction.findOneAndUpdate(query, update, options, callback);
+}
 
+// Remove Transaction
+module.exports.removeTransaction = function (id, callback) {
+	var query = { _id: id };
+	Transaction.remove(query, callback);
 }
 
 module.exports.userTransaction = (req, res, next) =>{

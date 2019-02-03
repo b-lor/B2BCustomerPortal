@@ -42,7 +42,7 @@ export class UserAdminService {
   }
 
   getUsers() : Observable<any> {
-    return this.http.get(environment.apiBaseUrl + '/user', httpOptions).pipe(map(this.userData),
+    return this.http.get(environment.apiBaseUrl + '/user/', httpOptions).pipe(map(this.userData),
       catchError(this.handleError));
   }
 
@@ -51,12 +51,13 @@ export class UserAdminService {
       catchError(this.handleError));
   }
 
-  updateUser(id, user): Observable<any> {
-    return this.http.put(environment.apiBaseUrl + '/user/' + id, user, httpOptions).pipe(
+
+
+  addUser(user): Observable<any>  {
+    return this.http.post(environment.apiBaseUrl + '/user/', user, httpOptions).pipe(
       catchError(this.handleError)
       );
   }
-
   deleteUser(id): Observable<any> {
     console.log("client service file: " + id);
 
@@ -64,12 +65,13 @@ export class UserAdminService {
       catchError(this.handleError)
       );
   }
-
-  addUser(user): Observable<any>  {
-    return this.http.post(environment.apiBaseUrl + '/user/', user, httpOptions).pipe(
+  
+  updateUser(id, user): Observable<any> {
+    return this.http.put(environment.apiBaseUrl + '/user/' + id, user, httpOptions).pipe(
       catchError(this.handleError)
       );
   }
+
 
 
 

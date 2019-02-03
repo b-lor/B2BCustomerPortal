@@ -51,6 +51,9 @@ var transactionSchema = mongoose.Schema({
 	balance: {
 	type: Number
 	},
+	description: {
+		type: String
+	}
 });
 
 ////////////////////////////////////
@@ -92,6 +95,13 @@ module.exports.addTransaction = function (transaction, callback) {
 	Transaction.create(add, callback);
 }
 
+
+// Remove Transaction
+module.exports.removeTransaction = function (id, callback) {
+	var query = { _id: id };
+	Transaction.remove(query, callback);
+}
+
 // Update Transaction
 module.exports.updateTransaction = function (id, transaction, options, callback) {
 	var query = { _id: id };
@@ -103,7 +113,7 @@ module.exports.updateTransaction = function (id, transaction, options, callback)
 		productLine: transaction.productLine,
         unitPrice: transaction.unitPrice, 
         extAmount: transaction.extAmount, 
-        qtyOrdered: transaction.qtyOrdered, 
+        qtyOrdered: transaction.qtyOrdered,
         qtyShipped: transaction.qtyShipped,  
         status: transaction.status, 
 		customerNo: transaction.customerNo, 
@@ -113,12 +123,6 @@ module.exports.updateTransaction = function (id, transaction, options, callback)
 		balance: transaction.balance
 	}
 	Transaction.findOneAndUpdate(query, update, options, callback);
-}
-
-// Remove Transaction
-module.exports.removeTransaction = function (id, callback) {
-	var query = { _id: id };
-	Transaction.remove(query, callback);
 }
 
 // Get Customer Transactions
