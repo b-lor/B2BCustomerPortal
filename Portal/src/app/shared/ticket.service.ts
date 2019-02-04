@@ -57,7 +57,7 @@ export class TicketService {
     return this.http.delete(environment.apiBaseUrl + '/ticket/' + id, this.noAuthHeader);
   }
 
-  updateTransaction(id, ticket) {
+  updateTicket(id, ticket) {
     console.log('service file');
     return this.http.put(environment.apiBaseUrl + '/ticket/' +id , ticket, this.noAuthHeader);
   }

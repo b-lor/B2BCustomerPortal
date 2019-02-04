@@ -19,6 +19,8 @@
     "jsonwebtoken": "^8.4.0",
     "lodash": "^4.17.11",
     "mongoose": "^5.4.2",
+    "mongoose-plugin-autoinc": "^1.1.9",
+    "mongoose-sequence": "^4.0.1",
     "morgan": "^1.9.1",
     "mysql": "^2.16.0",
     "nodemon": "^1.18.9",

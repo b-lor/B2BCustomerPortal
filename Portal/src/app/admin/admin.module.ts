@@ -8,7 +8,6 @@ import { AdminComponent } from './admin.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 import { AdminProfileComponent } from './admin-profile/admin-profile.component';
-import { AdminProfileAddComponent } from './admin-profile/admin-profile-add/admin-profile-add.component';
 import { AdminProfileEditComponent } from './admin-profile/admin-profile-edit/admin-profile-edit.component';
 
 import { AdminRoleComponent } from './admin-role/admin-role.component';
@@ -41,7 +40,6 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
     AdminComponent,
     AdminDashboardComponent,
     AdminProfileComponent,
-    AdminProfileAddComponent,
     AdminProfileEditComponent,
     AdminRoleComponent,
     AdminRoleAddComponent,

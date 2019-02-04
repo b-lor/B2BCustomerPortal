@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var ObjectId = require('mongoose').Types.ObjectId;
+const jwtHelper = require('../config/jwtHelper');
 
 Ticket = require('../models/ticket.model.js');
 
@@ -27,7 +28,7 @@ router.delete('/:id', (req, res) => {
     });
 });
 
-// update transaction
+// update ticket
 router.put('/:id', (req, res) => {
     if (!ObjectId.isValid(req.params.id))
         return res.status(400).send(`No record with given id : ${req.params.id}`);
@@ -35,13 +36,15 @@ router.put('/:id', (req, res) => {
     var emp = {
 		user: req.body.user,
 		ticketId: req.body.ticketId,
-		description: req.body.description,
+        description: req.body.description,
+        submittedBy: req.body.submittedBy,
+        resolution: req.body.resolution,
 		priority: req.body.priority,
 		status: req.body.status,
 		text: req.body.text
     };
     
-    Ticket.findByIdAndUpdate(req.params.id, { $set: emp }, { new: true }, (err, doc) => {
+    Ticket.findByIdAndUpdate(req.params.id, { $set: emp }, { upsert: true }, (err, doc) => {
         if (!err) { res.send(doc); }
         else { console.log('Error in Ticket Update :' + JSON.stringify(err, undefined, 2)); }
     });

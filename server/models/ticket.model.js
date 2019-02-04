@@ -4,8 +4,9 @@ var mongoose = require('mongoose');
 var ticketSchema = mongoose.Schema({
     user: {
 		type: mongoose.Schema.Types.ObjectId,
-		ref: 'User'
-    },
+		ref: 'User', 
+		// required: true
+    }, 
     ticketId: {
 		type: String,
 		unique: true

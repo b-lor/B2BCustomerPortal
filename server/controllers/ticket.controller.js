@@ -3,7 +3,8 @@ const passport = require('passport');
 const _ = require('lodash');
 
 const Ticket = mongoose.model('Ticket');
-
+var express = require('express');
+var loggedIn = require("../config/loggedIn.js");
 
 module.exports.getTickets = (req, res, next) => {
 
@@ -25,17 +26,19 @@ module.exports.getTicketById = (req, res, next) => {
 
 module.exports.addTicket = (req, res, next) => {
 
-    // console.log('ticket saved to db');
+    console.log('ticket saved to db');
+    console.log(loggedIn._id);
     var ticketID = generateID();
 
     var ticket = new Ticket();
+
     ticket.user= req.body.user;
     ticket.ticketId= ticketID;
     ticket.description= req.body.description;
     ticket.submittedBy= req.body.submittedBy;
-    ticket.resolution= req.body.resolution;
+    // ticket.resolution= req.body.resolution;
     ticket.priority= req.body.priority;
-    ticket.status= req.body.status;
+    // ticket.status= req.body.status;
     ticket.text= req.body.text;
     console.log(ticket);
 

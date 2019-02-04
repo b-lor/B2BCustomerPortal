@@ -25,9 +25,6 @@ export class CustomerTransactionsComponent implements OnInit {
 
   ngOnInit() {
 
-
-    console.log(this.userService.getLoginId());
-
     const userSub = this.userAdminService.getUser(this.userService.getLoginId()).subscribe(user => {
       this.user = user;
       // console.log('selected user');

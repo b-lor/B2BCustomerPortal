@@ -1,3 +1,87 @@
-<p>
-  admin-ticket-detail works!
-</p>
+
+<!-- <div *ngIf="user">
+  <div class="clearfix"></div>
+	<h2 class="sub-header">Ticket Detail</h2>
+	<table class="table">
+		<tbody>
+			<tr>
+				<th scope="row">customerNumber:</th>
+				<td>{{ user.profile.customerNumber}}</td>
+			</tr>
+			<tr>
+				<th scope="row">firstName:</th>
+				<td>{{ user.profile.firstName}}</td>
+			</tr>
+			<tr>
+				<th scope="row">lastName:</th>
+				<td>{{ user.profile.lastName}}</td>
+			</tr>
+			<tr>
+				<th scope="row">company:</th>
+				<td>{{ user.profile.company}}</td>
+			</tr>
+			<tr>
+				<th scope="row">email:</th>
+				<td>{{ user.profile.email}}</td>
+			</tr>
+			<tr>
+				<th scope="row">phone:</th>
+				<td>{{ user.profile.phone}}</td>
+			</tr>
+			<tr>
+				<th scope="row">street:</th>
+				<td>{{ user.profile.street}}</td>
+      </tr>
+      <tr>
+				<th scope="row">city:</th>
+				<td>{{ user.profile.city}}</td>
+			</tr>
+			<tr>
+				<th scope="row">state:</th>
+				<td>{{ user.profile.state}}</td>
+			</tr>
+			<tr>
+				<th scope="row">zip:</th>
+				<td>{{ user.profile.zip}}</td>
+			</tr>
+		</tbody>
+	</table>
+  <br> -->
+  <h3>Customer Tickets</h3>
+	<table class="table table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>user</th>
+              <th>ticketId</th>
+              <th>issue</th>
+              <th>description</th>
+              <th>submittedBy</th>
+              <th>resolution</th>
+              <th>priority</th>
+              <th>status</th>
+              <th>text</th>
+              <th>dateSubmitted</th>
+              <th>dateUpdate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngIf="tickets">
+            	  <td>{{tickets._id}}</td>
+              	<td>{{tickets.user}}</td>
+              	<td>{{tickets.ticketId}}</td>
+                <td>{{tickets.issue}}</td>
+                <td>{{tickets.description}}</td>
+              	<td>{{tickets.submittedBy}}</td>
+              	<td>{{tickets.resolution}}</td>
+                <td>{{tickets.priority}}</td>
+                <td>{{tickets.status}}</td>
+              	<td>{{tickets.text}}</td>
+              	<td>{{tickets.dateSubmitted}}</td>
+                <td>{{tickets.dateUpdate}}</td>
+								<td><a href="/admin/ticket/edit/{{tickets._id}}" class="btn btn-primary">Update</a><a href="/admin/ticket/detail/{{tickets._id}}" class="btn btn-primary">Detail</a> <button (click)="deleteInvoice(tickets._id)" class="btn btn-danger">Delete</button></td>
+            </tr>
+          </tbody>
+        </table>
+
+ <!-- </div> -->

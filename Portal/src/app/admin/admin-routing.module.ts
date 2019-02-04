@@ -30,7 +30,6 @@ import { AdminUserTransactionComponent } from './admin-user/admin-user-transacti
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 import { AdminProfileComponent } from './admin-profile/admin-profile.component';
-import { AdminProfileAddComponent } from './admin-profile/admin-profile-add/admin-profile-add.component';
 import { AdminProfileEditComponent } from './admin-profile/admin-profile-edit/admin-profile-edit.component';
 
 import { AdminLoginComponent } from './admin-login/admin-login.component';
@@ -68,7 +67,6 @@ const routes: Routes = [
       { path: 'user/transaction/:id', component: AdminUserTransactionComponent },
 
       { path: 'profile', component: AdminProfileComponent },
-      { path: 'profile/add', component: AdminProfileAddComponent },
       { path: 'profile/edit', component: AdminProfileEditComponent },
     ]
   }

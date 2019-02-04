@@ -19,8 +19,8 @@ export class AdminProfileEditComponent implements OnInit {
   ngOnInit() {
     const userSub = this.profileService.getProfile(this.userService.getProfileId()).subscribe(profile => {
       this.profile = profile;
-      // console.log('selected user');
-      // console.log(user);
+      console.log('profile for user');
+      console.log(profile);
 
       userSub.unsubscribe();
 

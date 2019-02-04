@@ -1,3 +1,46 @@
-<p>
-  customer-ticket-add works!
-</p>
+<h2 class="sub-header">Add Ticket</h2>
+<form (ngSubmit)="onSubmit()">
+   <div class="form-group">
+    <label>user</label>
+    <input type="text" class="form-control" name="user" #user="ngModel" [(ngModel)]="ticket.user" placeholder="user">
+  </div>
+  <div class="form-group">
+    <label>ticketId</label>
+    <input type="text" class="form-control" name="ticketId" #ticketId="ngModel" [(ngModel)]="ticket.ticketId"  placeholder="ticketId">
+  </div>
+  <div class="form-group">
+    <label>description</label>
+    <input type="text" class="form-control" name="description" #description="ngModel" [(ngModel)]="ticket.description"placeholder="description">
+  </div>
+  <div class="form-group">
+    <label>submittedBy</label>
+    <input type="text" class="form-control" name="submittedBy" #submittedBy="ngModel" [(ngModel)]="ticket.submittedBy"placeholder="submittedBy">
+  </div>
+  <div class="form-group">
+    <label>resolution</label>
+    <input type="resolution" class="form-control" name="resolution" #resolution="ngModel" [(ngModel)]="ticket.resolution" placeholder="resolution">
+  </div>
+  <div class="form-group">
+    <label>priority</label>
+    <input type="text" class="form-control" name="priority" #priority="ngModel" [(ngModel)]="user.priority" placeholder="priority">
+  </div>
+  <div class="form-group">
+    <label>status</label>
+    <input type="text" class="form-control" name="status" #status="ngModel" [(ngModel)]="user.status"  placeholder="status">
+  </div>
+  <div class="form-group">
+    <label>text</label>
+    <input type="text" class="form-control" name="text" #text="ngModel" [(ngModel)]="user.text"placeholder="text">
+  </div>
+  <div class="form-group">
+    <label>dateSubmitted</label>
+    <input type="text" class="form-control" name="dateSubmitted" #dateSubmitted="ngModel" [(ngModel)]="user.dateSubmitted"placeholder="dateSubmitted">
+  </div>
+  <div class="form-group">
+    <label>dateUpdate</label>
+    <input type="dateUpdate" class="form-control" name="dateUpdate" #dateUpdate="ngModel" [(ngModel)]="user.dateUpdate" placeholder="dateUpdate">
+  </div>
+
+
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
