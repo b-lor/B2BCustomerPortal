@@ -1,3 +1,54 @@
-<p>
-  customer-ticket-edit works!
-</p>
+<h2 class="sub-header">Edit Ticket</h2>
+<form *ngIf="ticket" (ngSubmit)="onSubmit()">
+
+  <div class="form-group">
+    <label>user</label>
+    <input type="text" class="form-control" #user="ngModel" [(ngModel)]="ticket.user" name="user" placeholder="user">
+  </div>
+  <div class="form-group">
+    <label>ticketId</label>
+    <input type="text" class="form-control" #ticketId="ngModel" name="ticketId" [(ngModel)]="ticket.ticketId"placeholder="ticketId">
+  </div>
+  <div class="form-group">
+    <label>issue</label>
+    <input type="text" class="form-control" #issue="ngModel" name="issue" [(ngModel)]="ticket.issue"placeholder="issue">
+  </div>
+  <div class="form-group">
+    <label>description</label>
+    <input type="text" class="form-control" #description="ngModel" name="description" [(ngModel)]="ticket.description" placeholder="description">
+  </div>
+  <div class="form-group">
+    <label>submittedBy</label>
+    <input type="text" class="form-control" #submittedBy="ngModel" name="submittedBy" [(ngModel)]="ticket.submittedBy" placeholder="submittedBy">
+  </div>
+
+
+
+  <div class="form-group">
+    <label>resolution</label>
+    <input type="text" class="form-control" #resolution="ngModel" name="resolution" [(ngModel)]="ticket.resolution" placeholder=".resolution">
+  </div>
+  <div class="form-group">
+    <label>priority</label>
+    <input type="text" class="form-control" #priority="ngModel" name="priority" [(ngModel)]="ticket.priority" placeholder="priority">
+  </div>
+  <div class="form-group">
+    <label>status</label>
+    <input type="text" class="form-control" #status="ngModel" name="status" [(ngModel)]="ticket.status" placeholder="status">
+  </div>
+  <div class="form-group">
+    <label>text</label>
+    <input type="text" class="form-control" #text="ngModel" name="text" [(ngModel)]="ticket.text" placeholder="text">
+  </div>
+  <div class="form-group">
+    <label>dateSubmitted</label>
+    <input type="text" class="form-control" #dateSubmitted="ngModel" name="dateSubmitted" [(ngModel)]="ticket.dateSubmitted" placeholder="dateSubmitted">
+  </div>
+  <div class="form-group">
+    <label>dateUpdate</label>
+    <input type="text" class="form-control" #dateUpdate="ngModel" name="dateUpdate" [(ngModel)]="ticket.dateUpdate" placeholder="dateUpdate">
+  </div>
+  
+  
+  <button type="submit" class="btn btn-default">Edit Ticket</button>
+</form>

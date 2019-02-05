@@ -26,14 +26,13 @@ module.exports.getTicketById = (req, res, next) => {
 
 module.exports.addTicket = (req, res, next) => {
 
-    console.log('ticket saved to db');
-    console.log(loggedIn._id);
     var ticketID = generateID();
 
     var ticket = new Ticket();
 
     ticket.user= req.body.user;
     ticket.ticketId= ticketID;
+    ticket.issue= req.body.issue;
     ticket.description= req.body.description;
     ticket.submittedBy= req.body.submittedBy;
     // ticket.resolution= req.body.resolution;
@@ -62,11 +61,15 @@ module.exports.updateTicket = function (id, ticket, options, callback) {
 	var query = { _id: id };
 	var update = {
 		user: ticket.user,
-		ticketId: ticket.ticketId,
-		description: ticket.description,
+        ticketId: ticket.ticketId,
+        issue: ticket.issue,
+        description: ticket.description,
+        submittedBy: ticket.submittedBy,
+        resolution: ticket.resolution,
 		priority: ticket.priority,
 		status: ticket.status,
-        text: ticket.text
+        text: ticket.text,
+        dateUpdate: ticket.dateUpdate
 	}
 	Ticket.findOneAndUpdate(query, update, options, callback);
 }

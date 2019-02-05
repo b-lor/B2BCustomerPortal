@@ -20,7 +20,7 @@ export class AdminProfileEditComponent implements OnInit {
     const userSub = this.profileService.getProfile(this.userService.getProfileId()).subscribe(profile => {
       this.profile = profile;
       console.log('profile for user');
-      console.log(profile);
+      console.log(this.profile);
 
       userSub.unsubscribe();
 

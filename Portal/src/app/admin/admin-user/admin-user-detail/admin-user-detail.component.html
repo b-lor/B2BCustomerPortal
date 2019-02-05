@@ -103,6 +103,7 @@
               <th>orderedDate</th>
               <th>shippedDate</th>
               <th>balance</th>
+              <th>comment</th>
             </tr>
           </thead>
           <tbody>
@@ -123,6 +124,7 @@
               	<td>{{transaction.orderedDate}}</td>
                 <td>{{transaction.shippedDate}}</td>
                 <td>{{transaction.balance}}</td>
+                <td>{{transaction.description}}</td>
 								<td><a href="/admin/user/transaction/{{transaction._id}}" class="btn btn-primary">Update</a> <button (click)="deleteInvoice(transaction._id)" class="btn btn-danger">Delete</button></td>
             </tr>
           </tbody>

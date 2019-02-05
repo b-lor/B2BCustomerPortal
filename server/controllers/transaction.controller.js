@@ -128,6 +128,7 @@ module.exports.updateTransaction = function (id, transaction, options, callback)
         orderedDate: transaction.orderedDate,
         shippedDate: transaction.shippedDate,
         balance: transaction.balance,
+        description: transaction.description
 	}
 	Transaction.findOneAndUpdate(query, update, options, callback);
 }

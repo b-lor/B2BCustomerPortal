@@ -11,26 +11,36 @@ import { TicketService } from '../../../shared/ticket.service';
   styleUrls: ['./customer-ticket-edit.component.css']
 })
 export class CustomerTicketEditComponent implements OnInit {
-  ticket = new Ticket();
+  ticket: Ticket;
+  ticketID;
 
+    constructor(private route: ActivatedRoute, private router: Router, private ticketService: TicketService) {
+      this.route.params.subscribe(params => {
+        this.ticketID = params['id'];
+      });
+     }
+  
+    ngOnInit() {
+          const userTicket = this.ticketService.getTicket(this.ticketID).subscribe(ticket => {
+      this.ticket = ticket;
 
-  constructor(private route: ActivatedRoute, private router: Router, private ticketService: TicketService) { }
+      console.log(ticket);
 
-
-  ngOnInit() {
+      userTicket.unsubscribe();
+    })
+    }
+    onSubmit() {
+  
+      this.ticketService.updateTicket(this.ticket._id, this.ticket).subscribe(res => {
+        console.log(res)
     
+        this.router.navigateByUrl('customer/ticket');
+    
+      },
+        err => {
+          console.log(err);
+        }
+      );
   }
-  onSubmit() {
-
-    this.ticketService.addTicket(this.ticket).subscribe(res => {
-      console.log(res)
+  }
   
-      this.router.navigateByUrl('customer/ticket');
-  
-    },
-      err => {
-        console.log(err);
-      }
-    );
-}
-}

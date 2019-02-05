@@ -1,3 +1,72 @@
-<p>
-  admin-user-transaction works!
-</p>
+<h2 class="sub-header">Edit Customer</h2>
+<form *ngIf="transaction" (ngSubmit)="onSubmit()">
+
+  <div class="form-group">
+    <label>invoiceNumber</label>
+    <input type="text" class="form-control" #invoiceNumber="ngModel" name="invoiceNumber" [(ngModel)]="transaction.invoiceNumber" placeholder=".invoiceNumber">
+  </div>
+  <div class="form-group">
+    <label>salesOrder</label>
+    <input type="text" class="form-control" #salesOrder="ngModel" name="salesOrder" [(ngModel)]="transaction.salesOrder" placeholder="salesOrder">
+  </div>
+  <div class="form-group">
+    <label>itemNumber</label>
+    <input type="text" class="form-control" #itemNumber="ngModel" name="itemNumber" [(ngModel)]="transaction.itemNumber" placeholder="itemNumber">
+  </div>
+  <div class="form-group">
+    <label>itemDescription</label>
+    <input type="text" class="form-control" #itemDescription="ngModel" name="itemDescription" [(ngModel)]="transaction.itemDescription" placeholder="itemDescription">
+  </div>
+  <div class="form-group">
+    <label>productLine</label>
+    <input type="text" class="form-control" #productLine="ngModel" name="productLine" [(ngModel)]="transaction.productLine" placeholder="productLine">
+  </div>
+  <div class="form-group">
+    <label>unitPrice</label>
+    <input type="text" class="form-control" #unitPrice="ngModel" name="unitPrice" [(ngModel)]="transaction.unitPrice" placeholder="unitPrice">
+  </div>
+  <div class="form-group">
+    <label>extAmount</label>
+    <input type="text" class="form-control" #extAmount="ngModel" name="extAmount" [(ngModel)]="transaction.extAmount" placeholder="extAmount">
+  </div>
+  <div class="form-group">
+    <label>qtyOrdered</label>
+    <input type="text" class="form-control" #qtyOrdered="ngModel" name="qtyOrdered" [(ngModel)]="transaction.qtyOrdered" placeholder="qtyOrdered">
+  </div>
+  <div class="form-group">
+    <label>qtyShipped</label>
+    <input type="text" class="form-control" #qtyShipped="ngModel" name="qtyShipped" [(ngModel)]="transaction.qtyShipped" placeholder="qtyShipped">
+  </div>
+  <div class="form-group">
+    <label>status</label>
+    <input type="text" class="form-control" #status="ngModel" name="status" [(ngModel)]="transaction.status" placeholder="status">
+  </div>
+  
+  
+  <div class="form-group">
+      <label>customerNo</label>
+      <input type="text" class="form-control" #customerNo="ngModel" [(ngModel)]="transaction.customerNo" name="customerNo" placeholder="customerNo">
+    </div>
+    <div class="form-group">
+      <label>salespersonNo</label>
+      <input type="text" class="form-control" #salespersonNo="ngModel" name="salespersonNo" [(ngModel)]="transaction.salespersonNo"placeholder="salespersonNo">
+    </div>
+    <div class="form-group">
+      <label>orderedDate</label>
+      <input type="text" class="form-control" #orderedDate="ngModel" name="orderedDate" [(ngModel)]="transaction.orderedDate"placeholder="orderedDate">
+    </div>
+    <div class="form-group">
+      <label>shippedDate</label>
+      <input type="text" class="form-control" #shippedDate="ngModel" name="shippedDate" [(ngModel)]="transaction.shippedDate" placeholder="shippedDate">
+    </div>
+    <div class="form-group">
+      <label>balance</label>
+      <input type="text" class="form-control" #balance="ngModel" name="balance" [(ngModel)]="transaction.balance" placeholder="balance">
+    </div>
+    <div class="form-group">
+        <label>description</label>
+        <input type="text" class="form-control" #description="ngModel" name="description" [(ngModel)]="transaction.description" placeholder="description">
+      </div>
+    
+  <button type="submit" class="btn btn-default">Edit transaction</button>
+</form>

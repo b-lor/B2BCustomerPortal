@@ -27,7 +27,7 @@ const routes: Routes = [
       { path: 'login', component: ManagerLoginComponent },
 
       { path: 'profile', component: ManagerProfileComponent },
-      { path: 'profile/edit', component: ManagerProfileEditComponent }
+      { path: 'profile/edit/:id', component: ManagerProfileEditComponent }
     ]
   }
 

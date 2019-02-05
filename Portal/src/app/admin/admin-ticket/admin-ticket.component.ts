@@ -17,6 +17,7 @@ ticketInfo: any;
   ngOnInit() {
     this.ticketService.getTickets()
     .subscribe( res=> {
+      console.log(res);
   this.ticketInfo = res;
       }, err=> {
         console.log(err);

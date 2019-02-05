@@ -11,26 +11,36 @@ import { TicketService } from '../../../shared/ticket.service';
   styleUrls: ['./customer-ticket-details.component.css']
 })
 export class CustomerTicketDetailsComponent implements OnInit {
-  ticket = new Ticket();
+  tickets: Ticket;
+  ticketId;
+
+  constructor(private route: ActivatedRoute, private router: Router, private ticketService: TicketService) { 
+    this.route.params.subscribe(params => {
+      this.ticketId = params['id'];
+
+//       console.log('this.ticketId');
+// console.log(this.ticketId);
 
 
-  constructor(private route: ActivatedRoute, private router: Router, private ticketService: TicketService) { }
+    });
 
-
-  ngOnInit() {
-    
   }
-  onSubmit() {
+  ngOnInit() {
+          // const userSub = this.userAdminService.getUser(this.ticketId).subscribe(tickets => {
+      //   this.tickets = tickets;
+      //   console.log('tickets');
+      //   console.log(tickets);
+  
+      const ticketSub = this.ticketService.getTicket(this.ticketId).subscribe(tickets => {
+        this.tickets = tickets;
+        console.log('tickets');
+        console.log(tickets);
 
-    this.ticketService.addTicket(this.ticket).subscribe(res => {
-      console.log(res)
+        ticketSub.unsubscribe();
+      });
+
+    //   userSub.unsubscribe();
+    // })
+  }
   
-      this.router.navigateByUrl('customer/ticket');
-  
-    },
-      err => {
-        console.log(err);
-      }
-    );
-}
 }

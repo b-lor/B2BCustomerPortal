@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class AdminProfileComponent implements OnInit {
   userDetails;
+  profileID= this.userService.getProfileId();
   constructor(private userService: UserService, private router: Router) { }
 
 

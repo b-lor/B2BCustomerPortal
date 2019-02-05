@@ -67,7 +67,7 @@ const routes: Routes = [
       { path: 'user/transaction/:id', component: AdminUserTransactionComponent },
 
       { path: 'profile', component: AdminProfileComponent },
-      { path: 'profile/edit', component: AdminProfileEditComponent },
+      { path: 'profile/edit/:id', component: AdminProfileEditComponent },
     ]
   }
 

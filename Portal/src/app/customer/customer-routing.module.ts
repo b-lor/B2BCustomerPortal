@@ -46,7 +46,7 @@ const routes: Routes = [
       { path: 'transactions/detail/:id', component: CustomerTransactionsDetailComponent },
 
       { path: 'profile', component: CustomerProfileComponent },
-      { path: 'profile/edit', component: CustomerProfileEditComponent },
+      { path: 'profile/edit/:id', component: CustomerProfileEditComponent },
 
       { path: 'login', component: CustomerLoginComponent },
     ]

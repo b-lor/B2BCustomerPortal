@@ -94,3 +94,12 @@ module.exports.updateTicket = function (id, ticket, options, callback) {
 	}
 	Ticket.findOneAndUpdate(query, update, options, callback);
 }
+
+// Get Customer Tickets
+module.exports.getCustomerTickets = function (customer_id, callback, limit) {
+	var query = { user: customer_id };
+
+	console.log('model: ' + customer_id);
+
+	Ticket.find(query, callback).limit(limit).populate('user').sort([['salesOrder', 'ascending']]);
+}

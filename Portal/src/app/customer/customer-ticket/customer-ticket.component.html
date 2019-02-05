@@ -1,7 +1,49 @@
 <thead>
 
 <a href="/customer/ticket/add" class="btn btn-primary">Add</a>
-<a href="/customer/ticket/detail/:id" class="btn btn-primary">Detail</a>
-  <a href="/customer/ticket/edit/:id" class="btn btn-primary">Edit</a>
 </thead>
 
+<div>
+    <br>
+    <h3>Customer ticket</h3>
+    <table class="table table-striped">
+            <thead>
+              <tr>
+                  <th>#</th>
+                  <th>user</th>
+                <th>ticketId</th>
+                <th>issue</th>
+                <th>description</th>
+                <th>submittedBy</th>
+                <th>resolution</th>
+                <th>priority</th>
+                <th>dateUpdate</th>
+                <th>text</th>
+                <th>dateSubmitted</th>
+                <th>dateUpdate</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let ticket of tickets">
+                  <td>{{ticket._id}}</td>
+                  <td>{{ticket.user}}</td>
+                  <td>{{ticket.ticketId}}</td>
+                  <td>{{ticket.issue}}</td>
+                  <td>{{ticket.description}}</td>
+                  <td>{{ticket.submittedBy}}</td>
+                  <td>{{ticket.resolution}}</td>
+                  <td>{{ticket.priority}}</td>
+                  <td>{{ticket.dateUpdate}}</td>
+                  <td>{{ticket.text}}</td>
+                  <td>{{ticket.dateSubmitted}}</td>
+                  <td>{{ticket.dateUpdate}}</td>
+
+                  
+                  <td><a href="/customer/ticket/detail/{{ticket._id}}" class="btn btn-primary">Details</a><a href="/customer/ticket/edit/{{ticket._id}}" class="btn btn-primary">Edit</a></td>
+              </tr>
+            </tbody>
+          </table>
+  
+   </div>
+  

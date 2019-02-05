@@ -87,7 +87,9 @@ router.put('/:id', (req, res) => {
 		customerNo: req.body.customerNo, 
 		salespersonNo: req.body.salespersonNo,
         orderedDate: req.body.orderedDate,  
-        shippedDate: req.body.shippedDate
+        shippedDate: req.body.shippedDate,
+        balance: req.body.balance,
+        description: req.body.description
     };
     Transaction.findByIdAndUpdate(req.params.id, { $set: emp }, { new: true }, (err, doc) => {
         if (!err) { res.send(doc); }

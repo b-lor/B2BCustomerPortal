@@ -14,6 +14,7 @@ import { Profile } from '../../shared/profile.model';
 export class CustomerProfileComponent implements OnInit {
 
   userDetails;
+  profileID= this.userService.getProfileId();
 
   constructor(private userService: UserService, private router: Router, private userAdminService: UserAdminService, private profileService: ProfileService) { }
 
@@ -21,8 +22,6 @@ export class CustomerProfileComponent implements OnInit {
     this.userService.getUserProfile().subscribe(
       res => {
   this.userDetails = res['user'];
-  console.log('this.userDetails');
-  console.log(this.userDetails);
       },
       err => {
 
