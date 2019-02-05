@@ -42,6 +42,7 @@ import { UserAdminService } from './shared/user-admin.service';
 import { ProfileService } from './shared/profile.service';
 import { TransactionService } from './shared/transaction.service';
 import { TicketService } from './shared/ticket.service';
+import { TrackerService } from './shared/tracker.service';
 
 
 @NgModule({
@@ -72,10 +73,15 @@ import { TicketService } from './shared/ticket.service';
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
-  }, AuthGuard, UserService,
-  UserAdminService, RoleService,
-  ProfileService, TransactionService,
-  TicketService, Globals],
+  }, AuthGuard, 
+  UserService,
+  UserAdminService, 
+  RoleService,
+  ProfileService, 
+  TransactionService,
+  TicketService, 
+  Globals,
+  TrackerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

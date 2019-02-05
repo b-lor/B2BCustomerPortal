@@ -2,10 +2,6 @@
 <form *ngIf="ticket" (ngSubmit)="onSubmit()">
 
   <div class="form-group">
-    <label>user</label>
-    <input type="text" class="form-control" #user="ngModel" [(ngModel)]="ticket.user" name="user" placeholder="user">
-  </div>
-  <div class="form-group">
     <label>ticketId</label>
     <input type="text" class="form-control" #ticketId="ngModel" name="ticketId" [(ngModel)]="ticket.ticketId"placeholder="ticketId">
   </div>
@@ -23,15 +19,11 @@
   </div>
 
 
-
   <div class="form-group">
     <label>resolution</label>
     <input type="text" class="form-control" #resolution="ngModel" name="resolution" [(ngModel)]="ticket.resolution" placeholder=".resolution">
   </div>
-  <div class="form-group">
-    <label>priority</label>
-    <input type="text" class="form-control" #priority="ngModel" name="priority" [(ngModel)]="ticket.priority" placeholder="priority">
-  </div>
+
   <div class="form-group">
     <label>status</label>
     <input type="text" class="form-control" #status="ngModel" name="status" [(ngModel)]="ticket.status" placeholder="status">

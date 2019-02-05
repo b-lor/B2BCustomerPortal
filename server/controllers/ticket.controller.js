@@ -29,7 +29,6 @@ module.exports.addTicket = (req, res, next) => {
     var ticketID = generateID();
 
     var ticket = new Ticket();
-
     ticket.user= req.body.user;
     ticket.ticketId= ticketID;
     ticket.issue= req.body.issue;

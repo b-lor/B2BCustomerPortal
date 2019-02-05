@@ -34,7 +34,7 @@ export class CustomerTransactionsComponent implements OnInit {
       const transactionSub = this.transactionService.getCustomerTransaction(this.user._id).subscribe(transactions => {
         this.transactions = transactions;
         // console.log('transactions');
-        // console.log(transactions);
+        // console.log(this.user._id);
 
         transactionSub.unsubscribe();
       });

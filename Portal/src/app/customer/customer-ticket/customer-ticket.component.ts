@@ -26,14 +26,14 @@ export class CustomerTicketComponent implements OnInit {
 
     const userSub = this.userAdminService.getUser(this.userService.getLoginId()).subscribe(user => {
       this.user = user;
-      console.log('selected id');
-      console.log(this.user._id);
+      // console.log('selected id');
+      // console.log(this.user._id);
 
 
       const ticketSub = this.ticketService.getCustomerTicket(this.user._id).subscribe(tickets => {
         this.tickets = tickets;
-        console.log('tickets');
-        console.log(tickets);
+        // console.log('tickets');
+        // console.log(tickets);
 
         ticketSub.unsubscribe();
       });
