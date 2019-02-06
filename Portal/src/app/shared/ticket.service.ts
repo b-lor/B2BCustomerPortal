@@ -43,7 +43,11 @@ export class TicketService {
       response.map(transaction => new Ticket().deserialize(transaction)))
     );
   }
-
+  getTicketIssues() {
+    return this.http.get(environment.apiBaseUrl + '/ticket/issue', this.noAuthHeader).pipe(map((response: any) =>
+      response.map(transaction => new Ticket().deserialize(transaction)))
+    );
+  }
   getTicket(id): Observable<any> {
     return this.http.get(environment.apiBaseUrl + '/ticket/' + id, httpOptions).pipe(map(this.userData),
       catchError(this.handleError));

@@ -37,11 +37,35 @@
 						</tbody>
 					</table>
 
-
-
-
 </div>
-<h3>Customer tickets</h3>
+
+<h3>Customer Notes</h3>
+
+<form *ngIf="trackerDetails" (ngSubmit)="onSubmit()">
+
+  <div class="form-group">
+      <label>ID</label>
+      <input type="text" disabled class="form-control" name="user" #user="ngModel" [ngModel]="trackerDetails.user" (ngModelChange)="insertUserID(tickets)" placeholder="user">
+    </div>
+<div class="form-group">
+  <label>ticket</label>
+  <input type="text" class="form-control" name="ticket" #ticket="ngModel" [(ngModel)]="trackerDetails.ticket" (ngModelChange)="insertTicketID(tracker)" placeholder="ticket">
+</div>
+<div class="form-group">
+  <label>comment</label>
+  <input type="text" class="form-control" name="comment" #comment="ngModel" [(ngModel)]="trackerDetails.comment"placeholder="comment">
+</div>
+<div class="form-group">
+  <label>other</label>
+  <input type="text" class="form-control" name="other" #other="ngModel" [(ngModel)]="trackerDetails.other"placeholder="other">
+</div>
+
+  
+  <button type="submit" class="btn btn-default">Edit Ticket</button>
+</form>
+
+
+<h3>Customer Details</h3>
 <table class="table table-striped">
 				<thead>
 					<tr>
@@ -59,7 +83,7 @@
 							<td>{{tracker.comment}}</td>
 							<td>{{tracker.other}}</td>
 							<td>{{tracker.dateUpdate}}</td>
-							<td><a href="/dashboard/tracker/detail/{{tracker._id}}" class="btn btn-primary">Details</a> <a href="/dashboard/tracker/edit/{{tracker._id}}" class="btn btn-default">Edit</a> <button (click)="deleteInvoice(tracker._id)" class="btn btn-danger">Delete</button></td>
+							<td><a href="/customer/tracker/detail/{{tracker._id}}" class="btn btn-primary">Details</a> <a href="/customer/tracker/edit/{{tracker._id}}" class="btn btn-default">Edit</a> <button (click)="deleteInvoice(tracker._id)" class="btn btn-danger">Delete</button></td>
 					</tr>
 				</tbody>
 			</table>

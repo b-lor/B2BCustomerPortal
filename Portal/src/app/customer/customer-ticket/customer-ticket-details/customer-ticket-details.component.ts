@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { Trackers } from '../../../shared/trackers';
-
+import { UserService } from '../../../shared/user.service';
 import { Ticket } from '../../../shared/ticket.model';
 import { TicketService } from '../../../shared/ticket.service';
 import { Tracker } from '../../../shared/tracker.model';
@@ -17,10 +17,12 @@ export class CustomerTicketDetailsComponent implements OnInit {
   tickets: Ticket;
   ticketId;
   tracker: Tracker;
+  trackerDetails= new Tracker();
+  userID = this.userService.getLoginId();
 
   trackers: Tracker[];
 
-  constructor(private trackerService: TrackerService, private route: ActivatedRoute, private router: Router, private ticketService: TicketService) { 
+  constructor(private userService: UserService, private trackerService: TrackerService, private route: ActivatedRoute, private router: Router, private ticketService: TicketService) { 
     this.route.params.subscribe(params => {
       this.ticketId = params['id'];
 
@@ -69,5 +71,33 @@ export class CustomerTicketDetailsComponent implements OnInit {
     // //   userSub.unsubscribe();
     // // })
   }
+
+  onSubmit() {
+    this.insertUserID(this.trackerDetails);
+    this.insertTicketID(this.trackerDetails);
+
+    // this.trackerUpdate();
+
+    // this.ticketService.updateTicket(this.ticket._id, this.ticket).subscribe(res => {
+    //   console.log(res)
+    this.trackerService.addTracker(this.trackerDetails).subscribe(res => {
+      console.log(res)
   
+      location.reload();
+      
+      // this.router.navigateByUrl('customer/ticket');
+  
+    },
+      err => {
+        console.log(err);
+      }
+    );
+}
+  
+insertUserID(trackerDetails){
+  trackerDetails.user = this.userID
+}
+insertTicketID(trackerDetails){
+  trackerDetails.ticket = this.tickets._id
+}
 }

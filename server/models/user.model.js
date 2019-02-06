@@ -19,6 +19,9 @@ var userSchema = new mongoose.Schema({
     customerNumber: {
         type: Number
     },
+    department: {
+        type: String
+    },
     email: {
         type: String,
         required: 'Email can\'t be empty',
@@ -55,7 +58,7 @@ userSchema.methods.verifyPassword = function (password) {
 };
 
 userSchema.methods.generateJwt = function () {
-    return jwt.sign({ _id: this._id, roleId: this.roleId, profile: this.profile },
+    return jwt.sign({ _id: this._id, roleId: this.roleId, profile: this.profile, department: this.department },
         process.env.JWT_SECRET,
     {
         expiresIn: process.env.JWT_EXP
@@ -95,7 +98,8 @@ module.exports.addUser = function (user, callback) {
 		roleId: user.roleId,
 		userType: user.userType,
 		salesCode: user.salesCode,
-		customerNumber: user.customerNumber,
+        customerNumber: user.customerNumber,
+        department: user.department,
         email: user.email,
         password: user.password
 	}
@@ -118,7 +122,8 @@ module.exports.updateUser = function (id, user, options, callback) {
 	var update = {
 		roleId: user.roleId,
 		userType: user.userType,
-		salesCode: user.salesCode,
+        salesCode: user.salesCode,
+        department: user.department,
 		customerNumber: user.customerNumber,
 		email: user.email
 	}

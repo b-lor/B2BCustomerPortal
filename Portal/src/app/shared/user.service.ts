@@ -116,4 +116,16 @@ export class UserService {
       }
     }
 
+    
+    getDepartment() {
+      const token = this.getToken();
+      if (token) {
+        const department = atob(token.split('.')[1]);
+        const departmentID = JSON.parse(department);
+        return departmentID['department'];
+      } else {
+        return null;
+      }
+    }
+
 }

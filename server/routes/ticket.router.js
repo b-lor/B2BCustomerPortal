@@ -4,7 +4,6 @@ var ObjectId = require('mongoose').Types.ObjectId;
 const jwtHelper = require('../config/jwtHelper');
 
 Ticket = require('../models/ticket.model.js');
-
 const ctrlTicket = require('../controllers/ticket.controller');
 
 router.get('/customer/:customer_id', function (req, res) {
@@ -12,11 +11,6 @@ router.get('/customer/:customer_id', function (req, res) {
 
     var customer_id = req.params.customer_id;
     Ticket.getCustomerTickets(customer_id, function (err, ticket) {
-        console.log('customer_id');
-        console.log(customer_id);
-
-        console.log('ticket');
-        console.log(ticket);
 
         if (err) {
             res.send(err);
@@ -29,6 +23,9 @@ router.get('/customer/:customer_id', function (req, res) {
 
 // get all ticket
 router.get('/', ctrlTicket.getTickets);
+
+// get all ticket
+router.get('/issue/', ctrlTicket.getTicketIssues);
 
 // get single ticket
 router.get('/:id', ctrlTicket.getTicketById);

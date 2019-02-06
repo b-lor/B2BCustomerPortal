@@ -3,8 +3,7 @@ const passport = require('passport');
 const _ = require('lodash');
 
 const Ticket = mongoose.model('Ticket');
-var express = require('express');
-var loggedIn = require("../config/loggedIn.js");
+
 
 module.exports.getTickets = (req, res, next) => {
 
@@ -12,6 +11,15 @@ module.exports.getTickets = (req, res, next) => {
         return res.status(200).json(result);
     });
 }
+
+module.exports.getTicketIssues = (req, res, next) => {
+
+    Ticket.find({}).populate('user').exec(function (err, result) {
+        // Ticket.find({issue:'Service'}).populate('user').exec(function (err, result) {
+        return res.status(200).json(result);
+    });
+}
+
 
 module.exports.getTicketById = (req, res, next) => {
 

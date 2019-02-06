@@ -52,6 +52,7 @@ router.post('/', (req, res) => {
         roleId: req.body.roleId,
         userType: req.body.userType,
         customerNumber: req.body.customerNumber,
+        department: req.body.department,
 		email: req.body.email,
 		password: req.body.password
     });
@@ -110,7 +111,8 @@ router.put('/:id', (req, res) => {
         roleId: req.body.roleId,
 		userType: req.body.userType,
 		salesCode: req.body.salesCode,
-		customerNumber: req.body.customerNumber,
+        customerNumber: req.body.customerNumber,
+        department: req.body.department,
 		email: req.body.email
     };
     User.findByIdAndUpdate(req.params.id, { $set: emp }, { new: true }, (err, doc) => {

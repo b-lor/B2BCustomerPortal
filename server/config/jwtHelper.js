@@ -13,17 +13,15 @@ module.exports.verifyJwtToken = (req, res, next) => {
                 if (err)
                     return res.status(500).send({ auth: false, message: 'Token authentication failed.' });
                 else {
+
                     req._id = decoded._id;
                     req.profile = decoded.profile;
                     req.userId = decoded._id;
-                    console.log('your token dudddejaldfjlkasdjfksdfj');
-                    console.log(req.userId);
                     next();
+
                 }
             }
         )
     }
 }
 
-// req.userData = { _id: decoded._id, profile: decoded.profile };
-// return jwt.sign({ _id: this._id, roleId: this.roleId, profile: this.profile },

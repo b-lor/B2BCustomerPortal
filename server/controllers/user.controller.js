@@ -14,6 +14,7 @@ module.exports.register = (req, res, next) => {
     user.userType = 'customer';
     user.salesCode = req.body.salesCode;
     user.customerNumber = req.body.customerNumber;
+    user.department = req.body.department;
     user.email = req.body.email;
     user.password = req.body.password;
     user.save((err, doc) => {

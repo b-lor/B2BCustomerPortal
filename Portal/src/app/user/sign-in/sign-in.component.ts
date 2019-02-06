@@ -40,10 +40,10 @@ export class SignInComponent implements OnInit {
       res => {
 
         this.userService.setToken(res['token']);
-        console.log(this.userService.getRoleId());
-        console.log(this.userService.getLoginId());
-        console.log('profile id: ');
-        console.log(this.userService.getProfileId());
+        // console.log(this.userService.getRoleId());
+        // console.log(this.userService.getLoginId());
+        // console.log('profile id: ');
+        // console.log(this.userService.getProfileId());
 
         if (this.userService.getRoleId() === 20) {
           this.router.navigateByUrl('/employee');

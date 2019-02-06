@@ -79,5 +79,5 @@ module.exports.getCustomerTrackers = function (ticket_id, callback, limit) {
 
 	console.log('model: ' + ticket_id);
 
-	Tracker.find(query, callback).limit(limit).populate('ticket').populate('user').sort([['_id', 'ascending']]);
+	Tracker.find(query, callback).limit(limit).populate('ticket').populate('user').sort([['responseId', 'descending']]);
 }

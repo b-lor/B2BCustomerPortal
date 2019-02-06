@@ -5,6 +5,7 @@ export class User {
     userType: string;
     salesCode: number;
     customerNumber: number;
+    department: string;
     email: string;
     password: string;
 
@@ -16,6 +17,7 @@ export class User {
             userType: data.userType,
             salesCode: data.salesCode,
             customerNumber: data.customerNumber,
+            department: data.department,
             email: data.email,
             password: data.password
 
