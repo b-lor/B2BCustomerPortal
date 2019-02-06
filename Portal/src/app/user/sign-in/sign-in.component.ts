@@ -15,7 +15,7 @@ export class SignInComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) { }
 
   model = {
-    email : '',
+    email: '',
     password: ''
   };
 
@@ -26,7 +26,7 @@ export class SignInComponent implements OnInit {
   ngOnInit() {
     this.userService.getUserProfile().subscribe(
       res => {
-  this.userDetails = res['user'];
+        this.userDetails = res['user'];
       },
       err => {
 
@@ -34,28 +34,23 @@ export class SignInComponent implements OnInit {
     );
   }
 
-
   onSubmit(form: NgForm) {
     this.userService.login(form.value).subscribe(
       res => {
 
         this.userService.setToken(res['token']);
-        // console.log(this.userService.getRoleId());
-        // console.log(this.userService.getLoginId());
-        // console.log('profile id: ');
-        // console.log(this.userService.getProfileId());
 
         if (this.userService.getRoleId() === 20) {
-          this.router.navigateByUrl('/employee');
+          this.router.navigateByUrl('/employee/dashboard');
 
         } else if (this.userService.getRoleId() === 30) {
-          this.router.navigateByUrl('/manager');
+          this.router.navigateByUrl('/manager/dashboard');
 
         } else if (this.userService.getRoleId() === 99) {
-          this.router.navigateByUrl('/admin');
+          this.router.navigateByUrl('/admin/dashboard');
 
         } else {
-          this.router.navigateByUrl('/customer');
+          this.router.navigateByUrl('/customer/dashboard');
           return;
         }
 

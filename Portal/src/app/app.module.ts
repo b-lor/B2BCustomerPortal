@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // components
+import { DataTablesModule } from 'angular-datatables';
 import { AppComponent } from './app.component';
 
 import { UserComponent } from './user/user.component';
@@ -33,8 +34,10 @@ import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ConfirmEqualValidatorDirective } from '../app/shared/confirmPassword';
 
 import { FlashMessagesModule } from 'angular2-flash-messages';
+import { ToastrModule } from 'ngx-toastr';
 
 import { RoleService } from './shared/role.service';
 import { UserService } from './shared/user.service';
@@ -43,6 +46,7 @@ import { ProfileService } from './shared/profile.service';
 import { TransactionService } from './shared/transaction.service';
 import { TicketService } from './shared/ticket.service';
 import { TrackerService } from './shared/tracker.service';
+import { ForgotPasswordComponent } from './user/forgot-password/forgot-password.component';
 
 
 @NgModule({
@@ -53,7 +57,9 @@ import { TrackerService } from './shared/tracker.service';
     UserProfileComponent,
     SignInComponent,
     DashboardComponent,
-    ErrorComponent
+    ErrorComponent,
+    ConfirmEqualValidatorDirective,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +73,11 @@ import { TrackerService } from './shared/tracker.service';
     ManagerModule,
     TicketModule,
     SlimLoadingBarModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot({
+      progressBar: true
+    }),
+    DataTablesModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
