@@ -1,0 +1,151 @@
+<!-- <h2 class="sub-header">Add Ticket</h2>
+<form (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+        <label for="submittedBy" class="col-sm-12 control-label">Submitted By</label>
+        <div class="col-lg-12">
+            <input type="text" disabled name="submittedBy" #submittedBy="ngModel" [(ngModel)]="ticket.submittedBy"  (ngModelChange)="insertID(ticket)" placeholder="Submitted By" >
+        </div>
+    </div>
+
+
+
+
+    <div class="form-group">
+        <label>submittedBy</label>
+        <input type="text" class="form-control" disabled name="submittedBy" #submittedBy="ngModel" [(ngModel)]="ticket.submittedBy"  (ngModelChange)="insertID(ticket)" placeholder="submittedBy">
+      </div>
+
+    <div class="form-group">
+        <input type="text" style="display: none;" disabled class="form-control" name="user" #user="ngModel" [ngModel]="ticket.user" (ngModelChange)="insertID(ticket)" placeholder="user">
+      </div>
+
+  <div class="form-group">
+    <label>issue</label>
+    <input type="text" class="form-control" name="issue" #issue="ngModel" [(ngModel)]="ticket.issue"placeholder="issue">
+  </div>
+
+  <div class="form-group">
+    <label>description</label>
+    <input type="text" class="form-control" name="description" #description="ngModel" [(ngModel)]="ticket.description" placeholder="description">
+  </div>
+
+  <div class="form-group">
+    <label>priority</label>
+    <input type="text" class="form-control" name="priority" #priority="ngModel" [(ngModel)]="ticket.priority" placeholder="priority">
+  </div>
+
+  <div class="form-group">
+    <label>text</label>
+    <input type="text" class="form-control" name="text" #text="ngModel" [(ngModel)]="ticket.text"placeholder="text">
+  </div>
+
+
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+
+
+ -->
+ <!-- <div [@routerTransition]>
+    <app-page-header [heading]="'Forms'" [icon]="'fa-edit'"></app-page-header>
+
+
+ <div class="container-fluid">
+    <div class="side-body">
+
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <div class="title">Create New Ticket</div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form class="form-horizontal" (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                            <label for="incidentTitle" class="col-sm-4 control-label"></label>
+                            <div class="col-sm-6">
+                                <input type="text" disabled name="submittedBy" #submittedBy="ngModel" [(ngModel)]="ticket.submittedBy"  (ngModelChange)="insertID(ticket)" placeholder="Submitted By" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                        <label for="issueDropDown" class="col-sm-4 control-label">Issue Type</label>
+                        <div class="col-sm-6">
+                               <select name="issue" #issue="ngModel" [(ngModel)]="ticket.issue">
+                                   
+                                   <option value="General">General</option>
+                                   <option value="Billing">Billing</option>
+                                   <option value="Shipping">Shipping</option>
+                 <option value="Online">Online</option>
+                                   <option value="Other">Other</option>
+                               </select>
+                            </div>
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="details" class="col-sm-4 control-label">Description</label>
+                            <div class="col-sm-6">
+                                <textarea name="description" #description="ngModel" [(ngModel)]="ticket.description" required class="form-control" rows="7"></textarea>
+                            </div>
+                        </div>
+                       
+                        <div class="form-group">
+                            <div class="col-sm-offset-4 col-sm-6">
+                                <button type="submit" ng-hide="submitButtonClass"  class="btn btn-md btn-success">Create</button>
+                                <button type="button"  ng-hide="resetButtonClass" ng-click="resetForm();" class="btn btn-md btn-warning">Reset</button>
+                                <button type="button"  ng-show="createNewButtonClass" ng-click="newIncident();" class="btn btn-md btn-info">Create New Incident</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ </div> -->
+
+ <div class="row">
+    <div class="col-xl-12">
+        <h2 class="page-header">
+            Create a New Ticket
+        </h2>
+
+		                    <form class="form-horizontal" (ngSubmit)="onSubmit()">
+							
+							 <div class="form-group">
+                            <label for="incidentTitle" class="col-sm-12"></label>
+                            <div class="col-lg-12">
+                                <input type="text" disabled name="submittedBy" #submittedBy="ngModel" [(ngModel)]="ticket.submittedBy"  (ngModelChange)="insertID(ticket)" placeholder="Submitted By" >
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="issueDropDown" class="col-sm-12 control-label">Issue Type</label>
+                            <div class="col-sm-12">
+                                   <select name="issue" #issue="ngModel" [(ngModel)]="ticket.issue">
+                                       
+                                       <option value="General">General</option>
+                                       <option value="Billing">Billing</option>
+                                       <option value="Shipping">Shipping</option>
+                     <option value="Online">Online</option>
+                                       <option value="Other">Other</option>
+                                   </select>
+                                </div>
+                            </div>
+
+                            <fieldset class="form-group col-sm-6">
+                                <label>Text Input with Placeholder</label>
+                                <input class="form-control" placeholder="Enter text">
+                            </fieldset>
+
+
+							
+							</form>
+							
+		
+    </div>
+</div>

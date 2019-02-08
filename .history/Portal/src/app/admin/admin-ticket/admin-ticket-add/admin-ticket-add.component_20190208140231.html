@@ -1,0 +1,57 @@
+<h2 class="sub-header">Add Ticket</h2>
+<form #addTicketForm="ngForm" (ngSubmit)="addTicketForm.valid && onSubmit(addTicketForm)">
+
+
+ <input type="text" style="display: none;" #user="ngModel" [(ngModel)]="ticket.user" name="user" placeholder="User"
+ required [ngClass]="{'invalid-textbox' :addTicketForm.submitted && !user.valid }">
+ <div *ngIf="addTicketForm.submitted && user.errors">
+   <label *ngIf="user.errors.required" class="validation-message">This field is required.</label>
+ </div>
+
+
+
+ <input type="text" style="display: none;" #issue="ngModel" [(ngModel)]="ticket.issue" name="issue" placeholder="Issue"
+ required [ngClass]="{'invalid-textbox' :addTicketForm.submitted && !issue.valid }">
+ <div *ngIf="addTicketForm.submitted && issue.errors">
+   <label *ngIf="issue.errors.required" class="validation-message">This field is required.</label>
+ </div>
+
+ <input type="text" style="display: none;" #description="ngModel" [(ngModel)]="ticket.description" name="description" placeholder="Description"
+ required [ngClass]="{'invalid-textbox' :addTicketForm.submitted && !description.valid }">
+ <div *ngIf="addTicketForm.submitted && description.errors">
+   <label *ngIf="description.errors.required" class="validation-message">This field is required.</label>
+ </div>
+
+ <input type="text" style="display: none;" #submittedBy="ngModel" [(ngModel)]="ticket.submittedBy" name="submittedBy" placeholder="submittedBy"
+ required [ngClass]="{'invalid-textbox' :addTicketForm.submitted && !submittedBy.valid }">
+ <div *ngIf="addTicketForm.submitted && submittedBy.errors">
+   <label *ngIf="submittedBy.errors.required" class="validation-message">This field is required.</label>
+ </div>
+
+ <input type="text" style="display: none;" #priority="ngModel" [(ngModel)]="ticket.priority" name="priority" placeholder="priority"
+ required [ngClass]="{'invalid-textbox' :addTicketForm.submitted && !priority.valid }">
+ <div *ngIf="addTicketForm.submitted && priority.errors">
+   <label *ngIf="priority.errors.required" class="validation-message">This field is required.</label>
+ </div>
+
+ <input type="text" style="display: none;" #text="ngModel" [(ngModel)]="ticket.text" name="text" placeholder="text"
+ required [ngClass]="{'invalid-textbox' :addTicketForm.submitted && !text.valid }">
+ <div *ngIf="addTicketForm.submitted && text.errors">
+   <label *ngIf="text.errors.required" class="validation-message">This field is required.</label>
+ </div>
+
+
+
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+
+<!-- Success message -->
+<div class="success" *ngIf="showSuccessMessage">
+    Saved successfully
+  </div>
+  
+  <!-- Error message -->
+  <div class="alert" *ngIf="serverErrorMessages">
+    {{serverErrorMessages}}
+  </div>

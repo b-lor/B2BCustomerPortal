@@ -1,0 +1,45 @@
+<h2 class="sub-header">Add Ticket</h2>
+<form (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+        <label for="submittedBy" class="col-sm-4 control-label">Submitted By</label>
+        <div class="col-sm-6">
+            <input type="text" disabled name="submittedBy" #submittedBy="ngModel" [(ngModel)]="ticket.submittedBy"  (ngModelChange)="insertID(ticket)" placeholder="Submitted By" >
+        </div>
+    </div>
+
+
+
+
+    <div class="form-group">
+        <label>submittedBy</label>
+        <input type="text" class="form-control" disabled name="submittedBy" #submittedBy="ngModel" [(ngModel)]="ticket.submittedBy"  (ngModelChange)="insertID(ticket)" placeholder="submittedBy">
+      </div>
+
+    <div class="form-group">
+        <input type="text" style="display: none;" disabled class="form-control" name="user" #user="ngModel" [ngModel]="ticket.user" (ngModelChange)="insertID(ticket)" placeholder="user">
+      </div>
+
+  <div class="form-group">
+    <label>issue</label>
+    <input type="text" class="form-control" name="issue" #issue="ngModel" [(ngModel)]="ticket.issue"placeholder="issue">
+  </div>
+
+  <div class="form-group">
+    <label>description</label>
+    <input type="text" class="form-control" name="description" #description="ngModel" [(ngModel)]="ticket.description" placeholder="description">
+  </div>
+
+  <div class="form-group">
+    <label>priority</label>
+    <input type="text" class="form-control" name="priority" #priority="ngModel" [(ngModel)]="ticket.priority" placeholder="priority">
+  </div>
+
+  <div class="form-group">
+    <label>text</label>
+    <input type="text" class="form-control" name="text" #text="ngModel" [(ngModel)]="ticket.text"placeholder="text">
+  </div>
+
+
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>

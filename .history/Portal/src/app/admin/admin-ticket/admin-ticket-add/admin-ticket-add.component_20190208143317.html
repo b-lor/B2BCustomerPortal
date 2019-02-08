@@ -1,0 +1,151 @@
+<h2 class="sub-header">Add Ticket</h2>
+<form (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+        <label for="submittedBy" class="col-sm-12 control-label">Submitted By</label>
+        <div class="col-lg-12">
+            <input type="text" disabled name="submittedBy" #submittedBy="ngModel" [(ngModel)]="ticket.submittedBy"  (ngModelChange)="insertID(ticket)" placeholder="Submitted By" >
+        </div>
+    </div>
+
+
+
+
+    <div class="form-group">
+        <label>submittedBy</label>
+        <input type="text" class="form-control" disabled name="submittedBy" #submittedBy="ngModel" [(ngModel)]="ticket.submittedBy"  (ngModelChange)="insertID(ticket)" placeholder="submittedBy">
+      </div>
+
+    <div class="form-group">
+        <input type="text" style="display: none;" disabled class="form-control" name="user" #user="ngModel" [ngModel]="ticket.user" (ngModelChange)="insertID(ticket)" placeholder="user">
+      </div>
+
+  <div class="form-group">
+    <label>issue</label>
+    <input type="text" class="form-control" name="issue" #issue="ngModel" [(ngModel)]="ticket.issue"placeholder="issue">
+  </div>
+
+  <div class="form-group">
+    <label>description</label>
+    <input type="text" class="form-control" name="description" #description="ngModel" [(ngModel)]="ticket.description" placeholder="description">
+  </div>
+
+  <div class="form-group">
+    <label>priority</label>
+    <input type="text" class="form-control" name="priority" #priority="ngModel" [(ngModel)]="ticket.priority" placeholder="priority">
+  </div>
+
+  <div class="form-group">
+    <label>text</label>
+    <input type="text" class="form-control" name="text" #text="ngModel" [(ngModel)]="ticket.text"placeholder="text">
+  </div>
+
+
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+
+
+
+
+<div class="container-fluid" ng-controller="incidentCtrl">
+    <div class="side-body">
+       
+       <div class = "row">
+         <div class="alert alert-success col-md-12" id="success-alert" style="display: none">
+             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+             <center> Incident -<strong> <u> <a href="/incident-detail/{{incidentID}}/">{{incidentID }}</a> </u></strong> has been created.  </center>
+
+         </div>
+          <div class="alert alert-danger col-md-12" id="danger-alert" style="display: none">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                 <center> <strong> Oops! </strong> Something went wrong. <br> Reason: {{errorMsg}} </center>
+
+           </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <div class="title">Create New Incident</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form class="form-horizontal" ng-submit="createIncident(data);">
+                            <div class="form-group">
+                                <label for="incidentTitle" class="col-sm-4 control-label">Title</label>
+                                <div class="col-sm-6">
+                                    <input type="text" ng-model="data.title" required class="form-control" id="incidentTitle" placeholder="Title">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                            <label for="incidentDropDown" class="col-sm-4 control-label">Incident Type</label>
+                            <div class="col-sm-6">
+                                   <select ng-model="data.incidentType" class="form-control" id="incidentDropDown">
+                                       
+                                       <option value="Change Request">Change Request</option>
+                                       <option value="Defect">Defect</option>
+                                       <option value="Request for Information">Request for Information</option>
+                                   </select>
+                                </div>
+                            </div>
+
+                           <div class="form-group">
+                            <label for="applicationDropdown" class="col-sm-4 control-label">Application</label>
+                            <div class="col-sm-2">
+                                   <select  ng-model="data.application" class="form-control" id="applicationDropdown">
+                                       
+                                       <option value="Instore Server">Server</option>
+                                       <option value="Instore PDA">PDA</option>
+                                       <option value="Server and PDA">Server and PDA </option>
+                                   </select>
+                                </div>
+                                 <label for="applnVersion" class="col-sm-2 control-label">Version</label>
+                                <div class="col-sm-2">
+                                <input type="text" ng-model="data.version" required class="form-control" id="applnVersion" placeholder="Version">
+                                 </div>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="siteName" class="col-sm-4 control-label">Site Name</label>
+                                <div class="col-sm-2">
+                                    <input type="text" ng-model="data.site" required class="form-control" id="siteName" placeholder="Site">
+                                    </div>
+                                     <label for="priority" class="col-sm-2 control-label">Priority</label>
+                                    <div class="col-sm-2">
+                                       <select ng-model="data.priority" class="form-control" id="priority">
+                                               
+                                               <option value="Low">Low</option>
+                                               <option value="Medium">Medium</option>
+                                               <option value="High">High</option>
+                                               <option value="Critical">Critical</option>
+                                               
+
+                                        </select>
+                                     </div>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="details" class="col-sm-4 control-label">Description</label>
+                                <div class="col-sm-6">
+                                    <textarea ng-model="data.description" required class="form-control" rows="7"></textarea>
+                                </div>
+                            </div>
+                           
+                            <div class="form-group">
+                                <div class="col-sm-offset-4 col-sm-6">
+                                    <button type="submit" ng-hide="submitButtonClass"  class="btn btn-md btn-success">Create</button>
+                                    <button type="button"  ng-hide="resetButtonClass" ng-click="resetForm();" class="btn btn-md btn-warning">Reset</button>
+                                    <button type="button"  ng-show="createNewButtonClass" ng-click="newIncident();" class="btn btn-md btn-info">Create New Incident</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
