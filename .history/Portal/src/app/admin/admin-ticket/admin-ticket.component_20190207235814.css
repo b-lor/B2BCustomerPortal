@@ -1,0 +1,21 @@
+
+.panel {
+  border-radius: 1px;
+}
+
+.panel .panel-heading {
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
+.side-body {
+    margin-left: 15px;
+    margin-right: 15px;
+    -webkit-transition: all 0.25s;
+    transition: all 0.25s;
+  }
+
+  .side-body.padding-top {
+    padding-top: 15px;
+  }
+

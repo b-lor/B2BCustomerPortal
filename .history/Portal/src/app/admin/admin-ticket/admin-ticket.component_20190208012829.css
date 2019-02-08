@@ -1,0 +1,191 @@
+.side-body.padding-top {
+    padding-top: 14px;
+}
+
+.side-body {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.panel {
+    border-radius: 1px; }
+    .panel .panel-heading {
+      border-top-left-radius: 2px;
+      border-top-right-radius: 2px; }
+
+.sub-title {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.sub-title > * {
+    display: inline-block;
+}
+.sub-title h3 {
+    margin-right: 10px;
+}
+.sub-title .description {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 0.9em;
+}
+.sub-title .action .btn {
+    padding: 0 0.5em;
+}
+
+
+
+.panel {
+    border-radius: 1px;
+}
+.panel .panel-heading {
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+.panel.panel-default {
+    border: 1px solid #EAEAEA;
+}
+.panel.panel-default .panel-heading {
+    border-bottom: 1px solid #EAEAEA;
+    background-color: #F0F0F0;
+}
+.panel.panel-primary {
+    border: 1px solid #3E4651;
+}
+.panel.panel-primary .panel-heading {
+    border-bottom: 1px solid #3E4651;
+    background-color: #73849d;
+    color: #FFF;
+}
+.panel.panel-success {
+    border: 1px solid #1ABC9C;
+}
+.panel.panel-success .panel-heading {
+    border-bottom: 1px solid #1ABC9C;
+    background-color: #99e9d9;
+    color: #006551;
+}
+.panel.panel-info {
+    border: 1px solid #22A7F0;
+}
+.panel.panel-info .panel-heading {
+    border-bottom: 1px solid #22A7F0;
+    background-color: #91d5fb;
+    color: #09486b;
+}
+.panel.panel-warning {
+    border: 1px solid #FABE28;
+}
+.panel.panel-warning .panel-heading {
+    border-bottom: 1px solid #FABE28;
+    background-color: #ffe5a2;
+    color: #85630f;
+}
+.panel.panel-danger {
+    border: 1px solid #fb927d;
+}
+.panel.panel-danger .panel-heading {
+    border-bottom: 1px solid #fb927d;
+    background-color: #ffb8aa;
+    color: #7c1a06;
+}
+.panel.fresh-color.panel-primary {
+    border: 1px solid #3E4651;
+}
+.panel.fresh-color.panel-primary .panel-heading {
+    border-bottom: 1px solid #3E4651;
+    background-color: #3E4651;
+    color: #FFF;
+}
+.panel.fresh-color.panel-success {
+    border: 1px solid #1ABC9C;
+}
+.panel.fresh-color.panel-success .panel-heading {
+    border-bottom: 1px solid #1ABC9C;
+    background-color: #1ABC9C;
+    color: #FFF;
+}
+.panel.fresh-color.panel-info {
+    border: 1px solid #22A7F0;
+}
+.panel.fresh-color.panel-info .panel-heading {
+    border-bottom: 1px solid #22A7F0;
+    background-color: #22A7F0;
+    color: #FFF;
+}
+.panel.fresh-color.panel-warning {
+    border: 1px solid #FABE28;
+}
+.panel.fresh-color.panel-warning .panel-heading {
+    border-bottom: 1px solid #FABE28;
+    background-color: #FABE28;
+    color: #FFF;
+}
+.panel.fresh-color.panel-danger {
+    border: 1px solid #FA2A00;
+}
+.panel.fresh-color.panel-danger .panel-heading {
+    border-bottom: 1px solid #FA2A00;
+    background-color: #FA2A00;
+    color: #FFF;
+}
+* Card */
+.card {
+  background-color: #FFF;
+  border-radius: 1px;
+  overflow: hidden;
+  position: relative; }
+  .card .card-body {
+    padding: 25px; }
+    .card .card-body .sub-title {
+      font-size: 1.2em;
+      padding: 1.2em 0em 0.4em 0em;
+      margin-bottom: 25px; }
+      .card .card-body .sub-title .description {
+        padding-left: 0.4em;
+        font-size: 0.8em;
+        opacity: 0.8; }
+  .card .card-body.half-padding {
+    padding: 12.5px; }
+  .card .card-header .card-title {
+    padding: 1.2em 25px;
+    float: left; }
+    .card .card-header .card-title .title {
+      font-family: 'Roboto Condensed', sans-serif;
+      font-size: 1.5em;
+      text-decoration: none; }
+  .card .card-header .pull-right {
+    padding: 0.5em 1em; }
+  .card .card-header:after {
+    content: '';
+    display: block;
+    clear: both; }
+  .card .card-profile-img img {
+    width: 100%;
+    height: auto; }
+  .card .card-jumbotron {
+    padding: 1.5em 1.5em; }
+
+.card:hover .card-header .title {
+  text-decoration: none !important; }
+
+.card.summary-inline .card-body {
+  padding: 20px; }
+  .card.summary-inline .card-body .content {
+    float: right; }
+    .card.summary-inline .card-body .content .title {
+      font-family: 'Lato', sans-serif;
+      margin-top: -0.3em;
+      font-size: 3.5em;
+      text-align: right; }
+    .card.summary-inline .card-body .content .sub-title {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.9em;
+      text-align: right;
+      margin-top: -10px;
+      margin-bottom: 0;
+      padding: 0;
+      border-bottom: 0; }
+
+.card.profile .card-body {
+  padding: 0.5em 0.8em; }
+
+.card.profile .card-footer {
+  padding: 0.5em 0.8em; }

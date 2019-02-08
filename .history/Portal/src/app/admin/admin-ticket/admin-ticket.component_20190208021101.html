@@ -1,0 +1,200 @@
+<div class="container-fluid">
+    <div class="side-body padding-top">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                <a href="#">
+                    <div class="card red summary-inline">
+                        <div class="card-body">
+                            <i class="icon fa fa-bug fa-4x"></i>
+                            <div class="content">
+                                <div class="title">4</div>
+                                <div class="sub-title">Issues this month</div>
+                            </div>
+                            <div class="clear-both"></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                <a href="#">
+                    <div class="card yellow summary-inline">
+                        <div class="card-body">
+                            <i class="icon fa fa-refresh fa-4x"></i>
+                            <div class="content">
+                                <div class="title">4</div>
+                                <div class="sub-title">Changes this month</div>
+                            </div>
+                            <div class="clear-both"></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                <a href="#">
+                    <div class="card green summary-inline">
+                        <div class="card-body">
+                            <i class="icon fa fa-desktop fa-4x"></i>
+                            <div class="content">
+                                <div class="title">5.1.2</div>
+                                <div class="sub-title">Version</div>
+                            </div>
+                            <div class="clear-both"></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                <a href="#">
+                    <div class="card blue summary-inline">
+                        <div class="card-body">
+                            <i class="icon fa fa-mobile fa-4x"></i>
+                            <div class="content">
+                                <div class="title">5.2.2</div>
+                                <div class="sub-title">Version</div>
+                            </div>
+                            <div class="clear-both"></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+       
+
+        <div class="row">
+             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                 <div class="panel fresh-color panel-info">
+                                <!-- Default panel contents -->
+                                <div class="panel-heading">  Latest Active Issues</div>
+                               <!-- <div class="panel-body">
+                                    <p>Some default panel content here. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                                </div> -->
+                                <!-- Table -->
+                                <table class="table table-responsive">
+                                    <thead>
+                                        <tr>
+                                            <th>Incident ID</th>
+                                            <th>Title</th>
+                                            <th>Application</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="x in data ">
+                                            <th><u>x.incidentID</u></th>
+                                            <td>x.title</td>
+                                            <td>x.application</td>
+                                            <td>x.status</td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+                </div>
+            </div>
+
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                     <div class="panel fresh-color panel-success">
+                                    <!-- Default panel contents -->
+                                    <div class="panel-heading">Latest Active Change Requests</div>
+                                  <!--  <div class="panel-body">
+                                        <p>Some default panel content here. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                                    </div> -->
+                                    <!-- Table -->
+                                    <table class="table table-responsive">
+                                        <thead>
+                                            <tr>
+                                                <th>Incident ID</th>
+                                                <th>Title</th>
+                                                <th>Application</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr ng-repeat="y in changes ">
+                                            <th><u>y.incidentID</u></th>
+                                            <td>y.title</td>
+                                            <td>y.applicahjkhkhkhjtion</td>
+                                            <td>y.status</td>
+                                        </tr>
+                                           
+                                        </tbody>
+                                    </table>
+                    </div>
+                </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="panel fresh-color panel-primary">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Request for Information</div>
+                    <!-- <div class="panel-body">
+                         <p>Some default panel content here. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                     </div> -->
+                    <!-- Table -->
+                    <table class="table table-responsive">
+                        <thead>
+                        <tr>
+                            <th>Incident ID</th>
+                            <th>Title</th>
+                            <th>Application</th>
+                            <th>Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="z in rfi ">
+                            <th><u>z.incidentID</u></th>
+                            <td>z.title</td>
+                            <td>z.application</td>
+                            <td>z.status</td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+               <!--New Panel or graphs here-->
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<div class="table-responsive">
+<table *ngIf="ticketInfo" class="table table-striped">
+
+<thead>
+  <tr>
+    <th>ticketId</th>
+    <th>issue</th>
+    <th>description</th>
+    <th>submittedBy</th>
+    <th>resolution</th>
+    <th>priority</th>
+    <th>status</th>
+    <th>text</th>
+    <th>dateSubmitted</th>
+    <th>dateUpdate</th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let ticket of ticketInfo">
+    <td>{{ ticket.ticketId }}</td>
+    <td>{{ ticket.issue }}</td>
+    <td>{{ ticket.description }}</td>
+    <td>{{ ticket.submittedBy }}</td>
+    <td>{{ ticket.resolution }}</td>
+    <td>{{ ticket.priority }}</td>
+    <td>{{ ticket.status }}</td>
+    <td>{{ ticket.text }}</td>
+    <td>{{ ticket.dateSubmitted }}</td>
+    <td>{{ ticket.dateUpdate }}</td>
+    <td><a href="/admin/ticket/detail/{{ ticket._id}}" class="btn btn-primary">Details</a> <a href="/admin/ticket/edit/{{ ticket._id }}" class="btn btn-default">Edit</a> <button id="deleteTicket" (click)="deleteTicket(ticket._id)" class="btn btn-danger">Delete</button></td>
+  </tr>
+</tbody>
+</table>
+</div>

@@ -1,0 +1,118 @@
+<h2 class="sub-header">Ticket</h2>
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="panel fresh-color panel-info">
+                           <div class="panel-heading">Latest Active Issues</div>
+                           <table class="table table-responsive">
+                               <thead>
+                                   <tr>
+                                       <th>Incident ID</th>
+                                       <th>Title</th>
+                                       <th>Application</th>
+                                       <th>Status</th>
+                                   </tr>
+                               </thead>
+                               <tbody>
+                                   <tr ng-repeat="x in data ">
+                                       <th><u>12345</u></th>
+                                       <td>title</td>
+                                       <td>theose</td>
+                                       <td>ajdsljfk</td>
+                                   </tr>
+                                   
+                               </tbody>
+                           </table>
+           </div>
+       </div>
+    
+       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="panel-success">
+                         <div class="panel-heading">Latest Active Change Requests</div>
+                         <table class="table table-responsive">
+                             <thead>
+                                 <tr>
+                                     <th>Incident ID</th>
+                                     <th>Title</th>
+                                     <th>Application</th>
+                                     <th>Status</th>
+                                 </tr>
+                             </thead>
+                             <tbody>
+                             <tr ng-repeat="y in changes ">
+                                 <th><u>y.incidentID</u></th>
+                                 <td>y.title</td>
+                                 <td>y.application</td>
+                                 <td>y.status</td>
+                             </tr>
+                                
+                             </tbody>
+                         </table>
+         </div>
+     </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="panel fresh-color panel-primary">
+                <div class="panel-heading">Request for Information</div>
+                <table class="table table-responsive">
+                    <thead>
+                    <tr>
+                        <th>Incident ID</th>
+                        <th>Title</th>
+                        <th>Application</th>
+                        <th>Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="z in rfi ">
+                        <th><u>z.incidentID</u></th>
+                        <td>z.title</td>
+                        <td>z.application</td>
+                        <td>z.status</td>
+                    </tr>
+    
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    
+
+</div>
+
+<div class="table-responsive">
+<table *ngIf="ticketInfo" class="table table-striped">
+
+<thead>
+  <tr>
+    <th>ticketId</th>
+    <th>issue</th>
+    <th>description</th>
+    <th>submittedBy</th>
+    <th>resolution</th>
+    <th>priority</th>
+    <th>status</th>
+    <th>text</th>
+    <th>dateSubmitted</th>
+    <th>dateUpdate</th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let ticket of ticketInfo">
+    <td>{{ ticket.ticketId }}</td>
+    <td>{{ ticket.issue }}</td>
+    <td>{{ ticket.description }}</td>
+    <td>{{ ticket.submittedBy }}</td>
+    <td>{{ ticket.resolution }}</td>
+    <td>{{ ticket.priority }}</td>
+    <td>{{ ticket.status }}</td>
+    <td>{{ ticket.text }}</td>
+    <td>{{ ticket.dateSubmitted }}</td>
+    <td>{{ ticket.dateUpdate }}</td>
+    <td><a href="/admin/ticket/detail/{{ ticket._id}}" class="btn btn-primary">Details</a> <a href="/admin/ticket/edit/{{ ticket._id }}" class="btn btn-default">Edit</a> <button id="deleteTicket" (click)="deleteTicket(ticket._id)" class="btn btn-danger">Delete</button></td>
+  </tr>
+</tbody>
+</table>
+</div>

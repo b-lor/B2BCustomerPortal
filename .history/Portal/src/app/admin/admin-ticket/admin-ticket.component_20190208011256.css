@@ -1,0 +1,179 @@
+.side-body.padding-top {
+    padding-top: 14px;
+}
+
+.side-body {
+    margin-left: 2px;
+    margin-right: 15px;
+}
+
+
+.card.red {
+    background-color: #FA2A00;
+    color: #FFF;
+}
+.card.yellow {
+    background-color: #ffb400;
+    color: #FFF;
+}
+.card.green {
+    background-color: #1ABC9C;
+    color: #FFF;
+}
+.card.blue {
+    background-color: #22A7F0;
+    color: #FFF;
+}
+.card.dark {
+    background-color: #3E4651;
+    color: #FFF;
+}
+.card.red, .card.yellow, .card.green, .card.blue, .card.dark {
+    border: 0;
+}
+.card.red .card-header, .card.yellow .card-header, .card.green .card-header, .card.blue .card-header, .card.dark .card-header {
+    border-bottom: 0;
+}
+.card.red .card-header .title, .card.yellow .card-header .title, .card.green .card-header .title, .card.blue .card-header .title, .card.dark .card-header .title {
+    color: #FFF;
+}
+.card {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    border: 0px solid #E4E4E4;
+}
+.card .card-header {
+    border-bottom: 1px solid #E4E4E4;
+}
+.card .card-header .title {
+    color: #3E4651;
+}
+.card .card-body .sub-title {
+    border-bottom: 1px solid #EAEAEA;
+}
+.card .card-header.no-border {
+    border-bottom: 0;
+}
+.card .card-jumbotron {
+    background-color: #EAEAEA;
+}
+.card.primary .card-jumbotron {
+    background-color: #3E4651;
+    color: #FFF;
+}
+.card.profile .card-footer {
+    border-top: 1px solid #F9F9F9;
+}
+.card.summary-inline.red:hover {
+    background-color: #7c1a06;
+}
+.card.summary-inline.yellow:hover {
+    background-color: #85630f;
+}
+.card.summary-inline.green:hover {
+    background-color: #006551;
+}
+.card.summary-inline.blue:hover {
+    background-color: #3E4651;
+}
+.card.summary-inline.dark:hover {
+    background-color: #09486b;
+}
+.card.card-success .card-header {
+    background-color: #1ABC9C;
+}
+.card.card-success .card-header .title {
+    color: #FFF;
+}
+.card.card-info .card-header {
+    background-color: #22A7F0;
+}
+.card.card-info .card-header .title {
+    color: #FFF;
+}
+.panel.panel-default {
+    border: 1px solid #EAEAEA;
+}
+.panel.panel-default .panel-heading {
+    border-bottom: 1px solid #EAEAEA;
+    background-color: #F0F0F0;
+}
+.panel.panel-primary {
+    border: 1px solid #3E4651;
+}
+.panel.panel-primary .panel-heading {
+    border-bottom: 1px solid #3E4651;
+    background-color: #73849d;
+    color: #FFF;
+}
+.panel.panel-success {
+    border: 1px solid #1ABC9C;
+}
+.panel.panel-success .panel-heading {
+    border-bottom: 1px solid #1ABC9C;
+    background-color: #99e9d9;
+    color: #006551;
+}
+.panel.panel-info {
+    border: 1px solid #22A7F0;
+}
+.panel.panel-info .panel-heading {
+    border-bottom: 1px solid #22A7F0;
+    background-color: #91d5fb;
+    color: #09486b;
+}
+.panel.panel-warning {
+    border: 1px solid #FABE28;
+}
+.panel.panel-warning .panel-heading {
+    border-bottom: 1px solid #FABE28;
+    background-color: #ffe5a2;
+    color: #85630f;
+}
+.panel.panel-danger {
+    border: 1px solid #fb927d;
+}
+.panel.panel-danger .panel-heading {
+    border-bottom: 1px solid #fb927d;
+    background-color: #ffb8aa;
+    color: #7c1a06;
+}
+.panel.fresh-color.panel-primary {
+    border: 1px solid #3E4651;
+}
+.panel.fresh-color.panel-primary .panel-heading {
+    border-bottom: 1px solid #3E4651;
+    background-color: #3E4651;
+    color: #FFF;
+}
+.panel.fresh-color.panel-success {
+    border: 1px solid #1ABC9C;
+}
+.panel.fresh-color.panel-success .panel-heading {
+    border-bottom: 1px solid #1ABC9C;
+    background-color: #1ABC9C;
+    color: #FFF;
+}
+.panel.fresh-color.panel-info {
+    border: 1px solid #22A7F0;
+}
+.panel.fresh-color.panel-info .panel-heading {
+    border-bottom: 1px solid #22A7F0;
+    background-color: #22A7F0;
+    color: #FFF;
+}
+.panel.fresh-color.panel-warning {
+    border: 1px solid #FABE28;
+}
+.panel.fresh-color.panel-warning .panel-heading {
+    border-bottom: 1px solid #FABE28;
+    background-color: #FABE28;
+    color: #FFF;
+}
+.panel.fresh-color.panel-danger {
+    border: 1px solid #FA2A00;
+}
+.panel.fresh-color.panel-danger .panel-heading {
+    border-bottom: 1px solid #FA2A00;
+    background-color: #FA2A00;
+    color: #FFF;
+}
