@@ -1,0 +1,141 @@
+<p>
+  admin-ticket-search-issue works!
+</p>
+<!-- <a href="javascript:history.back()">Go Back</a>
+
+  <div class="card">
+    <div class="card-header">
+        <div class="card-title">
+            <div class="title">Search by Issue</div>
+        </div>
+    </div>
+    <div class="card-body">
+        <form class="form-horizontal" (ngSubmit)="onSubmit()"> -->
+
+            <!-- <div class="form-group">
+                <div class="col-sm-4">
+                    <select class="form-control" name="issue" #issue="ngModel" [(ngModel)]="tickets" placeholder="Select">
+                            <option value="General">General</option>
+                            <option value="Billing">Billing</option>
+                            <option value="Shipping">Shipping</option>
+                            <option value="Online">Online</option>
+                            <option value="Other">Other</option>
+                    </select>
+                    <button type="submit" class="btn btn-md btn-block btn-warning">Search by Issue</button> 
+                </div>
+
+            </div>
+         </form> 
+    </div>
+</div> -->
+
+
+<!-- <div>
+    <label>Summary: </label>
+    <select (change)="filterForeCasts($event.target.value)">
+        <option value="0">--All--</option>
+
+        <option value="General">General</option>
+        <option value="Billing">Billing</option>
+        <option value="Shipping">Shipping</option>
+        <option value="Online">Online</option>
+        <option value="Other">Other</option>
+
+        <option *ngFor="let ticket of tickets" value={{summary}}>
+            {{summary}}
+        </option>
+    </select>
+</div> -->
+
+
+
+<!-- <div class="container">
+
+  <select [(ngModel)]="filter.issue" placeholder="Select">
+      <option value="General">General</option>
+      <option value="Billing">Billing</option>
+      <option value="Shipping">Shipping</option>
+      <option value="Online">Online</option>
+      <option value="Other">Other</option>
+</select>  
+
+</div>
+<div class="row container">
+  <ul class="col-xs-6">
+    <li class="list-group-item" 
+      *ngFor="let ticket of tickets"
+
+      (click)="select(ticket)">
+      
+      {{ticket.issue}}
+      
+    </li>
+  </ul>
+
+
+</div> -->
+<!-- 
+<div class="card-body">
+
+  <table datatable="ng"  class="row-border hover">
+      <thead>
+      <tr>
+          <th>resolution</th>
+          <th>status</th>
+          <th>Application</th>
+          <th>dateSubmitted</th>
+          <th>user</th>
+          <th>ticketId</th>
+          <th>issue</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="x in dtOptions">
+          <td><b><u><a href="/ticket/detail/{{x.ticketId}}/">{{x.ticketId}}</a></u></b></td>
+          <td>{{x.resolution}}</td>
+          <td>{{x.status}}</td>
+          <td>{{x.dateSubmitted}}</td>
+          <td>{{x.user}}</td>
+          <td>{{x.ticketId}}</td>
+          <td>{{x.issue}}</td>
+      </tr>
+
+      </tbody>
+  </table>
+</div> -->
+
+<!-- <table datatable [dtOptions]="dtOptions" class="row-border hover">
+  <tfoot>
+    <tr>
+      <th><input type="text" placeholder="Search ID" name="search-id"/></th>
+      <th><input type="text" placeholder="Search first name" name="search-first-name"/></th>
+      <th><input type="text" placeholder="Search last name" name="search-last-name"/></th>
+    </tr>
+  </tfoot>
+</table> -->
+
+<table datatable [dtOptions]="dtOptions"   class="row-border hover">
+  <thead>
+  <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Application</th>
+      <th>Type</th>
+      <th>Status</th>
+      <th>Priority</th>
+      <th>Reported Date</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let ticket of tickets">
+      <td><b><u><a href="/ticket/detail/{{x.ticketId}}/">{{x.ticketId}}</a></u></b></td>
+      <td>{{x.resolution}}</td>
+      <td>{{x.status}}</td>
+      <td>{{x.dateSubmitted}}</td>
+      <td>{{x.dateUpdate}}</td>
+      <td>{{x.user}}</td>
+      <td>{{x.issue}}</td>
+  </tr>
+
+  </tbody>
+</table>
