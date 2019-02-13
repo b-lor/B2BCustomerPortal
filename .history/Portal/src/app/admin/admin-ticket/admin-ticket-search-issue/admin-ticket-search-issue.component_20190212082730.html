@@ -1,0 +1,327 @@
+<p>
+  admin-ticket-search-issue works!
+</p>
+<!-- <a href="javascript:history.back()">Go Back</a>
+
+  <div class="card">
+    <div class="card-header">
+        <div class="card-title">
+            <div class="title">Search by Issue</div>
+        </div>
+    </div>
+    <div class="card-body">
+        <form class="form-horizontal" (ngSubmit)="onSubmit()"> -->
+
+            <!-- <div class="form-group">
+                <div class="col-sm-4">
+                    <select class="form-control" name="issue" #issue="ngModel" [(ngModel)]="tickets" placeholder="Select">
+                            <option value="General">General</option>
+                            <option value="Billing">Billing</option>
+                            <option value="Shipping">Shipping</option>
+                            <option value="Online">Online</option>
+                            <option value="Other">Other</option>
+                    </select>
+                    <button type="submit" class="btn btn-md btn-block btn-warning">Search by Issue</button> 
+                </div>
+
+            </div>
+         </form> 
+    </div>
+</div> -->
+
+<!-- 
+<div>
+    <label>Select Resolution: </label>
+    <select>
+        <option value="0">--All--</option>
+
+        <option value="General">General</option>
+        <option value="Billing">Billing</option>
+        <option value="Shipping">Shipping</option>
+        <option value="Online">Online</option>
+        <option value="Other">Other</option>
+
+    </select>
+</div> -->
+
+
+
+<!-- <div class="container">
+
+  <select [(ngModel)]="filter.issue" placeholder="Select">
+      <option value="General">General</option>
+      <option value="Billing">Billing</option>
+      <option value="Shipping">Shipping</option>
+      <option value="Online">Online</option>
+      <option value="Other">Other</option>
+</select>  
+
+</div>
+<div class="row container">
+  <ul class="col-xs-6">
+    <li class="list-group-item" 
+      *ngFor="let ticket of tickets"
+
+      (click)="select(ticket)">
+      
+      {{ticket.issue}}
+      
+    </li>
+  </ul>
+
+
+</div> -->
+<!-- 
+<div class="card-body">
+
+  <table datatable="ng"  class="row-border hover">
+      <thead>
+      <tr>
+          <th>resolution</th>
+          <th>status</th>
+          <th>Application</th>
+          <th>dateSubmitted</th>
+          <th>user</th>
+          <th>ticketId</th>
+          <th>issue</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="x in dtOptions">
+          <td><b><u><a href="/ticket/detail/{{x.ticketId}}/">{{x.ticketId}}</a></u></b></td>
+          <td>{{x.resolution}}</td>
+          <td>{{x.status}}</td>
+          <td>{{x.dateSubmitted}}</td>
+          <td>{{x.user}}</td>
+          <td>{{x.ticketId}}</td>
+          <td>{{x.issue}}</td>
+      </tr>
+
+      </tbody>
+  </table>
+</div> -->
+
+
+<!-- 
+<table datatable [dtOptions]="dtOptions"   class="row-border hover">
+  <thead>
+  <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Application</th>
+      <th>Type</th>
+      <th>Status</th>
+      <th>Priority</th>
+      <th>Reported Date</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let ticket of tickets">
+      <td><b><u><a href="/ticket/detail/{{x.ticketId}}/">{{x.ticketId}}</a></u></b></td>
+      <td>{{x.resolution}}</td>
+      <td>{{x.status}}</td>
+      <td>{{x.dateSubmitted}}</td>
+      <td>{{x.dateUpdate}}</td>
+      <td>{{x.user}}</td>
+      <td>{{x.issue}}</td>
+  </tr>
+
+  </tbody>
+</table> -->
+ <!-- <table datatable class="table row-border hover" *ngIf="tickets">
+  <thead>
+    <tr>
+      <th>Resolution</th>
+      <th>Status</th>
+      <th>Date Submitted</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ticket of this.tickets">
+      <td>{{ticket.resolution}}</td>
+      <td>{{ticket.status}}</td>
+      <td>{{ticket.dateSubmitted}}</td>
+    </tr>
+  </tbody>
+</table>  -->
+
+ <!-- <table id='table' datatable [dtOptions]="dtOptions" class="row-border hover">
+  <tfoot>
+    <tr>
+      <th><input type="text" placeholder="Search ID" name="search-id"/></th>
+      <th><input type="text" placeholder="Search first name" name="search-first-name"/></th>
+      <th><input type="text" placeholder="Search last name" name="search-last-name"/></th>
+    </tr>
+  </tfoot>
+</table>  -->
+
+<!-- <table id='table' datatable [dtOptions]="dtOptions" class="row-border hover">
+  <tfoot>
+    <tr>
+      <th><input type="text" placeholder="Search ID" name="search-id"/></th>
+      <th><input type="text" placeholder="Search first name" name="search-first-name"/></th>
+      <th><input type="text" placeholder="Search last name" name="search-last-name"/></th>
+    </tr>
+  </tfoot>
+</table> 
+
+
+<div class="container">
+  <h1>Ticket list</h1>
+  
+  <table class="table table-hover" cellspacing="0">
+    <thead>
+      <tr>
+        <th>resolution</th>
+        <th>status</th>
+        <th>dateSubmitted</th>
+        <th>ticketId</th>
+        <th>issue</th>
+        <th>description</th>
+        <th>submittedBy</th>
+        <th>priority</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ticket of tickets">
+        <td>{{ticket.resolution}}</td>
+        <td>{{ticket.status}}</td>
+        <td>{{ticket.dateSubmitted}}</td>
+        <td>{{ticket.ticketId}}</td>
+        <td>{{ticket.issue}}</td>
+        <td>{{ticket.description}}</td>
+        <td>{{ticket.submittedBy}}</td>
+        <td>{{ticket.priority}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->
+
+
+<!-- 
+
+<mat-table class="lessons-table mat-elevation-z8">
+  
+  <tr *ngFor="let ticket of tickets">
+  <ng-container matColumnDef="resolution">
+      <div *matHeaderCellDef>resolution</div>
+      <div *matCellDef="let row">{{ticket.resolution}}</div>
+  </ng-container>
+
+  <ng-container matColumnDef="status">
+      <div *matHeaderCellDef>status</div>
+      <div class="description-cell"
+                *matCellDef="let row">{{ticket.status}}</div>
+  </ng-container>
+
+  <ng-container matColumnDef="dateSubmitted">
+      <div *matHeaderCellDef>dateSubmitted</div>
+      <div class="dateSubmitted-cell"
+                *matCellDef="let row">{{ticket.dateSubmitted}}</div>
+  </ng-container>
+  
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </tr>
+</mat-table> -->
+
+
+<!-- 
+<div>
+
+  <table id="table" class="row-border hover">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Application</th>
+        <th>Type</th>
+        <th>Status</th>
+        <th>Priority</th>
+        <th>Reported Date</th>
+    </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let x of tickets">
+          <td><b><u><a href="/admin/ticket/detail/{{x._id}}/">{{x.ticketId}}</a></u></b></td>
+          <td>{{x.resolution}}</td>
+          <td>{{x.status}}</td>
+          <td>{{x.dateSubmitted}}</td>
+          <td>{{x.dateUpdate}}</td>
+          <td>{{x.priority}}</td>
+          <td>{{x.issue}}</td>
+      </tr>
+    
+      </tbody>
+
+      </table>
+
+</div> -->
+
+<!-- 
+<div>
+
+  <table datatable id="table" class="row-border hover">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Application</th>
+        <th>Type</th>
+        <th>Status</th>
+        <th>Priority</th>
+        <th>Reported Date</th>
+    </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let x of tickets">
+          <td><b><u><a href="/admin/ticket/detail/{{x._id}}/">{{x.ticketId}}</a></u></b></td>
+          <td>{{x.resolution}}</td>
+          <td>{{x.status}}</td>
+          <td>{{x.dateSubmitted}}</td>
+          <td>{{x.dateUpdate}}</td>
+          <td>{{x.priority}}</td>
+          <td>{{x.issue}}</td>
+      </tr>
+    
+      </tbody>
+
+      </table>
+
+</div>  -->
+
+
+<div class="container">
+  <div class="row">
+
+
+
+
+<table datatable  class="row-border hover">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>resolution</th>
+      <th>status</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let ticket of tickets | filter:filteredStatus:'issue'">
+          <td>{{ ticket._id }}</td>
+          <td>{{ ticket.resolution }}</td>
+          <td>{{ ticket.status }}</td>
+      </tr>
+  </tbody>
+  <tbody>
+    <tr>
+        <input type="text" [(ngModel)]="filteredStatus">
+      <td colspan="3" class="no-data-available">No data!</td>
+    </tr>
+  <tbody>
+</table>
+
+  </div>
+</div>
