@@ -18,8 +18,8 @@ const httpOptions = {
 })
 export class SearchService {
   selectedDate: DateSearch = {
-    fromDate: '',
-    toDate: '',
+    fromDate: null,
+    toDate: null,
 
   };
 
@@ -47,7 +47,7 @@ export class SearchService {
 // HttpMethods
 
 searchDate(dateSearch: DateSearch) {
-  return this.http.post(environment.apiBaseUrl + '/search/ticket/date', dateSearch, this.noAuthHeader);
+  return this.http.post(environment.apiBaseUrl + '/ticket/date', dateSearch, this.noAuthHeader);
 }
 
 

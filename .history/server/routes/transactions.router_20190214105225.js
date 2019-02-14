@@ -9,12 +9,12 @@ Transaction = require('../models/transaction.model.js');
 const ctrlTransactions = require('../controllers/transaction.controller');
 
 router.get('/customer/:customer_id', function (req, res) {
-    // console.log('server invoice/customer/' + req.params.customer_id);
+    console.log('server invoice/customer/' + req.params.customer_id);
 
     var customer_id = req.params.customer_id;
     Transaction.getCustomerTransactions(customer_id, function (err, transaction) {
-        // console.log('customer_id');
-        // console.log(customer_id);
+        console.log('customer_id');
+        console.log(customer_id);
 
         // console.log('transaction');
         // console.log(transaction);
@@ -108,33 +108,6 @@ router.put('/:id', (req, res) => {
 //         res.json(transaction);
 //     });
 // });
-
-
-/////////////////////////
-
-
-router.get('/customer/invoice/:customer_id', function (req, res) {
-    var customer_id = req.params.customer_id;
-    Transaction.getCustomerInvoiceTotal(customer_id, function (err, transaction) {
-
-        if (err) {
-            res.send(err);
-        }
-        res.json(transaction);
-    });
-});
-
-router.get('/customer/sales/:customer_id', function (req, res) {
-
-    var customer_id = req.params.customer_id;
-    Transaction.getCustomerSalesTotal(customer_id, function (err, transaction) {
-
-        if (err) {
-            res.send(err);
-        }
-        res.json(transaction);
-    });
-});
 
 
 module.exports = router;

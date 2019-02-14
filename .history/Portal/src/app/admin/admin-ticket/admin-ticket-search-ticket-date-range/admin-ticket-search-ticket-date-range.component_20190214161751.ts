@@ -21,7 +21,7 @@ export class AdminTicketSearchTicketDateRangeComponent implements OnInit {
     this.searchService.searchDate(form.value).subscribe(
       res => {
        console.log('res');
-       console.log(form.value);
+       console.log(res);
         this.showSuccessMessage = true;
         setTimeout(() => this.showSuccessMessage = false, 4000);
         this.resetForm(form);

@@ -1,0 +1,25 @@
+<div class="card">
+  <div class="card-header">
+      <div class="card-title">
+          <div class="title">Search by Incident ID</div>
+      </div>
+  </div>
+  <div class="card-body">
+      <form class="form-horizontal" ng-submit="searchByDate(dateObj);">
+
+          <div class="form-group">
+              <label for="fromDate" class="col-sm-2 control-label">From date</label>
+              <div class="col-sm-2">
+                  <input type="date"  required ng-model="dateObj.fromDate" class="form-control" id="fromDate"  />
+              </div>
+              <label for="toDate" class="col-sm-2 control-label">To Date</label>
+              <div class="col-sm-2">
+                  <input type="date"  required ng-model="dateObj.toDate" class="form-control" id="toDate"  />
+                  <button type="submit" class="btn btn-md btn-block btn-success">Search by Date</button>
+              </div>
+
+
+          </div>
+      </form>
+  </div>
+</div>

@@ -32,7 +32,7 @@
             </a>
           </li>
           <li>
-            <a routerLink="ticket/search/date" [routerLinkActive]="['router-link-active']">
+            <a routerLink="ticket/date" [routerLinkActive]="['router-link-active']">
               <i class="fa fa-monument"></i>&nbsp;
               <span>{{ 'Search By Date' }}</span>
             </a>
@@ -88,6 +88,19 @@
                   </ul>
                 </li>
               </div>
+
+
+
+   
+    <a [routerLink]="['/blank-page']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+      <i class="fa fa-file-o"></i>&nbsp;
+      <span>{{ 'Blank Page'}}</span>
+    </a>
+    <a href="http://www.strapui.com/" class="list-group-item">
+      <i class="fa fa-caret-down"></i>&nbsp;
+      <span>{{ 'More Themes'}}</span>
+    </a>
+
     <div class="header-fields">
       <a (click)="rltAndLtr()" class="list-group-item">
         <span><i class="fa fa-arrows-h"></i>&nbsp; RTL/LTR</span>

@@ -5,10 +5,6 @@ import { map, catchError } from 'rxjs/internal/operators';
 import { environment } from '../../environments/environment';
 import { User } from './user.model.admin';
 import { Observable, of, throwError } from 'rxjs';
-import 'rxjs/add/observable/throw';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
-import { CustomerDashboardComponent } from '../customer/customer-dashboard/customer-dashboard.component';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -24,6 +20,11 @@ export class UserAdminService {
 
   constructor(private http: HttpClient) { }
 
+  // getUsers() {
+  //   return this.http.get(environment.apiBaseUrl + '/user', this.noAuthHeader).pipe(map((response: any) =>
+  //     response.map(user => new User().deserialize(user)))
+  //   );
+  // }
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       console.error('An error occurred:', error.error.message);
@@ -36,7 +37,7 @@ export class UserAdminService {
   };
 
   private userData(res: Response) {
-    const body = res;
+    let body = res;
     return body || { };
   }
 
@@ -44,8 +45,6 @@ export class UserAdminService {
     return this.http.get(environment.apiBaseUrl + '/user/', httpOptions).pipe(map(this.userData),
       catchError(this.handleError));
   }
-
-
 
   getUser(id): Observable<any> {
     return this.http.get(environment.apiBaseUrl + '/user/' + id, httpOptions).pipe(map(this.userData),

@@ -47,7 +47,7 @@ export class SearchService {
 // HttpMethods
 
 searchDate(dateSearch: DateSearch) {
-  return this.http.post(environment.apiBaseUrl + '/search/ticket/date', dateSearch, this.noAuthHeader);
+  return this.http.post(environment.apiBaseUrl + '/ticket/date', dateSearch, this.noAuthHeader);
 }
 
 

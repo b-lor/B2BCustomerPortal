@@ -133,22 +133,3 @@ module.exports.getCustomerTransactions = function (customer_id, callback, limit)
 
 	Transaction.find(query, callback).limit(limit).populate('user').sort([['salesOrder', 'ascending']]);
 }
-////////////////////////
-
-
-// Get Customer Summary
-module.exports.getCustomerInvoiceTotal = function (customer_id, callback, limit) {
-	var query = { user: customer_id };
-
-	console.log('model: ' + customer_id);
-
-	Transaction.find(query, callback);
-}
-
-module.exports.getCustomerSalesTotal = function (customer_id, callback, limit) {
-	var query = { user: customer_id };
-
-	console.log('model: ' + customer_id);
-
-	Transaction.find(query, callback);
-}
