@@ -6,6 +6,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ErrorComponent } from './error/error.component';
 import { ForgotPasswordComponent } from './user/forgot-password/forgot-password.component';
+
 import { AuthGuard } from './auth/auth.guard';
 
 export const appRoutes: Routes = [

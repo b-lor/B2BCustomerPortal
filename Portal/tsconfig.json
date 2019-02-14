@@ -10,11 +10,6 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "paths": {
-      "@angular/*": [
-        "../node_modules/@angular/*"
-      ]
-    },
     "target": "es6",
     "typeRoots": [
       "node_modules/@types"

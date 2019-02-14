@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { DataTablesModule } from 'angular-datatables';
 import { AdminTicketSearchIssueComponent } from './admin-ticket-search-issue.component';
-// import { FilterPipe } from './filter.pipe';
+import { FilterPipe } from './filter.pipe';
 // import { IssuePipe } from '../../../pipes/issue.pipe';
 // import { SearchIssueComponent } from './search-issue.component';
 
@@ -11,7 +11,7 @@ import { AdminTicketSearchIssueComponent } from './admin-ticket-search-issue.com
 @NgModule({
   declarations: [
     AdminTicketSearchIssueComponent,
-    // FilterPipe
+    FilterPipe
     // // SearchIssueComponent,
     // IssuePipe
   ],

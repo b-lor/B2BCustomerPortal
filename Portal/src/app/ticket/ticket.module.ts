@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TicketRoutingModule } from '././ticket-routing.module';
-import { MatInputModule, MatPaginatorModule, MatProgressSpinnerModule, MatSortModule, MatTableModule } from '@angular/material';
 
 import { TicketComponent } from './ticket.component';
 
@@ -27,11 +26,6 @@ import { TicketSearchComponent } from '../ticket/ticket-search/ticket-search.com
     CommonModule,
     FormsModule,
     TicketRoutingModule,
-    MatInputModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [TicketDashboardComponent]

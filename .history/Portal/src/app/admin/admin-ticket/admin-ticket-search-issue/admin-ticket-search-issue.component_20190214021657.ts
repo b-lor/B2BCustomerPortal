@@ -64,7 +64,7 @@ export class AdminTicketSearchIssueComponent implements OnInit, OnDestroy {
         processing: true,
         dom: 'Bfrtip',
       buttons: [
-        'copy', 'print', 'csv',  'pdf', 'excel', 'colvis']
+        'copy', 'print', 'csv',  'pdf', 'excel', 'colvis', 'ExportButton']
     };
       this.ticketService.getTickets().subscribe(data => {
         this.tickets = data;

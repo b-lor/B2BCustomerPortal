@@ -39,8 +39,7 @@ export class AdminTicketSearchIssueComponent implements OnInit, OnDestroy {
        'https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js',
        'https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js',
        'https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js',
-       'https://cdn.datatables.net/select/1.2.7/js/dataTables.select.min.js',
-       './test.js'
+       'https://cdn.datatables.net/select/1.2.7/js/dataTables.select.min.js'
       ];
       for (let i = 0; i < dynamicScripts.length; i++) {
         const node = document.createElement('script');
@@ -59,13 +58,29 @@ export class AdminTicketSearchIssueComponent implements OnInit, OnDestroy {
      ngOnInit(): void {
       this.dtOptions = {
         pagingType: 'full_numbers',
-        serverSide : false,
         pageLength: 50,
         processing: true,
         dom: 'Bfrtip',
-      buttons: [
-        'copy', 'print', 'csv',  'pdf', 'excel', 'colvis']
-    };
+        buttons: [
+          {
+            text: 'PDF',
+            action: function(e, dt, button, config) {
+              dt.one('preXhr', function(e, s, data) {
+                data.length = -1;
+              // tslint:disable-next-line:no-shadowed-variable
+              }).one('draw', function(e, settings, json, xhr) {
+                const pdfButtonConfig = $.fn.DataTable.ext.buttons.pdfHtml5;
+                const addOptions = { exportOptions: { 'columns' : ':visible' }};
+
+                $.extend(true, pdfButtonConfig, addOptions);
+                pdfButtonConfig.action(e, dt, button, pdfButtonConfig);
+              }).draw();
+            }
+          }
+      ]};
+    //   buttons: [
+    //     'copy', 'print', 'csv',  'pdf', 'excel', 'colvis']
+    // };
       this.ticketService.getTickets().subscribe(data => {
         this.tickets = data;
 

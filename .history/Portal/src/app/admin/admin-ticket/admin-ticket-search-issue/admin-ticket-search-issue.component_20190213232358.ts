@@ -38,9 +38,6 @@ export class AdminTicketSearchIssueComponent implements OnInit, OnDestroy {
        'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js',
        'https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js',
        'https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js',
-       'https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js',
-       'https://cdn.datatables.net/select/1.2.7/js/dataTables.select.min.js',
-       './test.js'
       ];
       for (let i = 0; i < dynamicScripts.length; i++) {
         const node = document.createElement('script');
@@ -59,13 +56,12 @@ export class AdminTicketSearchIssueComponent implements OnInit, OnDestroy {
      ngOnInit(): void {
       this.dtOptions = {
         pagingType: 'full_numbers',
-        serverSide : false,
         pageLength: 50,
         processing: true,
         dom: 'Bfrtip',
-      buttons: [
-        'copy', 'print', 'csv',  'pdf', 'excel', 'colvis']
-    };
+        buttons: [
+          'copy', 'print', 'csv',  'pdf', 'excel', 'colvis']
+      };
       this.ticketService.getTickets().subscribe(data => {
         this.tickets = data;
 

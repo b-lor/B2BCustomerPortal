@@ -1,29 +1,16 @@
+<table class="table-fill">
+  <thead>
+      <tr>
+          <th colspan="2" class="text-center">Ticket Profile</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td colspan="2" class="text-center">
+              <input type="button" (click)="onLogout()" value="Logout" />
+          </td>
+      </tr>
+  </tbody>
+</table>
 
 <router-outlet></router-outlet>
-
-
-<mat-table class="lessons-table mat-elevation-z8">
-  
-    <tr *ngFor="let ticket of tickets">
-    <ng-container matColumnDef="resolution">
-        <div *matHeaderCellDef>resolution</div>
-        <div *matCellDef="let row">{{ticket.resolution}}</div>
-    </ng-container>
-  
-    <ng-container matColumnDef="status">
-        <div *matHeaderCellDef>status</div>
-        <div class="description-cell"
-                  *matCellDef="let row">{{ticket.status}}</div>
-    </ng-container>
-  
-    <ng-container matColumnDef="dateSubmitted">
-        <div *matHeaderCellDef>dateSubmitted</div>
-        <div class="dateSubmitted-cell"
-                  *matCellDef="let row">{{ticket.dateSubmitted}}</div>
-    </ng-container>
-    
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    
-    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
-    </tr>
-  </mat-table>

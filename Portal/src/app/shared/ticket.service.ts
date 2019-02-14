@@ -6,9 +6,6 @@ import { environment } from '../../environments/environment';
 import { Ticket } from './ticket.model';
 import { User } from './user.model';
 import { Observable, of, throwError } from 'rxjs';
-import 'rxjs/add/operator/map';
-
-
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -32,14 +29,14 @@ export class TicketService {
         `body was: ${error.error}`);
     }
     return throwError('Something bad happened; please try again later.');
-  }
+  };
 
   private userData(res: Response) {
-    const body = res;
+    let body = res;
     return body || { };
   }
 
-   // HttpMethods
+   //HttpMethods
 
    getTickets() {
     return this.http.get(environment.apiBaseUrl + '/ticket/', this.noAuthHeader).pipe(map((response: any) =>
@@ -47,11 +44,10 @@ export class TicketService {
     );
   }
   getTicketIssues() {
-    return this.http.get(environment.apiBaseUrl + '/ticket/issues', this.noAuthHeader).pipe(map((response: any) =>
+    return this.http.get(environment.apiBaseUrl + '/ticket/issue', this.noAuthHeader).pipe(map((response: any) =>
       response.map(transaction => new Ticket().deserialize(transaction)))
     );
-}
-
+  }
   getTicket(id): Observable<any> {
     return this.http.get(environment.apiBaseUrl + '/ticket/' + id, httpOptions).pipe(map(this.userData),
       catchError(this.handleError));
@@ -67,7 +63,7 @@ export class TicketService {
 
   updateTicket(id, ticket) {
     console.log('service file');
-    return this.http.put(environment.apiBaseUrl + '/ticket/' + id , ticket, this.noAuthHeader);
+    return this.http.put(environment.apiBaseUrl + '/ticket/' +id , ticket, this.noAuthHeader);
   }
 
   getCustomerTicket(id) {
@@ -75,12 +71,6 @@ export class TicketService {
       response.map(ticket => new Ticket().deserialize(ticket)))
     );
   }
-
-  filterIssues() {
-    return this.http.post(environment.apiBaseUrl + '/filter', this.noAuthHeader).pipe(map((response: any) =>
-      response.map(transaction => new Ticket().deserialize(transaction)))
-    );
-}
 
 
 }
