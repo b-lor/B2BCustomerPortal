@@ -76,10 +76,5 @@ export class TicketService {
       response.map(transaction => new Ticket().deserialize(transaction)))
     );
   }
-  closedTicketSearch() {
-    return this.http.get(environment.apiBaseUrl + '/ticket/closed', this.noAuthHeader).pipe(map((response: any) =>
-      response.map(transaction => new Ticket().deserialize(transaction)))
-    );
-  }
 
 }

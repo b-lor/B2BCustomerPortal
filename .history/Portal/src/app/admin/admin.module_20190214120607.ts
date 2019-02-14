@@ -48,7 +48,6 @@ import { AdminTicketSearchTrackerDateRangeComponent } from './admin-ticket/admin
 import { AdminTicketSearchTrackerComponent } from './admin-ticket/admin-ticket-search-tracker/admin-ticket-search-tracker.component';
 
 import { DataTablesModule } from 'angular-datatables';
-import { AdminTicketClosedComponent } from './admin-ticket/admin-ticket-closed/admin-ticket-closed.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +85,6 @@ import { AdminTicketClosedComponent } from './admin-ticket/admin-ticket-closed/a
     AdminTicketSearchTicketDateRangeComponent,
     AdminTicketSearchTrackerDateRangeComponent,
     AdminTicketSearchTrackerComponent,
-    AdminTicketClosedComponent,
   ],
   imports: [
     CommonModule,

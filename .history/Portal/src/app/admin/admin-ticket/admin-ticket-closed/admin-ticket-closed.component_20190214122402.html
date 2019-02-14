@@ -3,7 +3,7 @@
     
       <thead>
         <tr>
-          <th>Details</th>
+          <!-- <th>Name</th> -->
           <th>Ticket ID</th>
           <th>Issue</th>
           <th>Description</th>
@@ -19,8 +19,8 @@
       </thead>
       <tbody>
         <tr *ngFor="let ticket of tickets">
-          <td><a href="/admin/ticket/detail/{{ticket._id}}" target="_blank">Details</a></td>
-          <td>{{ticket.ticketId}}</td>
+            <!-- <td>{{ticket.user.firstName}} {{ticket.user.lastName}}</td> -->
+            <td>{{ticket.ticketId}}</td>
             <td>{{ticket.issue}}</td>
             <td>{{ticket.description}}</td>
             <td>{{ticket.submittedBy}}</td>

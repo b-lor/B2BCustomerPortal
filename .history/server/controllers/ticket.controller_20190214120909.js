@@ -28,14 +28,6 @@ module.exports.getOpenTickets = (req, res, next) => {
     });
 }
 
-module.exports.getClosedTickets = (req, res, next) => {
-
-    Ticket.find({}).where('status').eq(['Closed']).populate('user').exec(function (err, result) {
-        // Ticket.find({issue:'Service'}).populate('user').exec(function (err, result) {
-        return res.status(200).json(result);
-    });
-}
-
 module.exports.getTicketById = (req, res, next) => {
 
     var query = { _id: req.params.id };

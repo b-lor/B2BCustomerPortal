@@ -14,6 +14,12 @@
       <li class="nested" [class.expand]="showTicket === 'pages'">
         <ul class="submenu">
           <li>
+            <a routerLink="ticket" [routerLinkActive]="['router-link-active']">
+              <i class="fa fa-monument"></i>&nbsp;
+              <span>{{ 'Tickets' }}</span>
+            </a>
+          </li>
+          <li>
             <a routerLink="ticket/add" [routerLinkActive]="['router-link-active']">
               <i class="fa fa-monument"></i>&nbsp;
               <span>{{ 'Add Ticket' }}</span>

@@ -9,7 +9,7 @@
 
       <fieldset class="form-group col-lg-6">
         <input class="form-control" disabled name="submittedBy" #submittedBy="ngModel" [(ngModel)]="ticket.submittedBy"
-          (ngModelChange)="insertID(ticket)" placeholder="*** Automatically Generated ***">
+          (ngModelChange)="insertID(ticket)" placeholder="*** Automatically Generated">
       </fieldset>
 
 
@@ -31,6 +31,7 @@
       </fieldset>
 
       <button type="submit" class="btn btn-secondary">Submit Button</button>
+      <button type="reset" class="btn btn-secondary">Reset Button</button>
 
     </form>
 

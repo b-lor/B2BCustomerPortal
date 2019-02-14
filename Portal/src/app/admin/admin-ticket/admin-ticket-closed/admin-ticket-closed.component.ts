@@ -9,13 +9,13 @@ import 'datatables.net';
 import 'datatables.net-bs4';
 // import { ScriptService } from '../../../shared/script.service';
 
+
 @Component({
-  selector: 'app-admin-ticket-search',
-  templateUrl: './admin-ticket-search.component.html',
-  styleUrls: ['./admin-ticket-search.component.css'],
-  
+  selector: 'app-admin-ticket-closed',
+  templateUrl: './admin-ticket-closed.component.html',
+  styleUrls: ['./admin-ticket-closed.component.css']
 })
-export class AdminTicketSearchComponent implements OnInit, OnDestroy {
+export class AdminTicketClosedComponent implements OnInit, OnDestroy {
 
   tickets: any[] = [];
   dtOptions: any = {};
@@ -68,7 +68,7 @@ export class AdminTicketSearchComponent implements OnInit, OnDestroy {
       buttons: [
         'copy', 'print', 'csv',  'pdf', 'excel', 'colvis']
     };
-      this.ticketService.openTicketSearch().subscribe(data => {
+      this.ticketService.closedTicketSearch().subscribe(data => {
         this.tickets = data;
 
         this.chRef.detectChanges();

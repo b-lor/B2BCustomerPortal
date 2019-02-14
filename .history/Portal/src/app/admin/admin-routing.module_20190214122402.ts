@@ -42,7 +42,7 @@ import { AdminTicketSearchTrackerDateRangeComponent } from './admin-ticket/admin
 import { AdminTicketSearchTrackerComponent } from './admin-ticket/admin-ticket-search-tracker/admin-ticket-search-tracker.component';
 import { AdminTicketSearchIssueComponent } from './admin-ticket/admin-ticket-search-issue/admin-ticket-search-issue.component';
 
-import { AdminTicketClosedComponent } from './admin-ticket/admin-ticket-closed/admin-ticket-closed.component';
+import { AdminTicketClosedComponent } from './admin-ticket/admin-ticket-closed';
 
 const routes: Routes = [
 

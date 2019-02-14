@@ -68,7 +68,7 @@ export class AdminTicketSearchComponent implements OnInit, OnDestroy {
       buttons: [
         'copy', 'print', 'csv',  'pdf', 'excel', 'colvis']
     };
-      this.ticketService.openTicketSearch().subscribe(data => {
+      this.ticketService.ticketSearch().subscribe(data => {
         this.tickets = data;
 
         this.chRef.detectChanges();
