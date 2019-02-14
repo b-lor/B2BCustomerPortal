@@ -64,7 +64,7 @@ export class AdminTicketSearchComponent implements OnInit, OnDestroy {
         serverSide : false,
         pageLength: 25,
         processing: true,
-        dom: 'lBfrtip',
+        dom: 'Bfrtip',
       buttons: [
         'copy', 'print', 'csv',  'pdf', 'excel', 'colvis']
     };

@@ -27,9 +27,6 @@ router.get('/', ctrlTicket.getTickets);
 // get all ticket
 router.get('/issue/', ctrlTicket.getTicketIssues);
 
-// get all ticket not closed
-router.get('/open/', ctrlTicket.getOpenTickets);
-
 // get single ticket
 router.get('/:id', ctrlTicket.getTicketById);
 

@@ -62,9 +62,9 @@ export class AdminTicketSearchComponent implements OnInit, OnDestroy {
         pagingType: 'full_numbers',
         destroy: true,
         serverSide : false,
-        pageLength: 25,
+        pageLength: 50,
         processing: true,
-        dom: 'lBfrtip',
+        dom: 'Bfrtip',
       buttons: [
         'copy', 'print', 'csv',  'pdf', 'excel', 'colvis']
     };

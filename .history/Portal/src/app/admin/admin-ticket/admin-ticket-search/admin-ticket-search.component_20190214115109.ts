@@ -62,9 +62,9 @@ export class AdminTicketSearchComponent implements OnInit, OnDestroy {
         pagingType: 'full_numbers',
         destroy: true,
         serverSide : false,
-        pageLength: 25,
+        pageLength: 50,
         processing: true,
-        dom: 'lBfrtip',
+        dom: 'Bfrtip',
       buttons: [
         'copy', 'print', 'csv',  'pdf', 'excel', 'colvis']
     };
@@ -73,15 +73,15 @@ export class AdminTicketSearchComponent implements OnInit, OnDestroy {
 
         this.chRef.detectChanges();
         this.dtTrigger.next();
-        // const table: any = $('table');
+        const table: any = $('table');
 
-        // this.dataTable = table.DataTable();
+        this.dataTable = table.DataTable();
 
-// console.log('table');
-// console.log(table);
+console.log('table');
+console.log(table);
 
-// console.log('datatable');
-// console.log(this.dataTable);
+console.log('datatable');
+console.log(this.dataTable);
 
 
       });

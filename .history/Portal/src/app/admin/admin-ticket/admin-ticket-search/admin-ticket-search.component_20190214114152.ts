@@ -60,11 +60,10 @@ export class AdminTicketSearchComponent implements OnInit, OnDestroy {
      ngOnInit(): void {
       this.dtOptions = {
         pagingType: 'full_numbers',
-        destroy: true,
         serverSide : false,
-        pageLength: 25,
+        pageLength: 50,
         processing: true,
-        dom: 'lBfrtip',
+        dom: 'Bfrtip',
       buttons: [
         'copy', 'print', 'csv',  'pdf', 'excel', 'colvis']
     };
@@ -72,18 +71,17 @@ export class AdminTicketSearchComponent implements OnInit, OnDestroy {
         this.tickets = data;
 
         this.chRef.detectChanges();
+        const table: any = $('table');
+
+        this.dataTable = table.DataTable();
+
+console.log('table');
+console.log(table);
+
+console.log('datatable');
+console.log(this.dataTable);
+
         this.dtTrigger.next();
-        // const table: any = $('table');
-
-        // this.dataTable = table.DataTable();
-
-// console.log('table');
-// console.log(table);
-
-// console.log('datatable');
-// console.log(this.dataTable);
-
-
       });
     }
 

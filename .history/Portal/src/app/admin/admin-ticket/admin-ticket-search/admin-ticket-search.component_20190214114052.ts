@@ -31,7 +31,8 @@ export class AdminTicketSearchComponent implements OnInit, OnDestroy {
       const dynamicScripts = [
         'https://code.jquery.com/jquery-3.3.1.js',
        'https://platform.twitter.com/widgets.js',
-       'https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js',
+       'https://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js',
+      //  'https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js',
        'https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js',
        'https://cdn.datatables.net/buttons/1.5.2/js/buttons.flash.min.js',
        'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js',
@@ -60,11 +61,10 @@ export class AdminTicketSearchComponent implements OnInit, OnDestroy {
      ngOnInit(): void {
       this.dtOptions = {
         pagingType: 'full_numbers',
-        destroy: true,
         serverSide : false,
-        pageLength: 25,
+        pageLength: 50,
         processing: true,
-        dom: 'lBfrtip',
+        dom: 'Bfrtip',
       buttons: [
         'copy', 'print', 'csv',  'pdf', 'excel', 'colvis']
     };
@@ -72,18 +72,17 @@ export class AdminTicketSearchComponent implements OnInit, OnDestroy {
         this.tickets = data;
 
         this.chRef.detectChanges();
+        const table: any = $('table');
+
+        this.dataTable = table.DataTable();
+
+console.log('table');
+console.log(table);
+
+console.log('datatable');
+console.log(this.dataTable);
+
         this.dtTrigger.next();
-        // const table: any = $('table');
-
-        // this.dataTable = table.DataTable();
-
-// console.log('table');
-// console.log(table);
-
-// console.log('datatable');
-// console.log(this.dataTable);
-
-
       });
     }
 

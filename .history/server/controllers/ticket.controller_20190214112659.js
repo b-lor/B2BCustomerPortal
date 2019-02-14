@@ -20,7 +20,7 @@ module.exports.getTicketIssues = (req, res, next) => {
     });
 }
 
-module.exports.getOpenTickets = (req, res, next) => {
+module.exports.getTicketFilter = (req, res, next) => {
 
     Ticket.find({}).where('status').nin(['Closed']).limit(100).populate('user').exec(function (err, result) {
         // Ticket.find({issue:'Service'}).populate('user').exec(function (err, result) {
