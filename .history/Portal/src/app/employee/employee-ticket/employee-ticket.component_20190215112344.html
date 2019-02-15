@@ -1,0 +1,85 @@
+<!-- <h2 class="sub-header">Ticket</h2>
+<div class="table-responsive">
+<table *ngIf="ticketInfo" class="table table-striped">
+
+<thead>
+    <tr>
+      <th colspan="2" class="text-center">User Profile</th>
+    </tr>
+    <a href="/employee/ticket/add" class="btn btn-primary">Add</a>
+    <th>department</th>
+    <td>{{ department }}</td></thead>
+<thead>
+  <tr>
+
+    <th>user</th>
+    <th>ticketId</th>
+    <th>issue</th>
+    <th>description</th>
+    <th>submittedBy</th>
+    <th>resolution</th>
+    <th>priority</th>
+    <th>status</th>
+    <th>text</th>
+    <th>dateSubmitted</th>
+    <th>dateUpdate</th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let ticket of ticketInfo">
+
+    <td *ngIf= "(ticket.issue == department)">{{ ticket.user._id }}</td>
+    <td *ngIf= "(ticket.issue == department)">{{ ticket.ticketId }}</td>
+    <td *ngIf= "(ticket.issue == department)">{{ ticket.issue }}</td>
+    <td *ngIf= "(ticket.issue == department)">{{ ticket.description }}</td>
+    <td *ngIf= "(ticket.issue == department)">{{ ticket.submittedBy }}</td>
+    <td *ngIf= "(ticket.issue == department)">{{ ticket.resolution }}</td>
+    <td *ngIf= "(ticket.issue == department)">{{ ticket.priority }}</td>
+    <td *ngIf= "(ticket.issue == department)">{{ ticket.status }}</td>
+    <td *ngIf= "(ticket.issue == department)">{{ ticket.text }}</td>
+    <td *ngIf= "(ticket.issue == department)">{{ ticket.dateSubmitted }}</td>
+    <td *ngIf= "(ticket.issue == department)">{{ ticket.dateUpdate }}</td> 
+  <td><a href="/employee/ticket/detail/{{ ticket._id}}" class="btn btn-primary">Details</a> <a href="/employee/ticket/edit/{{ ticket._id }}" class="btn btn-default">Edit</a> <button id="deleteTicket" (click)="deleteTicket(ticket._id)" class="btn btn-danger">Delete</button></td> 
+  </tr>
+</tbody>
+</table>
+</div> -->
+
+
+
+<table datatable [dtOptions]="dtOptions" class="row-border hover"[dtTrigger]="dtTrigger">
+    
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+        <th>Ticket ID</th>
+        <th>Issue</th>
+        <th>Description</th>
+        <th>Submitted By</th>
+        <!-- <th>Resolution</th> -->
+        <th>Priority</th>
+        <th>Status</th>
+        <th>Text</th>
+        <th>Date Submitted</th>
+        <th>Last Updated On</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ticket of ticketInfo">
+          <td *ngIf= "(ticket.issue == department)"><a href="/admin/ticket/detail/{{ticket._id}}"><img src="../../../../assets/images/details.png" width="30" height="30" title="Details"/></a></td>
+          <td *ngIf= "(ticket.issue == department)"><a href="/admin/ticket/edit/{{ticket._id}}"><img src="../../../../assets/images/edit.png" width="35" height="35" title="Edit"/></a></td>
+          <td *ngIf= "(ticket.issue == department)">{{ticket.ticketId}}</td>
+          <td *ngIf= "(ticket.issue == department)">{{ticket.issue}}</td>
+          <td *ngIf= "(ticket.issue == department)">{{ticket.description}}</td>
+          <td *ngIf= "(ticket.issue == department)">{{ticket.submittedBy}}</td>
+          <!-- <td *ngIf= "(ticket.issue == department)">{{ticket.resolution}}</td> -->
+          <td *ngIf= "(ticket.issue == department)">{{ticket.priority}}</td>
+          <td *ngIf= "(ticket.issue == department)">{{ticket.status}}</td>
+          <td *ngIf= "(ticket.issue == department)">{{ticket.text}}</td>
+          <td *ngIf= "(ticket.issue == department)">{{ticket.dateSubmitted | date:formatsDate}}</td>
+          <td *ngIf= "(ticket.issue == department)">{{ticket.dateUpdate | date:formatsDate}}</td>
+      </tr>
+    </tbody>
+  </table>

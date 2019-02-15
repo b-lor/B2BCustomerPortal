@@ -18,8 +18,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let ticket of tickets">
-          <td><a href="/employee/ticket/detail/{{ticket._id}}"><img src="../../../assets/images/details.png" width="30" height="30" title="Details"/></a></td>
+        <tr *ngFor="let ticket of tickets">
+      <ng-container *ngIf= "(ticket.issue == department)">
+
+          <td><a href="/empmloyee/ticket/detail/{{ticket._id}}"><img src="../../../assets/images/details.png" width="30" height="30" title="Details"/></a></td>
           <td><a href="/employee/ticket/edit/{{ticket._id}}"><img src="../../../assets/images/edit.png" width="35" height="35" title="Edit"/></a></td>
         <td>{{ticket.ticketId}}</td>
           <td>{{ticket.issue}}</td>
@@ -31,6 +33,9 @@
           <td>{{ticket.text}}</td>
           <td>{{ticket.dateSubmitted | date:formatsDate}}</td>
           <td>{{ticket.dateUpdate | date:formatsDate}}</td>
+      </ng-container>
+
+
       </tr>
     </tbody>
   </table>

@@ -25,7 +25,6 @@ const routes: Routes = [
     component: EmployeeComponent,
     canActivate: [AuthGuard, EmployeeGuard],
     children: [
-
       { path: 'dashboard', component: EmployeeDashboardComponent },
       { path: '', redirectTo: 'dashboard', pathMatch: 'prefix' },
 

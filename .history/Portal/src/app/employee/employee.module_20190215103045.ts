@@ -2,6 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { EmployeeRoutingModule } from '././employee-routing.module';
+import { TimelineComponent, NotificationComponent, ChatComponent } from './components';
+
+import { NgbCarouselModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
+import { StatModule } from '../../app/share';
+import { TranslateModule } from '@ngx-translate/core';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { DataTablesModule } from 'angular-datatables';
+
 
 import { EmployeeComponent } from './employee.component';
 
@@ -15,8 +23,10 @@ import { EmployeeTicketAddComponent } from './employee-ticket/employee-ticket-ad
 import { EmployeeTicketDetailsComponent } from './employee-ticket/employee-ticket-details/employee-ticket-details.component';
 import { EmployeeTicketEditComponent } from './employee-ticket/employee-ticket-edit/employee-ticket-edit.component';
 import { EmployeeLoginComponent } from './employee-login/employee-login.component';
-import { DataTablesModule } from 'angular-datatables';
 
+import { HeaderComponent } from './components-nav/header/header.component';
+import { SidebarComponent } from './components-nav/sidebar/sidebar.component';
+import { PageHeaderModule } from '../share/';
 
 @NgModule({
   declarations: [
@@ -28,14 +38,25 @@ import { DataTablesModule } from 'angular-datatables';
     EmployeeTicketAddComponent,
     EmployeeTicketDetailsComponent,
     EmployeeTicketEditComponent,
-    EmployeeLoginComponent
+    EmployeeLoginComponent,
+    TimelineComponent,
+    NotificationComponent,
+    ChatComponent,
+    HeaderComponent,
+    SidebarComponent,
+    PageHeaderModule
 
   ],
   imports: [
     CommonModule,
     FormsModule,
     EmployeeRoutingModule,
-    DataTablesModule
+    NgbCarouselModule,
+    StatModule,
+    TranslateModule,
+    NgbDropdownModule,
+    DataTablesModule,
+    NgbAlertModule
   ],
   providers: [],
   bootstrap: [EmployeeDashboardComponent]

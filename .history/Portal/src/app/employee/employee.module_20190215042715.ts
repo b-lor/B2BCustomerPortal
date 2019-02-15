@@ -15,7 +15,6 @@ import { EmployeeTicketAddComponent } from './employee-ticket/employee-ticket-ad
 import { EmployeeTicketDetailsComponent } from './employee-ticket/employee-ticket-details/employee-ticket-details.component';
 import { EmployeeTicketEditComponent } from './employee-ticket/employee-ticket-edit/employee-ticket-edit.component';
 import { EmployeeLoginComponent } from './employee-login/employee-login.component';
-import { DataTablesModule } from 'angular-datatables';
 
 
 @NgModule({
@@ -35,7 +34,6 @@ import { DataTablesModule } from 'angular-datatables';
     CommonModule,
     FormsModule,
     EmployeeRoutingModule,
-    DataTablesModule
   ],
   providers: [],
   bootstrap: [EmployeeDashboardComponent]

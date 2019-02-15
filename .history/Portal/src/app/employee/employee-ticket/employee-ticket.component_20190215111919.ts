@@ -19,13 +19,12 @@ import { Ticket } from './../../shared/ticket.model';
 })
 export class EmployeeTicketComponent implements OnInit, OnDestroy  {
 
-  department = this.userService.getDepartment();
-
+  
   tickets: any[] = [];
   user: User;
   userID;
   ticketInfo: any;
-
+  department = this.userService.getDepartment();
 
   // tickets: any[] = [];
   dtOptions: any = {};
@@ -50,7 +49,8 @@ export class EmployeeTicketComponent implements OnInit, OnDestroy  {
        'https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js',
        'https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js',
        'https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js',
-       'https://cdn.datatables.net/select/1.2.7/js/dataTables.select.min.js'
+       'https://cdn.datatables.net/select/1.2.7/js/dataTables.select.min.js',
+       './test.js'
       ];
       for (let i = 0; i < dynamicScripts.length; i++) {
         const node = document.createElement('script');
@@ -66,31 +66,41 @@ export class EmployeeTicketComponent implements OnInit, OnDestroy  {
   constructor(private chRef: ChangeDetectorRef, private userAdminService: UserAdminService, private userService: UserService, private router: Router, private ticketService: TicketService) { 
     this.loadScripts();
   }
- ngOnInit(): void {
-      this.dtOptions = {
-        pagingType: 'full_numbers',
-        destroy: true,
-        serverSide : false,
-        pageLength: 25,
-        processing: true,
-        dom: 'lBfrtip',
-      buttons: [
-        'copy', 'print', 'csv',  'pdf', 'excel', 'colvis']
-    };
-      this.ticketService.openTicketSearch().subscribe(data => {
-        this.tickets = data;
 
-        this.chRef.detectChanges();
-        this.dtTrigger.next();
+  ngOnInit(): void {
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      destroy: true,
+      serverSide : false,
+      pageLength: 25,
+      processing: true,
+      dom: 'lBfrtip',
+    buttons: [
+      'copy', 'print', 'csv',  'pdf', 'excel', 'colvis']
+  };
+  this.ticketService.openTicketSearch().subscribe(data => {
+    this.tickets = data;
+    // const userSub = this.userAdminService.getUser(this.userService.getLoginId()).subscribe(user => {
+    //   this.user = user;
+
+      this.chRef.detectChanges();
+      this.dtTrigger.next();
+    });
+  }
+
+    //   this.ticketService.getTicketIssues()
+    //   .subscribe( res=> {
+
+    // this.tickets = res;
+    //         console.log('rescue');
+    //     console.log(this.ticketInfo);
+    //     }, err=> {
+    //       console.log(err);
+    //     }
+    //   );
 
 
-      });
-    }
-
-    ngOnDestroy(): void {
-      this.dtTrigger.unsubscribe();
-    }
-
-
-
-    }
+  ngOnDestroy(): void {
+    this.dtTrigger.unsubscribe();
+  }
+}

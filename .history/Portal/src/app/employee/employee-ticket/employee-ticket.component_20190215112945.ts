@@ -82,6 +82,15 @@ export class EmployeeTicketComponent implements OnInit, OnDestroy  {
 
         this.chRef.detectChanges();
         this.dtTrigger.next();
+        // const table: any = $('table');
+
+        // this.dataTable = table.DataTable();
+
+// console.log('table');
+// console.log(table);
+
+// console.log('datatable');
+// console.log(this.dataTable);
 
 
       });

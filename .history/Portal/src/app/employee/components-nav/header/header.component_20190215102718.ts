@@ -5,7 +5,7 @@ import { UserService } from '../../../shared/user.service';
 
 
 @Component({
-  selector: 'app-header',
+  selector: 'app-eheader',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })

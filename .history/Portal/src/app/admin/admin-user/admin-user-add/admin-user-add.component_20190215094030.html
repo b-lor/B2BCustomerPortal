@@ -8,8 +8,7 @@
           <div class="form-group">
               <label>Role ID</label>
               <select class="form-control" name="roleId" #roleId="ngModel" [(ngModel)]="user.roleId">
-                  <option value="" selected disabled hidden>Choose here</option>
-                <option value="10">10</option>
+                  <option value="10" selected=10>10</option>
                   <option value="20">20</option>
                   <option value="30">30</option>
                   <option value="99">99</option>
@@ -19,8 +18,7 @@
           <div class="form-group">
               <label>User Type</label>
               <select class="form-control" name="userType" #userType="ngModel" [(ngModel)]="user.userType">
-                  <option value="" selected disabled hidden>Choose here</option>
-                <option value="customer">Customer</option>
+                  <option value="customer" selected=10>Customer</option>
                   <option value="shipping">Employee</option>
                   <option value="Accounting">Accounting</option>
                   <option value="Manager">Manager</option>
@@ -48,12 +46,9 @@
           <div class="form-group form-group">
               <label>Department</label>
               <select class="form-control" name="department" #department="ngModel" [(ngModel)]="user.department">
-                  <option value="" selected disabled hidden>Choose here</option>
-                <option value="Service" selected="selected">Service</option>
+                <option value="Service">Service</option>
                 <option value="Shipping">Shipping</option>
                 <option value="Accounting">Accounting</option>
-                <option value="Lab">Lab</option>
-                <option value="Sales">Sales</option>
                 <option value="IT">IT</option>
               </select>
             </div>
