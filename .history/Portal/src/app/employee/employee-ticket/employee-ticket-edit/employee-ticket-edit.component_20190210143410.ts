@@ -14,10 +14,6 @@ export class EmployeeTicketEditComponent implements OnInit {
   ticket: Ticket;
 
   ticketID;
-
-  formatsDate: string[] = [
-    'dd-MM-yyyy',
-    ];
   
     constructor(private route: ActivatedRoute, private router: Router, private ticketService: TicketService) {
       this.route.params.subscribe(params => {

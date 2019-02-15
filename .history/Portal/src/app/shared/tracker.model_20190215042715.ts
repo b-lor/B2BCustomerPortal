@@ -3,7 +3,7 @@ export class Tracker {
     responseId: string;
     comment: string;
     other: string;
-    dateUpdated: Date;
+    dateUpdate: Date;
 
 
     deserialize(data: any): Tracker {
@@ -12,7 +12,7 @@ export class Tracker {
             responseId: data.responseId,
             comment: data.comment,
             other: data.other,
-            dateUpdated: data.dateUpdated
+            dateUpdate: data.dateUpdate
         });
     }
 }

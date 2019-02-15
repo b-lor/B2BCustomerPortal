@@ -22,10 +22,6 @@ export class EmployeeTicketDetailsComponent implements OnInit {
 
   trackers: Tracker[];
 
-  formatsDate: string[] = [
-    'dd-MM-yyyy',
-    ];
-    
   constructor(private userService: UserService, private trackerService: TrackerService, private route: ActivatedRoute, private router: Router, private ticketService: TicketService) { 
     this.route.params.subscribe(params => {
       this.ticketId = params['id'];

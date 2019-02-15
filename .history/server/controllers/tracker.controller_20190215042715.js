@@ -4,16 +4,9 @@ const _ = require('lodash');
 
 const Tracker = mongoose.model('Tracker');
 
-// module.exports.getTrackers = (req, res, next) => {
-
-//     Tracker.find({}).populate('ticket').populate('user').exec(function (err, result) {
-//         return res.status(200).json(result);
-//     });
-// }
-
 module.exports.getTrackers = (req, res, next) => {
 
-    Tracker.find({}).exec(function (err, result) {
+    Tracker.find({}).populate('ticket').populate('user').exec(function (err, result) {
         return res.status(200).json(result);
     });
 }
@@ -29,39 +22,16 @@ module.exports.getTrackerById = (req, res, next) => {
 
 
 
-// module.exports.addTracker = (req, res, next) => {
-
-//     var trackerID = generateID();
-
-//     var tracker = new Tracker();
-//     tracker.ticket= req.body.ticket;
-//     tracker.user= req.body.user;
-//     tracker.responseId = trackerID;
-//     tracker.comment= req.body.comment;
-//     tracker.other= req.body.other;
-
-//     tracker.save((err, doc) => {
-//         if (!err)
-//             res.send(doc);
-//         else {
-//             if (err.code == 11000)
-//                 res.status(422).send(['Duplicate tracker found.']);
-//             else
-//                 return next(err);
-//         }
-//     });
-
-// }
-
-// comment after importing
 module.exports.addTracker = (req, res, next) => {
+
+    var trackerID = generateID();
 
     var tracker = new Tracker();
     tracker.ticket= req.body.ticket;
     tracker.user= req.body.user;
-    tracker.responseId = req.body.responseId;
+    tracker.responseId = trackerID;
     tracker.comment= req.body.comment;
-    tracker.dateUpdated= req.body.dateUpdated;
+    tracker.other= req.body.other;
 
     tracker.save((err, doc) => {
         if (!err)

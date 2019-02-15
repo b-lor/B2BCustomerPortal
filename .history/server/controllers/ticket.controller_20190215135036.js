@@ -30,7 +30,7 @@ module.exports.getOpenTickets = (req, res, next) => {
 
 module.exports.getShippingTickets = (req, res, next) => {
 
-    Ticket.find({}).where('issue').eq(['Shipping']).where('status').nin(['Closed','Resolved']).populate('user').exec(function (err, result) {
+    Ticket.find({}).where('issue').eq(['Shipping']).nin(['Closed','Resolved']).populate('user').exec(function (err, result) {
         // Ticket.find({issue:'Service'}).populate('user').exec(function (err, result) {
         return res.status(200).json(result);
     });
