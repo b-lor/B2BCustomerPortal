@@ -1,0 +1,135 @@
+<!-- <h2 class="sub-header">user Details</h2>
+<form *ngIf="user">
+   <div class="form-group">
+    <label>profile</label>
+
+    <table class="table">
+      <thead>
+      <tr>
+        <th class="col">customerNumber:</th>
+        <th class="col">firstName:</th>
+        <th class="col">lastName:</th>
+        <th class="col">company:</th>
+        <th class="col">email:</th>
+        <th class="col">phone:</th>
+        <th class="col">street:</th>
+        <th class="col">city:</th>
+        <th class="col">state:</th>
+        <th class="col">zip:</th>
+      </tr>
+    </thead>
+      <tr>
+        <td class="col">{{user.profile.customerNumber}}</td>
+        <td class="col">{{user.profile.firstName}}</td>
+        <td class="col">{{user.profile.lastName}}</td>
+        <td class="col">{{user.profile.company}}</td>
+        <td class="col">{{user.profile.email}}</td>
+        <td class="col">{{user.profile.phone}}</td>
+        <td class="col">{{user.profile.street}}</td>
+        <td class="col">{{user.profile.city}}</td>
+        <td class="col">{{user.profile.state}}</td>
+        <td class="col">{{user.profile.zip}}</td>
+      </tr>
+      </table>
+      </div>
+</form>
+ -->
+
+<div *ngIf="user">
+  <div class="clearfix"></div>
+	<h2 class="sub-header">User Details</h2>
+	<table class="table">
+		<tbody>
+			<tr>
+				<th scope="row">customerNumber:</th>
+				<td>{{ user.profile.customerNumber}}</td>
+			</tr>
+			<tr>
+				<th scope="row">firstName:</th>
+				<td>{{ user.profile.firstName}}</td>
+			</tr>
+			<tr>
+				<th scope="row">lastName:</th>
+				<td>{{ user.profile.lastName}}</td>
+			</tr>
+			<tr>
+				<th scope="row">company:</th>
+				<td>{{ user.profile.company}}</td>
+			</tr>
+			<tr>
+				<th scope="row">email:</th>
+				<td>{{ user.profile.email}}</td>
+			</tr>
+			<tr>
+				<th scope="row">phone:</th>
+				<td>{{ user.profile.phone}}</td>
+			</tr>
+			<tr>
+				<th scope="row">street:</th>
+				<td>{{ user.profile.street}}</td>
+      </tr>
+      <tr>
+				<th scope="row">city:</th>
+				<td>{{ user.profile.city}}</td>
+			</tr>
+			<tr>
+				<th scope="row">state:</th>
+				<td>{{ user.profile.state}}</td>
+			</tr>
+			<tr>
+				<th scope="row">zip:</th>
+				<td>{{ user.profile.zip}}</td>
+			</tr>
+		</tbody>
+	</table>
+  <br>
+  <h3>Customer Transactions</h3>
+	<table class="table table-striped">
+          <thead>
+            <tr>
+              <!-- <th>#</th> -->
+              <th>invoiceNumber</th>
+              <th>salesOrder</th>
+              <th>itemNumber</th>
+              <th>itemDescription</th>
+              <th>productLine</th>
+              <th>unitPrice</th>
+              <th>extAmount</th>
+              <th>qtyOrdered</th>
+              <th>qtyShipped</th>
+              <th>status</th>
+              <th>customerNo</th>
+              <th>salespersonNo</th>
+              <th>orderedDate</th>
+              <th>shippedDate</th>
+              <th>balance</th>
+              <th>comment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let transaction of transactions">
+            	  <!-- <td>{{transaction._id}}</td> -->
+              	<td>{{transaction.invoiceNumber}}</td>
+              	<td>{{transaction.salesOrder}}</td>
+                <td>{{transaction.itemNumber}}</td>
+                <td>{{transaction.itemDescription}}</td>
+              	<td>{{transaction.productLine}}</td>
+              	<td>{{transaction.unitPrice}}</td>
+                <td>{{transaction.extAmount}}</td>
+                <td>{{transaction.qtyOrdered}}</td>
+              	<td>{{transaction.qtyShipped}}</td>
+              	<td>{{transaction.status}}</td>
+                <td>{{transaction.customerNo}}</td>
+                <td>{{transaction.salespersonNo}}</td>
+              	<td>{{transaction.orderedDate}}</td>
+                <td>{{transaction.shippedDate}}</td>
+                <td>{{transaction.balance}}</td>
+                <td>{{transaction.description}}</td>
+								<td><a href="/admin/user/transaction/{{transaction._id}}" class="btn btn-primary">Update</a> <button (click)="deleteInvoice(transaction._id)" class="btn btn-danger">Delete</button></td>
+            </tr>
+          </tbody>
+        </table>
+
+ </div>
+
+

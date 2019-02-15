@@ -1,0 +1,98 @@
+<!-- <table datatable [dtOptions]="dtOptions" class="row-border hover"[dtTrigger]="dtTrigger">
+  <thead>
+      <tr>
+        <th>Customer Number</th>
+        <th>Email</th>
+        <th>Role ID</th>
+        <th>Type</th>
+      </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.customerNumber }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.roleId }}</td>
+          <td>{{ user.userType }}</td>
+          <td><a href="/admin/user/detail/{{ user._id}}" class="btn btn-primary">Details</a> <a href="/admin/user/edit/{{ user._id }}" class="btn btn-secondary">Edit</a> <button id="deleteUser" (click)="deleteUser(user._id)" class="btn btn-danger">Delete</button></td>
+        </tr>
+      </tbody>
+    </table> -->
+
+
+    
+<div class="container">
+
+  <div class="row col-md-8 col-md-offset-2">
+
+    <div class="options">
+
+      <div class="records">
+        Records: 
+        <select (change)="changeRowCount()" [(ngModel)]="rowCount" class="selectBox">
+          <option value="20" selected>20</option>
+          <option value="40">40</option>
+          <option value="60">60</option>
+          <option value="80">80</option>
+          <option value="100">100</option>
+          <option [value]="totalRowCount">All</option>
+        </select>
+      </div>
+
+      <div class="search">
+        Search: <input (keyup)="getUsers()" [(ngModel)]="searchText" class="searchBox" type="text"/>
+      </div>
+
+    </div>
+
+
+    <div class="table-responsive"></div>
+    <table class="table table-hover">
+
+      <thead>
+        <tr>
+          <th>#</th>
+          <th><span (click)="toggleCustomerNumberOrder($event)" class="pointer">Customer Number <i></i></span></th>
+          <th><span (click)="toggleEmailOrder($event)" class="pointer">Email <i></i></span></th>
+          <th><span (click)="toggleUserTypeOrder($event)" class="pointer">Type <i></i></span></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngIf="users.length == 0">
+          <td colspan="8" align="center" valign="middle">
+            No Records Found.
+          </td>
+        </tr>
+        <tr *ngFor="let user of users[0].obj; let i = index;">
+          <td>{{i+1+offset}}</td>
+          <td>{{user.customerNumber}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.userType}}</td>
+          <td><a href="/admin/user/detail/{{ user._id}}" class="btn btn-primary">Details</a></td>
+          <td><a href="/admin/user/edit/{{ user._id }}" class="btn btn-secondary">Edit</a></td>
+          <td><button id="deleteUser" (click)="deleteUser(user._id)" class="btn btn-danger">Delete</button></td> 
+           
+          
+        </tr>
+      </tbody>
+
+    </table>
+
+    <div>
+
+      <nav *ngIf="users.length != 0 && searchEmpty" class="paginationWrapper">
+        <ul class="pagination">
+          <li class="disabled"><span>&laquo;</span></li> 
+                   <li [class.active]="i == currentPage" (click)="changeOffset(i, $event)" *ngFor="let i of getNumber(totalPages)"><a>{{i}}</a></li>
+         <li><span>&raquo;</span></li> 
+        </ul>
+      </nav>
+
+    </div>
+
+  </div>
+
+</div> 

@@ -1,0 +1,73 @@
+<h2 class="sub-header">Edit Customer</h2>
+<form *ngIf="user" (ngSubmit)="onSubmit()">
+
+  <div class="form-group">
+    <label>roleId</label>
+    <input type="text" class="form-control" #roleId="ngModel" [(ngModel)]="user.roleId" name="roleId" placeholder="roleId">
+  </div>
+  <div class="form-group">
+    <label>userType</label>
+    <input type="text" class="form-control" #userType="ngModel" name="userType" [(ngModel)]="user.userType"placeholder="userType">
+  </div>
+  <div class="form-group">
+    <label>salesCode</label>
+    <input type="text" class="form-control" #salesCode="ngModel" name="salesCode" [(ngModel)]="user.salesCode"placeholder="salesCode">
+  </div>
+  <div class="form-group">
+      <label>department</label>
+      <input type="text" class="form-control" #department="ngModel" name="department" [(ngModel)]="user.department"placeholder="department">
+    </div>
+  <div class="form-group">
+    <label>Email</label>
+    <input type="email" class="form-control" #email="ngModel" name="email" [(ngModel)]="user.email" placeholder="Email">
+  </div>
+  <div class="form-group">
+    <label>Password</label>
+    <input type="password" class="form-control" #password="ngModel" name="password" [(ngModel)]="user.password" placeholder="password">
+  </div>
+
+
+
+  <div class="form-group">
+    <label>customerNumber</label>
+    <input type="text" class="form-control" #profile.customerNumber="ngModel" name="profile.customerNumber" [(ngModel)]="user.profile.customerNumber" placeholder=".customerNumber">
+  </div>
+  <div class="form-group">
+    <label>firstName</label>
+    <input type="text" class="form-control" #profile.firstName="ngModel" name="profile.firstName" [(ngModel)]="user.profile.firstName" placeholder="firstName">
+  </div>
+  <div class="form-group">
+    <label>lastName</label>
+    <input type="text" class="form-control" #profile.lastName="ngModel" name="profile.lastName" [(ngModel)]="user.profile.lastName" placeholder="lastName">
+  </div>
+  <div class="form-group">
+    <label>company</label>
+    <input type="text" class="form-control" #profile.company="ngModel" name="profile.company" [(ngModel)]="user.profile.company" placeholder="company">
+  </div>
+  <div class="form-group">
+    <label>email</label>
+    <input type="text" class="form-control" #profile.email="ngModel" name="profile.email" [(ngModel)]="user.profile.email" placeholder="email">
+  </div>
+  <div class="form-group">
+    <label>phone</label>
+    <input type="text" class="form-control" #profile.phone="ngModel" name="profile.phone" [(ngModel)]="user.profile.phone" placeholder="phone">
+  </div>
+  <div class="form-group">
+    <label>street</label>
+    <input type="text" class="form-control" #profile.street="ngModel" name="profile.street" [(ngModel)]="user.profile.street" placeholder="street">
+  </div>
+  <div class="form-group">
+    <label>city</label>
+    <input type="text" class="form-control" #profile.city="ngModel" name="profile.city" [(ngModel)]="user.profile.city" placeholder="city">
+  </div>
+  <div class="form-group">
+    <label>state</label>
+    <input type="text" class="form-control" #profile.state="ngModel" name="profile.state" [(ngModel)]="user.profile.state" placeholder="state">
+  </div>
+  <div class="form-group">
+    <label>zip</label>
+    <input type="text" class="form-control" #profile.zip="ngModel" name="profile.zip" [(ngModel)]="user.profile.zip" placeholder="zip">
+  </div>
+  
+  <button type="submit" class="btn btn-default">Edit Login</button>
+</form>

@@ -1,0 +1,155 @@
+<!-- <table *ngIf="userDetails" class="table-fill">
+        <thead>
+          <tr>
+            <th colspan="2" class="text-center">User Profile</th>
+          </tr>
+      <a href="/admin/profile/edit/{{profileID}}" class="btn btn-primary">Edit</a>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Email</td>
+            <td>{{userDetails.email}}</td>
+          </tr>
+          <tr>
+            <td>Customer Number</td>
+            <td>{{userDetails.customerNumber}}</td>
+          </tr>
+          <tr>
+          <tr>
+            <td>Company</td>
+            <td>{{userDetails.profile.company}}</td>
+          </tr>
+          <tr>
+            <td>Phone</td>
+            <td>{{userDetails.profile.phone}}</td>
+          </tr>
+      
+          <tr>
+            <td>First Name</td>
+            <td>{{userDetails.profile.firstName}}</td>
+          </tr>
+          <tr>
+            <td>Last Name</td>
+            <td>{{userDetails.profile.lastName}}</td>
+          </tr>
+          <tr>
+          <tr>
+            <td>Street</td>
+            <td>{{userDetails.profile.street}}</td>
+          </tr>
+      
+          <tr>
+            <td>City</td>
+            <td>{{userDetails.profile.city}}</td>
+          </tr>
+          <tr>
+            <td>State</td>
+            <td>{{userDetails.profile.state}}</td>
+          </tr>
+          <tr>
+          <tr>
+            <td>Zip</td>
+            <td>{{userDetails.profile.zip}}</td>
+          </tr>
+          <tr>
+            <td colspan="2" class="text-center">
+              <input type="button" (click)="onLogout()" value="Logout" />
+            </td>
+          </tr>
+        </tbody>
+      </table> -->
+
+      <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+      <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+      <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+      <!------ Include the above in your HEAD tag ---------->
+      
+      <div class="container">
+        <div class="row">
+              
+              
+             <div class="col-md-8 ">
+      
+      <div class="panel panel-default">
+        <div class="panel-heading">  <h4 >User Profile</h4></div>
+         <div class="panel-body">
+             
+          <div class="box box-info">
+              
+                  <div class="box-body">
+                           <div class="col-sm-6">
+                           <div  align="center"> <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive" width="156" height="156"> 
+                      
+                      <input id="profile-image-upload" class="hidden" type="file">
+      <div style="color:#999;" >click here to change profile image</div>
+                      <!--Upload Image Js And Css-->
+                 
+                    
+         
+                      
+                      
+                           
+                           
+                           </div>
+                    
+                    <br>
+          
+                    <!-- /input-group -->
+                  </div>
+                  <div class="col-sm-6">
+                  <h4 style="color:#00b1b1;">{{userDetails.profile.firstName}} &nbsp; {{userDetails.profile.lastName}}</h4>          
+                  </div>
+                  <div class="clearfix"></div>
+                  <hr style="margin:5px 0 5px 0;">
+          
+                    
+      <div class="col-sm-5 col-xs-6 tital " >Company:</div><div class="col-sm-7 col-xs-6 ">{{userDetails.profile.company}}</div>
+      
+      
+      <div class="col-sm-5 col-xs-6 tital " >Phone:</div><div class="col-sm-7">{{userDetails.profile.phone}}</div>
+      
+      <div class="col-sm-5 col-xs-6 tital " >Street:</div><div class="col-sm-7">{{userDetails.profile.street}}</div>
+
+      
+      <div class="col-sm-5 col-xs-6 tital " >City:</div><div class="col-sm-7">{{userDetails.profile.city}}</div>
+
+      <div class="col-sm-5 col-xs-6 tital " >State:</div><div class="col-sm-7">{{userDetails.profile.state}}</div>
+
+    
+    <div class="col-sm-5 col-xs-6 tital " >Profile:</div><div class="col-sm-7">{{userDetails.profile.zip}}</div>
+    
+
+    <div class="col-sm-5 col-xs-6 tital " >Email:</div><div class="col-sm-7">{{userDetails.email}}</div>
+    
+      
+      <div class="col-sm-5 col-xs-6 tital " >Place Of Birth:</div><div class="col-sm-7">Shirdi</div>
+      
+      
+      <div class="col-sm-5 col-xs-6 tital " >Nationality:</div><div class="col-sm-7">Indian</div>
+
+      
+      <div class="col-sm-5 col-xs-6 tital " >Relition:</div><div class="col-sm-7">Hindu</div>
+      
+      
+                  <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+      
+              </div>
+             
+                  
+          </div> 
+          </div>
+      </div>  
+
+             
+             
+             
+             
+             
+             
+             
+             
+             
+         </div>
+      </div>
