@@ -1,0 +1,18 @@
+body {
+  background-color: #584F39;
+}
+.panel.panel-primary {
+  border-color: #73AD21;
+}
+.panel-group .panel .panel-heading {
+  background: #73AD21;
+}
+.form-horizontal .panel.panel-primary {
+  border-color: #73AD21;
+  margin-bottom: 10px;
+}
+@media (max-width: 767px) {
+  .form-group-top {
+    margin-top: 15px;
+  }
+}

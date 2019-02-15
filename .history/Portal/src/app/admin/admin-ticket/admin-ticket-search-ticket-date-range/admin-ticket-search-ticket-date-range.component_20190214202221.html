@@ -1,0 +1,86 @@
+      <!-- <form #dateSearch="ngForm" (ngSubmit)="onSubmit(dateSearch)">
+
+          <div class="form-group">
+              <label for="fromDate" class="col-sm-12 control-label">From date</label>
+              <div class="col-sm-12">                 
+                  <input type="date" id="fromDate" #fromDate="ngModel" [(ngModel)]="searchService.selectedDate.fromDate" name="fromDate" placeholder="Start Date">
+                </div>
+              <label for="toDate" class="col-sm-12 control-label">To Date</label>
+              <div class="col-sm-12">
+                  <input type="date" id="toDate" #toDate="ngModel" [(ngModel)]="searchService.selectedDate.toDate" name="toDate" placeholder="End Date">
+
+                  <input type="submit" value="Search">
+              </div>
+
+
+          </div>
+      </form> -->
+
+
+      <div class="container">
+	
+        <div class="row">
+            <div class="col-sm-6">
+                With data provide attribute
+            </div>
+            <div class="col-sm-6">
+                <div class="input-group date" data-provide="datepicker">
+                    <input type="text" class="form-control" id="data-date">
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-th"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <p class="bg-info">
+                    Uses the data-provide attribute in HTML
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                With JavaScript
+            </div>
+            <div class="col-sm-6">
+                <div class="input-group date">
+                    <input type="text" class="form-control" id="js-date">
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-th"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <p class="bg-info">
+                    No data-provide attribute in HTML. Initialized using JavaScript
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <p class="bg-primary" style="margin-top: 10px;">
+                    Plugin Used: <a href="https://github.com/uxsolutions/bootstrap-datepicker">https://github.com/uxsolutions/bootstrap-datepicker</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+
+
+      <!-- Success message -->
+<div class="success" *ngIf="showSuccessMessage">
+    ......
+  </div>
+  
+  <!-- Error message -->
+  <div class="alert" *ngIf="serverErrorMessages">
+    {{serverErrorMessages}}
+  </div>
+
+

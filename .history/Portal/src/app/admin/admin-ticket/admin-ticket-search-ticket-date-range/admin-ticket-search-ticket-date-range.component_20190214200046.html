@@ -1,0 +1,36 @@
+      <form #dateSearch="ngForm" (ngSubmit)="onSubmit(dateSearch)">
+
+          <div class="form-group">
+              <label for="fromDate" class="col-sm-6 control-label">From date</label>
+              <div class="col-sm-12">                 
+                  <input type="date" id="fromDate" #fromDate="ngModel" [(ngModel)]="searchService.selectedDate.fromDate" name="fromDate" placeholder="Start Date">
+                </div>
+              <label for="toDate" class="col-sm-6 control-label">To Date</label>
+              <div class="col-sm-12">
+                  <input type="date" id="toDate" #toDate="ngModel" [(ngModel)]="searchService.selectedDate.toDate" name="toDate" placeholder="End Date">
+
+                  <input type="submit" value="Search">
+              </div>
+
+
+          </div>
+      </form>
+
+
+
+
+
+
+
+
+      <!-- Success message -->
+<div class="success" *ngIf="showSuccessMessage">
+    ......
+  </div>
+  
+  <!-- Error message -->
+  <div class="alert" *ngIf="serverErrorMessages">
+    {{serverErrorMessages}}
+  </div>
+
+
