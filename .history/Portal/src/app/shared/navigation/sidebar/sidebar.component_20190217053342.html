@@ -75,13 +75,13 @@
       <li class="nested" [class.expand]="showRole === 'pages'">
         <ul class="submenu">
           <li>
-            <a href="/roles" [routerLinkActive]="['router-link-active']">
+            <a routerLink="role" [routerLinkActive]="['router-link-active']">
               <i class="fa fa-monument"></i>&nbsp;
               <span>{{ 'Roles' }}</span>
             </a>
           </li>
           <li>
-            <a href="roles/add" [routerLinkActive]="['router-link-active']">
+            <a routerLink="role/add" [routerLinkActive]="['router-link-active']">
               <i class="fa fa-monument"></i>&nbsp;
               <span>{{ 'Add a Role' }}</span>
             </a>
@@ -93,7 +93,7 @@
       <a (click)="rltAndLtr()" class="list-group-item">
         <span><i class="fa fa-arrows-h"></i>&nbsp; RTL/LTR</span>
       </a>
-      <!-- <div class="nested-menu">
+      <div class="nested-menu">
         <a class="list-group-item" (click)="addExpandClass('languages')">
           <span><i class="fa fa-language"></i>&nbsp; {{ 'Language'}} <b class="caret"></b></span>
         </a>
@@ -136,7 +136,7 @@
             </li>
           </ul>
         </li>
-      </div> -->
+      </div>
       <div class="nested-menu">
         <a class="list-group-item" (click)="addExpandClass('profile')">
           <span><i class="fa fa-user"></i>&nbsp; John Smith</span>

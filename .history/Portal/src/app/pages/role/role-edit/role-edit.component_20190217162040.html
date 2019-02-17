@@ -1,0 +1,13 @@
+<h2 class="sub-header">Edit Role</h2>
+<form *ngIf="role" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label>roleId</label>
+    <input type="text" class="form-control" #roleId="ngModel" [(ngModel)]="role.roleId" name="roleId" placeholder="roleId">
+  </div>
+  <div class="form-group">
+    <label>role</label>
+    <input type="text" class="form-control" #role="ngModel" name="role" [(ngModel)]="role.role"placeholder="role">
+  </div>
+
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>

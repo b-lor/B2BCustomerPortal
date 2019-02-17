@@ -1,0 +1,27 @@
+<h2 class="sub-header">Account Roles</h2>
+<div class="table-responsive">
+<table *ngIf="roles" class="table table-striped">
+    <thead>
+        
+      </thead>
+  <thead>
+    <tr>
+      <th>Role ID</th>
+      <th>Role</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let role of roles">
+      <td>{{ role.roleId }}</td>
+      <td>{{ role.role }}</td>
+      <td><a href="/roles/add" class="btn btn-primary">Add</a></td>
+      <td> <a href="/roles/edit/{{ role._id }}" class="btn btn-default">Edit</a> </td>
+       <td><button id="deleteRole" (click)="deleteRole(role._id)" class="btn btn-danger">Delete</button></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
