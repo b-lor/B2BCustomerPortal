@@ -33,8 +33,8 @@ export const appRoutes: Routes = [
         children: [{ path: '', component: ForgotPasswordComponent }]
     },
     {
-        path: 'dashboard',
-        loadChildren: './pages/dashboard/dashboard.module#DashboardModule',
+        path: 'dashboard', component: DashboardComponent,
+        // loadChildren: './pages/dashboard/dashboard.module##DashboardModule',
         canActivate: [AuthGuard]
     },
     {

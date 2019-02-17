@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AuthGuard, AdminGuard, EmployeeGuard, ManagerGuard } from './auth';
-
+import { AuthGuard } from './auth/auth.guard';
 
 import { DashboardComponent } from './pages/dashboard';
 
@@ -33,8 +32,8 @@ export const appRoutes: Routes = [
         children: [{ path: '', component: ForgotPasswordComponent }]
     },
     {
-        path: 'dashboard',
-        loadChildren: './pages/dashboard/dashboard.module#DashboardModule',
+        path: 'dashboard', component: DashboardComponent,
+        loadChildren: './pages/dashboard/dashboard.module.ts#DashboardModule',
         canActivate: [AuthGuard]
     },
     {
@@ -46,14 +45,3 @@ export const appRoutes: Routes = [
     }
 ];
 
-@NgModule({
-    imports: [RouterModule.forRoot(appRoutes)],
-    providers: [
-      AuthGuard,
-      AdminGuard,
-      EmployeeGuard,
-      ManagerGuard
-    ],
-    exports: [RouterModule]
-  })
-  export class RoutesModule { }

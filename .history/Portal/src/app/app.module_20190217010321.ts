@@ -8,9 +8,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-
-////// new dash
-
 // components
 import { AppComponent } from './app.component';
 
@@ -28,7 +25,7 @@ import { ManagerModule } from './manager/manager.module';
 import { TicketModule } from './ticket/ticket.module';
 import { AdminTicketSearchIssueModule} from './admin/admin-ticket/admin-ticket-search-issue/admin-ticket-search-issue.module';
 // routes
-import { RoutesModule } from './routes';
+import { appRoutes } from './routes';
 
 // other
 import { Globals } from './shared/global';
@@ -48,6 +45,9 @@ import { TicketService } from './shared/ticket.service';
 import { TrackerService } from './shared/tracker.service';
 import { ForgotPasswordComponent } from './user/forgot-password/forgot-password.component';
 
+
+
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 
 // AoT requires an exported function for factories
@@ -70,13 +70,14 @@ export const createTranslateLoader = (http: HttpClient) => {
     SignInComponent,
     ConfirmEqualValidatorDirective,
     ForgotPasswordComponent,
+    DashboardComponent,
+
   ],
   imports: [
     CommonModule,
     BrowserModule,
     FormsModule,
-    // RouterModule.forRoot(appRoutes),
-    RoutesModule,
+    RouterModule.forRoot(appRoutes),
     HttpClientModule,
     FlashMessagesModule.forRoot(),
     AdminModule,

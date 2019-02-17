@@ -34,7 +34,7 @@ export const appRoutes: Routes = [
     },
     {
         path: 'dashboard',
-        loadChildren: './pages/dashboard/dashboard.module#DashboardModule',
+        loadChildren: './pages/dashboard/dashboard.module##DashboardModule',
         canActivate: [AuthGuard]
     },
     {

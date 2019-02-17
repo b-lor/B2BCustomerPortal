@@ -1,23 +1,11 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-
-import { AuthGuard, AdminGuard, EmployeeGuard, ManagerGuard } from './auth';
-
-
-import { DashboardComponent } from './pages/dashboard';
-
-
-
-
-
-
+import { Routes } from '@angular/router';
 import { UserComponent } from './user/user.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ForgotPasswordComponent } from './user/forgot-password/forgot-password.component';
 
-
+import { AuthGuard } from './auth/auth.guard';
 
 export const appRoutes: Routes = [
     {
@@ -33,11 +21,6 @@ export const appRoutes: Routes = [
         children: [{ path: '', component: ForgotPasswordComponent }]
     },
     {
-        path: 'dashboard',
-        loadChildren: './pages/dashboard/dashboard.module#DashboardModule',
-        canActivate: [AuthGuard]
-    },
-    {
         path: 'userprofile', component: UserProfileComponent, canActivate: [AuthGuard]
     },
 
@@ -46,14 +29,3 @@ export const appRoutes: Routes = [
     }
 ];
 
-@NgModule({
-    imports: [RouterModule.forRoot(appRoutes)],
-    providers: [
-      AuthGuard,
-      AdminGuard,
-      EmployeeGuard,
-      ManagerGuard
-    ],
-    exports: [RouterModule]
-  })
-  export class RoutesModule { }

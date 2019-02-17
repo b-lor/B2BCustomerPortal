@@ -11,6 +11,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 ////// new dash
 
+import { DashboardComponent } from './pages/dashboard';
 // components
 import { AppComponent } from './app.component';
 
@@ -28,7 +29,7 @@ import { ManagerModule } from './manager/manager.module';
 import { TicketModule } from './ticket/ticket.module';
 import { AdminTicketSearchIssueModule} from './admin/admin-ticket/admin-ticket-search-issue/admin-ticket-search-issue.module';
 // routes
-import { RoutesModule } from './routes';
+import { appRoutes } from './routes';
 
 // other
 import { Globals } from './shared/global';
@@ -70,13 +71,14 @@ export const createTranslateLoader = (http: HttpClient) => {
     SignInComponent,
     ConfirmEqualValidatorDirective,
     ForgotPasswordComponent,
+    DashboardComponent,
+
   ],
   imports: [
     CommonModule,
     BrowserModule,
     FormsModule,
-    // RouterModule.forRoot(appRoutes),
-    RoutesModule,
+    RouterModule.forRoot(appRoutes),
     HttpClientModule,
     FlashMessagesModule.forRoot(),
     AdminModule,

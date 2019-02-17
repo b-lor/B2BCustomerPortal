@@ -11,6 +11,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 ////// new dash
 
+import { DashboardComponent } from './pages/dashboard';
 // components
 import { AppComponent } from './app.component';
 
@@ -70,6 +71,8 @@ export const createTranslateLoader = (http: HttpClient) => {
     SignInComponent,
     ConfirmEqualValidatorDirective,
     ForgotPasswordComponent,
+    DashboardComponent,
+
   ],
   imports: [
     CommonModule,

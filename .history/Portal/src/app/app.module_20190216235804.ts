@@ -2,14 +2,11 @@
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-
-
-////// new dash
 
 // components
 import { AppComponent } from './app.component';
@@ -28,13 +25,14 @@ import { ManagerModule } from './manager/manager.module';
 import { TicketModule } from './ticket/ticket.module';
 import { AdminTicketSearchIssueModule} from './admin/admin-ticket/admin-ticket-search-issue/admin-ticket-search-issue.module';
 // routes
-import { RoutesModule } from './routes';
+import { appRoutes } from './routes';
 
 // other
 import { Globals } from './shared/global';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ConfirmEqualValidatorDirective } from '../app/shared/confirmPassword';
 
 import { FlashMessagesModule } from 'angular2-flash-messages';
@@ -47,7 +45,6 @@ import { TransactionService } from './shared/transaction.service';
 import { TicketService } from './shared/ticket.service';
 import { TrackerService } from './shared/tracker.service';
 import { ForgotPasswordComponent } from './user/forgot-password/forgot-password.component';
-
 
 
 // AoT requires an exported function for factories
@@ -70,13 +67,13 @@ export const createTranslateLoader = (http: HttpClient) => {
     SignInComponent,
     ConfirmEqualValidatorDirective,
     ForgotPasswordComponent,
+
   ],
   imports: [
     CommonModule,
     BrowserModule,
     FormsModule,
-    // RouterModule.forRoot(appRoutes),
-    RoutesModule,
+    RouterModule.forRoot(appRoutes),
     HttpClientModule,
     FlashMessagesModule.forRoot(),
     AdminModule,
