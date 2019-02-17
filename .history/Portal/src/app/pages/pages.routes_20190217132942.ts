@@ -16,10 +16,6 @@ export const appRoutes: Routes = [
       {
         path: 'profile',
         loadChildren: './user-profile/user-profile.module#UserProfileModule'
-      },
-      {
-        path: 'change-login',
-        loadChildren: './change-login/change-login.module#ChangeLoginModule'
       }
     ]
   }
