@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-xl-12">
+    <h2 class="page-header">
+      Create a New Ticket
+    </h2>
+
+    <form class="form-horizontal" (ngSubmit)="onSubmit()">
+
+
+      <fieldset class="form-group col-lg-6">
+        <input class="form-control" disabled name="submittedBy" #submittedBy="ngModel" [(ngModel)]="ticket.submittedBy"
+          (ngModelChange)="insertID(ticket)" placeholder="*** Automatically Generated ***">
+      </fieldset>
+
+
+      <div class="form-group form-group col-lg-6">
+        <label>Issue Description</label>
+        <select class="form-control" name="issue" #issue="ngModel" [(ngModel)]="ticket.issue">
+          <option value="General">General</option>
+          <option value="Billing">Billing</option>
+          <option value="Shipping">Shipping</option>
+          <option value="Online">Online</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <fieldset class="form-group col-lg-6">
+        <label>Write your issue here.</label>
+        <textarea class="form-control" name="description" #description="ngModel" [(ngModel)]="ticket.description"
+          required class="form-control" rows="7"></textarea>
+      </fieldset>
+
+      <button type="submit" class="btn btn-secondary">Submit Button</button>
+
+    </form>
+
+
+  </div>
+</div>

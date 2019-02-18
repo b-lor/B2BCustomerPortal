@@ -1,0 +1,100 @@
+<div class="card">
+  <div class="card-header">
+    <div class="card-title">
+      <div class="title">Search by Date Range</div>
+    </div>
+  </div>
+  <div class="card-body">
+    <form #dateSearch="ngForm" (ngSubmit)="onSubmit(dateSearch)">
+      <div class="form-group">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm">
+            </div>
+            <label for="fromDate" class="col-sm-2 control-label">From date</label>
+            <div class="col-sm">
+              <input type="date" id="fromDate" #fromDate="ngModel" [(ngModel)]="searchService.selectedDate.fromDate"
+                name="fromDate" placeholder="Start Date">
+            </div>
+            <div class="col-sm">
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm">
+            </div>
+            <label for="toDate" class="col-sm-2 control-label">To Date</label>
+            <div class="col-sm">
+              <input type="date" size="20" id="toDate" #toDate="ngModel" [(ngModel)]="searchService.selectedDate.toDate"
+                name="toDate" placeholder="End Date">
+            </div>
+            <div class="col-sm">
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm">
+            </div>
+            <div class="col-sm">
+              <input type="submit" value="Search">
+            </div>
+            <div class="col-sm">
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- <table class="table table-hover">     -->
+    <table datatable [dtOptions]="dtOptions" class="row-border hover"[dtTrigger]="dtTrigger">
+
+    <thead>
+      <tr>
+          <th></th>
+          <th></th>
+        <th>Ticket ID</th>
+        <th>Issue</th>
+        <!-- <th>Description</th> -->
+        <th>Submitted By</th>
+        <!-- <th>Resolution</th> -->
+        <th>Priority</th>
+        <th>Status</th>
+        <!-- <th>Text</th> -->
+        <th>Date Submitted</th>
+        <th>Last Updated On</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ticket of tickets">
+          <td><a href="/ticket/detail/{{ticket._id}}"><img src="../../../../assets/images/details.png" width="30" height="30" title="Details"/></a></td>
+          <td><a href="/ticket/edit/{{ticket._id}}"><img src="../../../../assets/images/edit.png" width="35" height="35" title="Edit"/></a></td>
+          
+        <td>{{ticket.ticketId}}</td>
+          <td>{{ticket.issue}}</td>
+          <!-- <td>{{ticket.description}}</td> -->
+          <td>{{ticket.submittedBy}}</td>
+          <!-- <td>{{ticket.resolution}}</td> -->
+          <td>{{ticket.priority}}</td>
+          <td>{{ticket.status}}</td>
+          <!-- <td>{{ticket.text}}</td> -->
+          <td>{{ticket.dateSubmitted | date:formatsDate}}</td>
+          <td>{{ticket.dateUpdate | date:formatsDate}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+<!-- Success message -->
+<div class="success" *ngIf="showSuccessMessage">
+  ......
+</div>
+
+<!-- Error message -->
+<div class="alert" *ngIf="serverErrorMessages">
+  {{serverErrorMessages}}
+</div>

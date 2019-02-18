@@ -14,26 +14,26 @@
       <li class="nested" [class.expand]="showTicket === 'pages'">
         <ul class="submenu">
           <li>
-            <a href="/ticket/add" [routerLinkActive]="['router-link-active']">
+            <a routerLink="ticket/add" [routerLinkActive]="['router-link-active']">
               <i class="fa fa-monument"></i>&nbsp;
               <span>{{ 'Add Ticket' }}</span>
             </a>
           </li>
           <li>
-            <a href="/ticket/search" [routerLinkActive]="['router-link-active']">
+            <a routerLink="ticket/search" [routerLinkActive]="['router-link-active']">
               <i class="fa fa-monument"></i>&nbsp;
               <span>{{ 'Search' }}</span>
             </a>
           </li>
 
           <li>
-            <a href="/ticket/daterange" [routerLinkActive]="['router-link-active']">
+            <a routerLink="ticket/search/date" [routerLinkActive]="['router-link-active']">
               <i class="fa fa-monument"></i>&nbsp;
               <span>{{ 'Search By Date' }}</span>
             </a>
           </li>
           <li>
-            <a href="/ticket/closed" [routerLinkActive]="['router-link-active']">
+            <a routerLink="ticket/closed" [routerLinkActive]="['router-link-active']">
               <i class="fa fa-monument"></i>&nbsp;
               <span>{{ 'Closed Tickets' }}</span>
             </a>

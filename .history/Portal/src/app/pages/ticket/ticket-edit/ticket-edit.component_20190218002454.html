@@ -1,0 +1,81 @@
+<div class="row justify-content-center">
+  <div class="col-sm-8">
+    <div class="card">
+      <header class="card-header bg-primary">
+
+        <h4 class="card-title mt-2" class="text-center">Update the ticket</h4>
+      </header>
+      <article class="card-body bg-light">
+        <form  *ngIf="tickets" (ngSubmit)="onSubmit()">
+
+          <div class="form-row">
+
+            <div class="col form-group">
+              <label>Submitted By </label>
+              <input type="text" disabled="disabled" class="form-control" #submittedBy="ngModel" name="submittedBy" [(ngModel)]="tickets.submittedBy">
+            </div> <!-- form-group end.// -->
+
+
+            <div class="col form-group">
+              <label>Priority</label>
+              <select class="form-control" name="priority" #priority="ngModel" [(ngModel)]="tickets.priority">
+                <option value="Low">Low</option>
+                <option value="Normal">Normal</option>
+                <option value="High">High</option>
+                <option value="Urgent">Urgent</option>
+              </select>
+            </div> <!-- form-group end.// -->
+
+          </div> <!-- form-row end.// -->
+          
+          <div class="form-row">
+
+              <div class="col form-group">
+                <label>Date Submitted</label>
+                <input type="text" disabled="disabled" class="form-control" #dateSubmitted="ngModel" name="dateSubmitted" [(ngModel)]="tickets.dateSubmitted">
+              </div> <!-- form-group end.// -->
+
+              <!-- <input type="text" class="form-control" #ticketId="ngModel" name="ticketId" [(ngModel)]="ticket.ticketId"placeholder="ticketId"> -->
+
+
+              <div class="col form-group">
+                <label>Last Updated On</label>
+                <input type="text" disabled="disabled" class="form-control" #dateUpdate="ngModel" name="dateUpdate" [(ngModel)]="tickets.dateUpdate">
+              </div> <!-- form-group end.// -->
+
+            </div> <!-- form-row end.// -->
+
+          <div class="form-group">
+            <label>Description</label>
+            <input type="text" class="form-control" disabled="disabled" #description="ngModel" name="description" [(ngModel)]="tickets.description">
+          </div> <!-- form-group end.// -->
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Issue</label>
+              <select class="form-control" name="issue" #issue="ngModel" [(ngModel)]="tickets.issue">
+                <option value="General">General</option>
+                <option value="Billing">Billing</option>
+                <option value="Shipping">Shipping</option>
+                <option value="Online">Online</option>
+                <option value="Other">Other</option>
+              </select>
+            </div> <!-- form-group end.// -->
+
+            <div class="form-group col-md-6">
+              <label>Status</label>
+              <select class="form-control" name="status" #status="ngModel" [(ngModel)]="tickets.status">
+                <option value="New">New</option>
+                <option value="Open">Open</option>
+                <option value="Resolved">Resolved</option>
+                <option value="Closed">Closed</option>
+              </select>
+            </div> <!-- form-group end.// -->
+          </div> <!-- form-row.// -->
+          <div class="form-group">
+              <button type="submit" class="btn btn-primary btn-block"> Save Changes  </button>
+          </div> <!-- form-group// -->     
+        </form>
+      </article> <!-- card-body end .// -->
+    </div> <!-- card.// -->
+  </div> <!-- col.//-->

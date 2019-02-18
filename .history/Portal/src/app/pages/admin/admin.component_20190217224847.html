@@ -19,7 +19,7 @@
       Search: <input (keyup)="getUsers()" [(ngModel)]="searchText" class="searchBox" type="text" />
     </div>
   </div>
-  <div id="print-section">
+  <div id="print-section"></div>
   <div class="table-responsive">
     <table class="table table-hover">
       <thead>
@@ -50,7 +50,6 @@
       </tbody>
     </table>
   </div>
-  </div>
   <button (click)="print()">print</button>
     <div>
       <nav *ngIf="users.length != 0 && searchEmpty" class="paginationWrapper">
@@ -62,3 +61,4 @@
       </nav>
     </div>
   </div>
+</div>
