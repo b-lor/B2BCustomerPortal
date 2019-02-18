@@ -1,0 +1,64 @@
+@import "https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css";
+@import "https://cdn.datatables.net/buttons/1.5.2/css/buttons.dataTables.min.css";
+
+.div .class {
+  margin:0;
+  padding:0;
+}
+.options {
+  height: 50px;
+  margin-top: 100px;
+}
+
+.records {
+  float: left;
+}
+
+.selectBox {
+  height: 30px;
+  width: 45px;
+}
+
+.search {
+  float: right;
+}
+
+.searchBox {
+  height: 30px;
+}
+
+.table {
+  background-color: #fbfbfb;
+  margin-top: 10px;
+}
+
+.chevron {
+  font-size: 10px;
+}
+
+.table>tbody>tr>td,
+.table>tbody>tr>th,
+.table>thead>tr>td,
+.table>thead>tr>th {
+  text-align: center;
+}
+
+.pointer {
+  cursor: pointer;
+  -webkit-user-select: none;
+  /* Chrome/Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE10+ */
+}
+
+.paginationWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination li a {
+  cursor: pointer;
+}

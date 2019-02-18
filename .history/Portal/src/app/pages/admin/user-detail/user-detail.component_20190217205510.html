@@ -1,0 +1,21 @@
+<div class="container" *ngIf="user">    
+  <div class="jumbotron">
+    <div class="row">
+
+        <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8">
+            <div class="container" style="border-bottom:1px solid black">
+              <h2>{{ user.profile.customerNumber}} - { user.profile.company}}</h2>
+            </div>
+              <hr>
+            <ul class="container details">
+              <li><p><span class="glyphicon glyphicon-earphone one" style="width:50px;"></span>{{ user.profile.phone}}</p></li>
+              <li><p><span class="glyphicon glyphicon-envelope one" style="width:50px;"></span>{{ user.profile.street}}</p></li>
+              <li><p><span class="glyphicon glyphicon-map-marker one" style="width:50px;"></span>{{ user.profile.city}}</p></li>
+              <li><p><span class="glyphicon glyphicon-envelope one" style="width:50px;"></span>{{ user.profile.state}}</p></li>
+              <li><p><span class="glyphicon glyphicon-map-marker one" style="width:50px;"></span>{{ user.profile.zip}}</p></li>
+              <li><p><span class="glyphicon glyphicon-map-marker one" style="width:50px;"></span>{{ user.profile.phone}}</p></li>
+            </ul>
+        </div>
+    </div>
+  </div>
+</div>

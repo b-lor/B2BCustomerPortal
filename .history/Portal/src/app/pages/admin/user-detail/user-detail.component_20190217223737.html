@@ -1,0 +1,105 @@
+<div class="container" *ngIf="user">
+
+  <div class="form-row">
+
+    <div class="col-md-4 mb-3">
+      <label>Customer Number</label>
+      <input type="text" disabled class="form-control" #user.profile.customerNumber="ngModel" name="user.profile.customerNumber" [(ngModel)]="user.profile.customerNumber">
+    </div>
+
+    <div class="col-md-8 mb-3">
+      <label>Company</label>
+      <input type="text" disabled class="form-control" #user.profile.company="ngModel" name="user.profile.company" [(ngModel)]="user.profile.company">
+    </div>
+
+  </div>
+
+  <div class="form-row">
+
+    <div class="col-md-4 mb-3">
+      <label>Contact First name</label>
+      <input type="text" disabled class="form-control" #user.profile.firstName="ngModel" name="user.profile.firstName" [(ngModel)]="user.profile.firstName">
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <label>Contact Last name</label>
+      <input type="text" disabled class="form-control" #user.profile.lastName="ngModel" name="user.profile.lastName" [(ngModel)]="user.profile.lastName">
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <label>Contact Email</label>
+      <input type="text" disabled class="form-control" #user.profile.email="ngModel" name="user.profile.email" [(ngModel)]="user.profile.email">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label>Street Address</label>
+      <input type="text" disabled class="form-control" #user.profile.street="ngModel" name="user.profile.street" [(ngModel)]="user.profile.street">
+    </div>
+
+    <div class="col-md-2 mb-3">
+      <label>City</label>
+      <input type="text" disabled class="form-control" #user.profile.city="ngModel" name="user.profile.city" [(ngModel)]="user.profile.city">
+    </div>
+
+    <div class="col-md-2 mb-3">
+      <label>ST</label>
+      <input type="text" disabled class="form-control" #user.profile.state="ngModel" name="user.profile.state" [(ngModel)]="user.profile.state">
+    </div>
+
+    <div class="col-md-2 mb-3">
+      <label>Zip</label>
+      <input type="text" disabled class="form-control" #user.profile.zip="ngModel" name="user.profile.zip" [(ngModel)]="user.profile.zip">
+    </div>
+
+
+  </div> <!-- /container -->
+<hr>
+
+<table datatable [dtOptions]="dtOptions" class="row-border hover" [dtTrigger]="dtTrigger">
+    <thead>
+      <tr>
+        <!-- <th>#</th> -->
+        <th></th>
+        <th>Invoice</th>
+        <th>SO #</th>
+        <!-- <th>itemNumber</th> -->
+        <th>Item</th>
+        <!-- <th>productLine</th> -->
+        <th>Ordered</th>
+        <th>Shipped</th>
+        <th>Price</th>
+        <th>Extension</th>
+        <th>Status</th>
+        <!-- <th>customerNo</th>
+        <th>salespersonNo</th> -->
+        <th>Date Ordered</th>
+        <th>Shipped on</th>
+        <th>Balance</th>
+        <th>Comment</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let transaction of transactions">
+        <!-- <td>{{transaction._id}}</td> -->
+        <td><a href="/users/transaction/{{transaction._id}}"><img src="../../../../assets/images/details.png" width="30" height="30" title="Details"/></a></td>
+        <td>{{transaction.invoiceNumber}}</td>
+        <td>{{transaction.salesOrder}}</td>
+        <!-- <td>{{transaction.itemNumber}}</td> -->
+        <td>{{transaction.itemDescription}}</td>
+        <!-- <td>{{transaction.productLine}}</td> -->
+        <td>{{transaction.qtyOrdered}}</td>
+        <td>{{transaction.qtyShipped}}</td>
+        <td>{{transaction.unitPrice | currency}}</td>
+        <td>{{transaction.extAmount | currency}}</td>
+        <td>{{transaction.status}}</td>
+        <!-- <td>{{transaction.customerNo}}</td>
+        <td>{{transaction.salespersonNo}}</td> -->
+        <td>{{transaction.orderedDate | date:formatsDate}}</td>
+        <td>{{transaction.shippedDate | date:formatsDate}}</td>
+        <td>{{transaction.balance}}</td>
+        <td>{{transaction.description}}</td>
+
+      </tr>
+    </tbody>
+  </table>

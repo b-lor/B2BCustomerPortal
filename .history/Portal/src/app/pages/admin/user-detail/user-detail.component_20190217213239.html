@@ -1,0 +1,42 @@
+<div class="container" *ngIf="user">    
+
+     <div class="form-row">
+
+       <div class="col-md-4 mb-3">
+         <label>Contact First name</label>
+         <input type="text" class="form-control" #user.profile.firstName="ngModel" name="user.profile.firstName" [(ngModel)]="user.profile.firstName">
+       </div>
+
+       <div class="col-md-4 mb-3">
+          <label>Contact Last name</label>
+          <input type="text" class="form-control" #user.profile.lastName="ngModel" name="user.profile.lastName" [(ngModel)]="user.profile.lastName">
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label>Contact Email</label>
+            <input type="text" class="form-control" #user.profile.email="ngModel" name="user.profile.email" [(ngModel)]="user.profile.email">
+          </div>
+
+     <div class="form-row">
+       <div class="col-md-6 mb-3">
+         <label>Street Address</label>
+         <input type="text" class="form-control" #user.profile.street="ngModel" name="user.profile.street" [(ngModel)]="user.profile.street">
+       </div>
+
+       <div class="col-md-3 mb-3">
+            <label>City</label>
+            <input type="text" class="form-control" #user.profile.city="ngModel" name="user.profile.city" [(ngModel)]="user.profile.city">
+          </div>
+
+       <div class="col-md-2 mb-3">
+            <label>ST</label>
+            <input type="text" class="form-control" #user.profile.state="ngModel" name="user.profile.state" [(ngModel)]="user.profile.state">
+          </div>
+
+          <div class="col-md-1 mb-3">
+                 <label>Zip</label>
+                 <input type="text" class="form-control" #user.profile.zip="ngModel" name="user.profile.zip" [(ngModel)]="user.profile.zip">
+               </div>
+
+
+       </div> <!-- /container -->
