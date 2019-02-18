@@ -2,17 +2,17 @@ var mongoose = require('mongoose');
 
 // Tracker Schema
 var trackerSchema = mongoose.Schema({
-	ticket: {
+    ticket: {
 		type: mongoose.Schema.Types.ObjectId,
-		ref: 'Ticket',
+		ref: 'Ticket', 
 		// required: true
-	},
-	user: {
+    }, 
+    user: {
 		type: mongoose.Schema.Types.ObjectId,
-		ref: 'User',
+		ref: 'User', 
 		// required: true
-	},
-	responseId: {
+    }, 
+    responseId: {
 		type: String
 	},
 	comment: {
@@ -20,7 +20,7 @@ var trackerSchema = mongoose.Schema({
 	},
 	other: {
 		type: String
-	},
+    },
 	dateUpdated: {
 		type: Date,
 		default: Date.now
@@ -36,9 +36,7 @@ module.exports.getTrackers = function (callback, limit) {
 
 // Get Single Tracker
 module.exports.getTrackerById = function (id, callback) {
-	var query = {
-		_id: id
-	};
+	var query = { _id: id };
 	Tracker.findOne(query, callback).populate('ticket').populate('user');
 }
 
@@ -46,8 +44,8 @@ module.exports.getTrackerById = function (id, callback) {
 module.exports.addTracker = function (tracker, callback) {
 	var add = {
 		ticket: tracker.ticket,
-		user: tracker.user,
-		responseId: tracker.responseId,
+        user: tracker.user,
+        responseId: tracker.responseId,
 		comment: tracker.comment,
 		other: tracker.other,
 		dateUpdated: tracker.dateUpdated
@@ -57,21 +55,17 @@ module.exports.addTracker = function (tracker, callback) {
 
 // Remove Ticket
 module.exports.removeTicket = function (id, callback) {
-	var query = {
-		_id: id
-	};
+	var query = { _id: id };
 	Tracker.remove(query, callback);
 }
 
 // Update Ticket
 module.exports.updateTicket = function (id, tracker, options, callback) {
-	var query = {
-		_id: id
-	};
+	var query = { _id: id };
 	var update = {
 		ticket: tracker.ticket,
-		user: tracker.user,
-		responseId: tracker.responseId,
+        user: tracker.user,
+        responseId: tracker.responseId,
 		comment: tracker.comment,
 		other: tracker.other,
 		dateUpdated: tracker.dateUpdated
@@ -81,13 +75,9 @@ module.exports.updateTicket = function (id, tracker, options, callback) {
 
 // Get Customer Tickets
 module.exports.getCustomerTrackers = function (ticket_id, callback, limit) {
-	var query = {
-		ticket: ticket_id
-	};
+	var query = { ticket: ticket_id };
 
 	console.log('model: ' + ticket_id);
 
-	Tracker.find(query, callback).limit(limit).populate('ticket').populate('user').sort([
-		['responseId', 'descending']
-	]);
+	Tracker.find(query, callback).limit(limit).populate('ticket').populate('user').sort([['responseId', 'descending']]);
 }

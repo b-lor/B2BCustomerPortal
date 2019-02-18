@@ -1,37 +1,38 @@
+<table datatable [dtOptions]="dtOptions" class="row-border hover" [dtTrigger]="dtTrigger">
 
-    <table datatable [dtOptions]="dtOptions" class="row-border hover"[dtTrigger]="dtTrigger">
-    
-      <thead>
-        <tr>
-          <th></th>
-          <th></th>
-          <th>Ticket ID</th>
-          <th>Issue</th>
-          <th>Description</th>
-          <th>Submitted By</th>
-          <!-- <th>Resolution</th> -->
-          <th>Priority</th>
-          <th>Status</th>
-          <th>Text</th>
-          <th>Date Submitted</th>
-          <th>Last Updated On</th>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>Ticket ID</th>
+      <th>Issue</th>
+      <th>Description</th>
+      <th>Submitted By</th>
+      <!-- <th>Resolution</th> -->
+      <th>Priority</th>
+      <th>Status</th>
+      <th>Text</th>
+      <th>Date Submitted</th>
+      <th>Last Updated On</th>
 
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let ticket of tickets">
-            <td><a href="/ticket/detail/{{ticket._id}}"><img src="../../../../assets/images/details.png" width="30" height="30" title="Details"/></a></td>
-            <td><a href="/ticket/edit/{{ticket._id}}"><img src="../../../../assets/images/edit.png" width="35" height="35" title="Edit"/></a></td>
-            <td>{{ticket.ticketId}}</td>
-            <td>{{ticket.issue}}</td>
-            <td>{{ticket.description}}</td>
-            <td>{{ticket.submittedBy}}</td>
-            <!-- <td>{{ticket.resolution}}</td> -->
-            <td>{{ticket.priority}}</td>
-            <td>{{ticket.status}}</td>
-            <td>{{ticket.text}}</td>
-            <td>{{ticket.dateSubmitted | date:formatsDate}}</td>
-            <td>{{ticket.dateUpdate | date:formatsDate}}</td>
-        </tr>
-      </tbody>
-    </table>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ticket of tickets">
+      <td><a href="/ticket/detail/{{ticket._id}}"><img src="../../../../assets/images/details.png" width="30" height="30"
+            title="Details" /></a></td>
+      <td><a href="/ticket/edit/{{ticket._id}}"><img src="../../../../assets/images/edit.png" width="35" height="35"
+            title="Edit" /></a></td>
+      <td>{{ticket.ticketId}}</td>
+      <td>{{ticket.issue}}</td>
+      <td>{{ticket.description}}</td>
+      <td>{{ticket.submittedBy}}</td>
+      <!-- <td>{{ticket.resolution}}</td> -->
+      <td>{{ticket.priority}}</td>
+      <td>{{ticket.status}}</td>
+      <td>{{ticket.text}}</td>
+      <td>{{ticket.dateSubmitted | date:formatsDate}}</td>
+      <td>{{ticket.dateUpdate | date:formatsDate}}</td>
+    </tr>
+  </tbody>
+</table>

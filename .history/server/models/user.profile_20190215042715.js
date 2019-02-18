@@ -2,11 +2,11 @@ var mongoose = require('mongoose');
 
 // Profile Schema
 var profileSchema = mongoose.Schema({
-	user: {
+    user: {
 		type: mongoose.Schema.Types.ObjectId,
 		ref: 'User'
-	},
-	customerNumber: {
+    },
+    customerNumber: {
 		type: Number
 	},
 	firstName: {
@@ -46,16 +46,12 @@ var Profile = module.exports = mongoose.model('Profile', profileSchema);
 
 // Get profiles
 module.exports.getProfiles = function (callback, limit) {
-	Profile.find(callback).limit(limit).populate('user').sort([
-		['customerNumber', 'ascending']
-	]);
+	Profile.find(callback).limit(limit).populate('user').sort([['customerNumber', 'ascending']]);
 }
 
 // Get profile
 module.exports.getProfileById = function (id, callback) {
-	var query = {
-		_id: id
-	};
+	var query = { _id: id };
 	Profile.findOne(query, callback).populate('user');
 }
 
@@ -63,7 +59,7 @@ module.exports.getProfileById = function (id, callback) {
 module.exports.addProfile = function (profile, callback) {
 	var add = {
 		user: profile.user,
-		customerNumber: profile.customerNumber,
+        customerNumber: profile.customerNumber,
 		firstName: profile.firstName,
 		lastName: profile.lastName,
 		company: profile.company,
@@ -78,21 +74,20 @@ module.exports.addProfile = function (profile, callback) {
 	Profile.create(add, callback);
 }
 
+
+
+
 // Remove profile
 module.exports.removeprofile = function (id, callback) {
-	var query = {
-		_id: id
-	};
+	var query = { _id: id };
 	Profile.remove(query, callback);
 }
 
 // Update profile
 module.exports.updateprofile = function (id, profile, options, callback) {
-	var query = {
-		_id: id
-	};
+	var query = { _id: id };
 	var update = {
-		customerNumber: profile.customerNumber,
+        customerNumber: profile.customerNumber,
 		firstName: profile.firstName,
 		lastName: profile.lastName,
 		company: profile.company,
@@ -109,20 +104,12 @@ module.exports.updateprofile = function (id, profile, options, callback) {
 
 // user profile
 module.exports.getProfile = (req, res, next) => {
-	Profile.findOne({
-			_id: req._id
-		},
-		(err, profile) => {
-			if (!profile)
-				return res.status(404).json({
-					status: false,
-					message: 'User record not found.'
-				});
-			else
-				return res.status(200).json({
-					status: true,
-					profile: _.pick(profile, ['customerNumber', 'firstName', 'lastName', 'company', 'email', 'phone', 'street', 'city', 'state', 'zip'])
-				});
-		}
-	);
+    Profile.findOne({ _id: req._id },
+        (err, profile) => {
+            if (!profile)
+                return res.status(404).json({ status: false, message: 'User record not found.' });
+            else
+                return res.status(200).json({ status: true, profile: _.pick(profile, ['customerNumber', 'firstName', 'lastName', 'company', 'email', 'phone', 'street', 'city', 'state','zip']) });
+        }
+    );
 }
