@@ -36,7 +36,6 @@ app.use('/api/role', rtsRole);
 app.use('/api/ticket', rtsTicket);
 app.use('/api/tracker', rtsTracker);
 app.use('/api/search', rtsSearch);
-app.use('/api/dashboard', rtsDashboard);
 
 // error handler
 app.use((err, req, res, next) => {
