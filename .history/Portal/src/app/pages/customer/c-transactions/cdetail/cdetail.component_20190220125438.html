@@ -1,0 +1,33 @@
+<div *ngIf="transaction">
+  <div class="row">
+    <div class="col-md-8">
+      <h3>Details</h3>
+      <ul class="list-group">
+        <!-- <li class="list-group-item">{{user.customerNumber}}</li>
+        <li class="list-group-item">{{user.profile.firstName}}</li> -->
+      </ul>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-md-12">
+      <h4>Invoice Info</h4>
+
+      <table class="table">
+        <thead>
+        <tr>
+          <th class="col">invoiceNumber:</th>
+          <th class="col">salesOrder:</th>
+          <th class="col">itemNumber:</th>
+        </tr>
+      </thead>
+        <tr>
+          <td class="col">{{transaction.invoiceNumber}}</td>
+          <td class="col">{{transaction.salesOrder}}</td>
+          <td class="col">{{transaction.itemNumber}}</td>
+        </tr>
+        </table>
+        
+    </div>
+  </div>
+</div>

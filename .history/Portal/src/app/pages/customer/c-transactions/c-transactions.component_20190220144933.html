@@ -1,0 +1,62 @@
+<div *ngIf="user">
+	<img class="pull-right img-small" src="{{ user.logoUrl}}">
+  <div class="clearfix"></div>
+	<table class="table">
+		<tbody>
+			<tr>
+				<th scope="row">customerNumber:</th>
+        <td>{{ user.customerNumber}}</td>
+        <br>
+
+			</tr>
+		</tbody>
+	</table>
+  <br>
+  <h3>Customer Transaction</h3>
+  <table datatable [dtOptions]="dtOptions" class="row-border hover" [dtTrigger]="dtTrigger">
+    <thead>
+            <tr>
+                <th></th>
+                <th>Customer</th>
+              <th>invoiceNumber</th>
+              <th>salesOrder</th>
+              <th>itemNumber</th>
+              <th>itemDescription</th>
+              <th>productLine</th>
+              <th>unitPrice</th>
+              <th>extAmount</th>
+              <th>qtyOrdered</th>
+              <th>qtyShipped</th>
+              <th>status</th>
+              <th>Status</th>
+              <th>orderedDate</th>
+              <th>shippedDate</th>
+              <th>balance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let transaction of transactions">
+                <td><a href="/customer/transactions/{{transaction._id}}"><img src="../../../../assets/images/details.png" width="30" height="30"
+                  title="Details" /></a></td>
+                <td>{{transaction.customerNo}}</td>
+            	  <td>{{transaction.invoiceNumber}}</td>
+              	<td>{{transaction.salesOrder}}</td>
+              	<td>{{transaction.itemNumber}}</td>
+                <td>{{transaction.itemDescription}}</td>
+                <td>{{transaction.productLine}}</td>
+              	<td>{{transaction.unitPrice}}</td>
+              	<td>{{transaction.extAmount}}</td>
+                <td>{{transaction.qtyOrdered}}</td>
+                <td>{{transaction.qtyShipped}}</td>
+              	<td>{{transaction.status}}</td>
+                <td>{{transaction.status}}</td>
+                <td>{{transaction.orderedDate}}</td>
+              	<td>{{transaction.shippedDate}}</td>
+              	<td>{{transaction.balance}}</td>
+                
+								<td><a href="/customer/transactions/{{transaction._id}}" class="btn btn-primary">Details</a></td>
+            </tr>
+          </tbody>
+        </table>
+
+ </div>
