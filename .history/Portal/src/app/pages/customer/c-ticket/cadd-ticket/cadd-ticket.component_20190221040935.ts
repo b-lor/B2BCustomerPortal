@@ -12,7 +12,6 @@ import { UserService, TicketService } from '../../../../shared/services';
 export class CaddTicketComponent implements OnInit {
   ticket = new Ticket();
   userId = this.userService.getLoginId();
-  emailId = this.userService.getEmail();
   constructor(
     private userService: UserService,
     private router: Router,
@@ -35,6 +34,5 @@ export class CaddTicketComponent implements OnInit {
 
   insertID(ticket) {
     ticket.user = this.userId;
-    ticket.submittedBy = this.emailId;
   }
 }

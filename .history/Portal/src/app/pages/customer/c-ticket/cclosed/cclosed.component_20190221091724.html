@@ -1,0 +1,25 @@
+<table datatable [dtOptions]="dtOptions" class="row-border hover" [dtTrigger]="dtTrigger">
+
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>responseId </th>
+      <th>comment</th>
+      <th>other</th>
+      <th>dateUpdated </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let tracker of trackers">
+      <td><a href="/detail/{{tracker._id}}"><img src="../../../../assets/images/details.png" width="30" height="30"
+            title="Details" /></a></td>
+      <td><a href="/edit/{{tracker._id}}"><img src="../../../../assets/images/edit.png" width="35" height="35"
+            title="Edit" /></a></td>
+      <td>{{tracker.responseId}}</td>
+      <td>{{tracker.comment}}</td>
+      <td>{{tracker.other}}</td>
+      <td>{{tracker.dateUpdated  | date:formatsDate}}</td>
+    </tr>
+  </tbody>
+</table>

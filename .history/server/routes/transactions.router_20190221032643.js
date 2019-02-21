@@ -154,8 +154,8 @@ router.get('/customer/open/:customer_id', function (req, res) {
 
 router.get('/customer/invoice-balance/:customer_id', function(req, res) {
 
-    // var customer_id = 10001;
-    var customer_id = req.params.customer_id;
+    var customer_id = 10001;
+    // var customer_id = req.params.customer_id;
 
     var balanceTotal = function(customer_id, callback){  
         Transactions.aggregate([

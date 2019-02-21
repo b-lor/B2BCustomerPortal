@@ -9,7 +9,7 @@
 
       <fieldset class="form-group col-lg-6">
         <input class="form-control" disabled name="submittedBy" #submittedBy="ngModel" [ngModel]="ticket.submittedBy"
-          (ngModelChange)="insertID($event)" placeholder="*** Automatically Generated ***">
+          (ngModelChange)="insertID(ticket)" placeholder="*** Automatically Generated ***">
       </fieldset>
 
 

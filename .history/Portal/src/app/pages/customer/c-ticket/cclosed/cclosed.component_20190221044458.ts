@@ -27,10 +27,8 @@ import {
 export class CclosedComponent implements OnInit, OnDestroy {
   trackers: Tracker[];
   tickets: Ticket;
-  ticketId;
-  userId = this.userService.getLoginId();
 
-trackerDetails = new Tracker();
+  userId = this.userService.getLoginId();
   dtOptions: any = {};
   dtTrigger: Subject<any> = new Subject();
 
@@ -46,11 +44,7 @@ trackerDetails = new Tracker();
     private route: ActivatedRoute,
     private router: Router,
     private userAdminService: UserAdminService
-    ) {
-      this.route.params.subscribe(params => {
-        this.ticketId = params['id'];
-      });
-    }
+    ) { }
 
   ngOnInit(): void {
     this.dtOptions = {
@@ -59,56 +53,14 @@ trackerDetails = new Tracker();
       dom: 'lBfrtip',
       buttons: ['copy', 'print', 'csv', 'pdf', 'excel', 'colvis']
     };
-    const ticketSub = this.ticketService.getTicket(this.ticketId).subscribe(tickets => {
+    const ticketSub = this.ticketService.getCustomerTicket(this.userId).subscribe(tickets => {
       this.tickets = tickets;
-      console.log('tickets');
-      console.log(tickets);
 
-      const trackerSub = this.trackerService.getCustomerTracker(this.tickets._id).subscribe(trackers => {
-        this.trackers = trackers;
-        console.log('trackers');
-        console.log(trackers);
-
-        this.chRef.detectChanges();
-        this.dtTrigger.next();
-        trackerSub.unsubscribe();
-      });
-
-
-      ticketSub.unsubscribe();
-    });
-
-
-  }
-
-  onSubmit() {
-    this.insertUserID(this.trackerDetails);
-    this.insertTicketID(this.trackerDetails);
-
-    // this.trackerUpdate();
-
-    // this.ticketService.updateTicket(this.ticket._id, this.ticket).subscribe(res => {
-    //   console.log(res)
-    this.trackerService.addTracker(this.trackerDetails).subscribe(res => {
-      console.log(res);
-
-      location.reload();
-
-      // this.router.navigateByUrl('customer/ticket');
-
-    },
-      err => {
-        console.log(err);
-      }
-    );
+ticketSub.unsubscribe();
+  });
 }
 
-insertUserID(trackerDetails) {
-  trackerDetails.user = this.userId;
-}
-insertTicketID(trackerDetails) {
-  trackerDetails.ticket = this.tickets._id;
-}
+
 
   ngOnDestroy(): void {
     this.dtTrigger.unsubscribe();

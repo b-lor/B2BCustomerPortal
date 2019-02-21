@@ -62,12 +62,12 @@ trackerDetails = new Tracker();
     const ticketSub = this.ticketService.getTicket(this.ticketId).subscribe(tickets => {
       this.tickets = tickets;
       console.log('tickets');
-      console.log(tickets);
+      console.log(this.tickets);
 
       const trackerSub = this.trackerService.getCustomerTracker(this.tickets._id).subscribe(trackers => {
         this.trackers = trackers;
         console.log('trackers');
-        console.log(trackers);
+        console.log(this.trackers);
 
         this.chRef.detectChanges();
         this.dtTrigger.next();

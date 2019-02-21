@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Ticket } from '../../../../shared/models';
 import { UserService, TicketService } from '../../../../shared/services';
 
+
 @Component({
   selector: 'app-cadd-ticket',
   templateUrl: './cadd-ticket.component.html',
@@ -12,29 +13,25 @@ import { UserService, TicketService } from '../../../../shared/services';
 export class CaddTicketComponent implements OnInit {
   ticket = new Ticket();
   userId = this.userService.getLoginId();
-  emailId = this.userService.getEmail();
-  constructor(
-    private userService: UserService,
-    private router: Router,
-    private ticketService: TicketService
-  ) {}
+  constructor(private userService: UserService, private router: Router, private ticketService: TicketService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   onSubmit() {
     this.insertID(this.ticket);
-    this.ticketService.addTicket(this.ticket).subscribe(
-      res => {
-        this.router.navigateByUrl('customer/ticket');
-      },
+    this.ticketService.addTicket(this.ticket).subscribe(res => {
+      this.router.navigateByUrl('customer/ticket');
+    },
       err => {
         console.log(err);
       }
     );
-  }
+}
 
-  insertID(ticket) {
-    ticket.user = this.userId;
-    ticket.submittedBy = this.emailId;
-  }
+insertID(ticket) {
+  ticket.user = this.userId;
+}
+}
+
 }
