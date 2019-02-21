@@ -1,12 +1,10 @@
+<div>
 
+
+
+  <br>
   <h3>Customer Transaction</h3>
-  <td><a href="/customer/transactions/paid/{{this.user._id}}" class="btn btn-primary">Paid</a></td>
-  <td><a href="/customer/transactions/unpaid/{{this.user._id}}" class="btn btn-primary">Unpaid</a></td>
-  <td><a href="/customer/transactions/openorders/{{this.user._id}}" class="btn btn-primary">Open</a></td>
-
- 
   <table datatable [dtOptions]="dtOptions" class="row-border hover" [dtTrigger]="dtTrigger">
-
     <thead>
             <tr>
                 <th></th>
@@ -37,8 +35,8 @@
               	<td>{{transaction.itemNumber}}</td>
                 <td>{{transaction.itemDescription}}</td>
                 <td>{{transaction.productLine}}</td>
-              	<td>{{transaction.unitPrice | currency}}</td>
-              	<td>{{transaction.extAmount | currency}}</td>
+              	<td>{{transaction.unitPrice}}</td>
+              	<td>{{transaction.extAmount}}</td>
                 <td>{{transaction.qtyOrdered}}</td>
                 <td>{{transaction.qtyShipped}}</td>
               	<td>{{transaction.status}}</td>
@@ -52,3 +50,4 @@
           </tbody>
         </table>
 
+ </div>

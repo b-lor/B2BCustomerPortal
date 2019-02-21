@@ -100,51 +100,6 @@ export class TransactionService {
       );
   }
 
-  getOpenOrders(id) {
-    return this.http
-      .get(
-        environment.apiBaseUrl + '/transaction/customer/open/' + id,
-        this.noAuthHeader
-      )
-      .pipe(
-        map((response: any) =>
-          response.map(transaction =>
-            new Transaction().deserialize(transaction)
-          )
-        )
-      );
-  }
-
-  getCustomerPaid(id) {
-    return this.http
-      .get(
-        environment.apiBaseUrl + '/transaction/customer/paid/' + id,
-        this.noAuthHeader
-      )
-      .pipe(
-        map((response: any) =>
-          response.map(transaction =>
-            new Transaction().deserialize(transaction)
-          )
-        )
-      );
-  }
-
-
-  getCustomerUnpaid(id) {
-    return this.http
-      .get(
-        environment.apiBaseUrl + '/transaction/customer/unpaid/' + id,
-        this.noAuthHeader
-      )
-      .pipe(
-        map((response: any) =>
-          response.map(transaction =>
-            new Transaction().deserialize(transaction)
-          )
-        )
-      );
-  }
 
   /////// test below
 

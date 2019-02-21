@@ -3,22 +3,21 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { DataTablesModule } from 'angular-datatables';
 
-import { CTransactionsComponent } from '../';
-
+import { CpaidComponent } from '../../';
 
 @NgModule({
   declarations: [
-    CTransactionsComponent
+    CpaidComponent
   ],
   imports: [
     CommonModule,
-    DataTablesModule,
-    FormsModule
+    FormsModule,
+    DataTablesModule
   ],
   exports: [
     CommonModule,
     DataTablesModule,
-    CTransactionsComponent
+    CpaidComponent
   ]
 })
-export class CTransactionsModule { }
+export class CpaidModule { }

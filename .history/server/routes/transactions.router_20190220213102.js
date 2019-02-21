@@ -81,9 +81,6 @@ router.put('/:id', (req, res) => {
 });
 
 router.get('/customer/invoice/:customer_id', function (req, res) {
-
-
-
     var customer_id = req.params.customer_id;
     Transaction.getCustomerInvoiceTotal(customer_id, function (err, transaction) {
 
@@ -190,7 +187,6 @@ router.get('/customer/open-sales/:customer_id', function(req, res) {
 ////// test transactions type
 
 router.get('/customer/paid/:customer_id', function (req, res) {
-
     var customer_id = req.params.customer_id;
     Transaction.getCustomerPaid(customer_id, function (err, transaction) {
         if (err) {

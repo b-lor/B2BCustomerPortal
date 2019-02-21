@@ -149,6 +149,7 @@ module.exports.getCustomerPaid = function (customer_id, callback, limit) {
 	var query = {
 		user: customer_id
 	};
+
 	Transaction.find(query)
 	.where('status').equals('Completed')
 	.where('balance').equals(0)
@@ -163,13 +164,12 @@ module.exports.getCustomerUnpaid = function (customer_id, callback, limit) {
 		user: customer_id
 	};
 
-	Transaction.find(query)
+	Transaction.find(query, callback)
 	.where('status').equals('Completed')
 	.where('balance').gt(0)
 	.populate('user').sort([
 		['salesOrder', 'ascending']
-	])
-	.exec(callback);
+	]);
 }
 
 module.exports.getOpenOrders = function (customer_id, callback, limit) {
@@ -177,12 +177,11 @@ module.exports.getOpenOrders = function (customer_id, callback, limit) {
 		user: customer_id
 	};
 
-	Transaction.find(query)
+	Transaction.find(query, callback)
 	.where('status').equals('Active')
 	.populate('user').sort([
 		['salesOrder', 'ascending']
-	])
-	.exec(callback);
+	]);
 }
 
 

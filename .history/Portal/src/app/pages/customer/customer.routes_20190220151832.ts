@@ -55,15 +55,15 @@ export const appRoutes: Routes = [
         component: CTransactionsComponent
     },
     {
-        path: 'transactions/paid/:id',
+        path: 'transactions/paid',
         component: CpaidComponent
     },
     {
-        path: 'transactions/unpaid/:id',
+        path: 'transactions/unpaid',
         component: CunpaidComponent
     },
     {
-        path: 'transactions/openorders/:id',
+        path: 'transactions/openorders',
         component: CsalesComponent
     },
     {

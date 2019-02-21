@@ -1,15 +1,13 @@
+<div>
 
+
+
+  <br>
   <h3>Customer Transaction</h3>
-  <td><a href="/customer/transactions/paid/{{this.user._id}}" class="btn btn-primary">Paid</a></td>
-  <td><a href="/customer/transactions/unpaid/{{this.user._id}}" class="btn btn-primary">Unpaid</a></td>
-  <td><a href="/customer/transactions/openorders/{{this.user._id}}" class="btn btn-primary">Open</a></td>
-
- 
   <table datatable [dtOptions]="dtOptions" class="row-border hover" [dtTrigger]="dtTrigger">
-
     <thead>
             <tr>
-                <th></th>
+                <th>0</th>
                 <th>Customer</th>
               <th>invoiceNumber</th>
               <th>salesOrder</th>
@@ -43,12 +41,13 @@
                 <td>{{transaction.qtyShipped}}</td>
               	<td>{{transaction.status}}</td>
                 <td>{{transaction.status}}</td>
-                <td>{{transaction.orderedDate}}</td>
-              	<td>{{transaction.shippedDate}}</td>
-              	<td>{{transaction.balance}}</td>
+                <td>{{transaction.orderedDate | date:formatsDate}}</td>
+              	<td>{{transaction.shippedDate | date:formatsDate}}</td>
+              	<td>{{transaction.balance | currency}}</td>
                 
 								<td><a href="/customer/transactions/{{transaction._id}}" class="btn btn-primary">Details</a></td>
             </tr>
           </tbody>
         </table>
 
+ </div>

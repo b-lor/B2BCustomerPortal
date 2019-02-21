@@ -190,7 +190,9 @@ router.get('/customer/open-sales/:customer_id', function(req, res) {
 ////// test transactions type
 
 router.get('/customer/paid/:customer_id', function (req, res) {
-
+    if (!ObjectId.isValid(req.params.customer_id))
+    return res.status(400).send(`No record with given id : ${req.params.customer_id}`);
+    
     var customer_id = req.params.customer_id;
     Transaction.getCustomerPaid(customer_id, function (err, transaction) {
         if (err) {

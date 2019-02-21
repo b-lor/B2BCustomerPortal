@@ -103,7 +103,7 @@ export class TransactionService {
   getOpenOrders(id) {
     return this.http
       .get(
-        environment.apiBaseUrl + '/transaction/customer/open/' + id,
+        environment.apiBaseUrl + '/transaction/customer/open' + id,
         this.noAuthHeader
       )
       .pipe(
@@ -134,7 +134,7 @@ export class TransactionService {
   getCustomerUnpaid(id) {
     return this.http
       .get(
-        environment.apiBaseUrl + '/transaction/customer/unpaid/' + id,
+        environment.apiBaseUrl + '/transaction/customer/unpaid' + id,
         this.noAuthHeader
       )
       .pipe(
