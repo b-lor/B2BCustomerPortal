@@ -84,6 +84,7 @@ export class CTransactionsComponent implements OnInit, OnDestroy {
           .getCustomerTransaction(this.user._id)
           .subscribe(transactions => {
             this.transactions = transactions;
+            this.dtTrigger.next();
             transactionSub.unsubscribe();
           });
   }

@@ -18,8 +18,9 @@ import { UserModel, Transaction } from '../../../shared/models';
 })
 export class CTransactionsComponent implements OnInit, OnDestroy {
   user: UserModel;
-  transactions: Transaction[] = [];
+  transactions: Transaction[];
   userID;
+  loaded = false;
   dtOptions: any = {};
   dtTrigger: Subject<any> = new Subject();
 
@@ -57,7 +58,7 @@ export class CTransactionsComponent implements OnInit, OnDestroy {
     private userAdminService: UserAdminService,
     private chRef: ChangeDetectorRef
   ) {
-    // this.loadScripts();
+    this.loadScripts();
   }
 
   ngOnInit(): void {
@@ -84,6 +85,7 @@ export class CTransactionsComponent implements OnInit, OnDestroy {
           .getCustomerTransaction(this.user._id)
           .subscribe(transactions => {
             this.transactions = transactions;
+            this.loaded = true;
             transactionSub.unsubscribe();
           });
   }

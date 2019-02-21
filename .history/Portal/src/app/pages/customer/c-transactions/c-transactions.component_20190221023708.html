@@ -1,4 +1,4 @@
-
+<div *ngIf="loaded"></div>
   <h3>Customer Transaction</h3>
   <td><a href="/customer/transactions/paid/{{this.user._id}}" class="btn btn-primary">Paid</a></td>
   <td><a href="/customer/transactions/unpaid/{{this.user._id}}" class="btn btn-primary">Unpaid</a></td>
@@ -49,3 +49,4 @@
             </tr>
           </tbody>
         </table>
+      </div>

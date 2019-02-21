@@ -1,4 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef, OnDestroy } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
 import { Subject } from 'rxjs';
 import * as $ from 'jquery';
 import 'datatables.net';
@@ -7,21 +9,22 @@ import 'datatables.net-bs4';
 import {
   UserService,
   UserAdminService,
-  TransactionService
-} from '../../../shared/services';
-import { UserModel, Transaction } from '../../../shared/models';
+  TransactionService,
+} from '../../../../shared/services';
+import { UserModel, Transaction } from '../../../../shared/models';
 
 @Component({
-  selector: 'app-c-transactions',
-  templateUrl: './c-transactions.component.html',
-  styleUrls: ['./c-transactions.component.css']
+  selector: 'app-cpaid',
+  templateUrl: './cpaid.component.html',
+  styleUrls: ['./cpaid.component.css']
 })
-export class CTransactionsComponent implements OnInit, OnDestroy {
+export class CpaidComponent implements OnInit, OnDestroy {
   user: UserModel;
-  transactions: Transaction[] = [];
-  userID;
+  transactions: Transaction[];
+  userId = this.userService.getLoginId();
+
   dtOptions: any = {};
-  dtTrigger: Subject<any> = new Subject();
+  dtTrigger: Subject<any> = new Subject<any>();
 
   dataTable: any;
 
@@ -55,25 +58,15 @@ export class CTransactionsComponent implements OnInit, OnDestroy {
     private userService: UserService,
     private transactionService: TransactionService,
     private userAdminService: UserAdminService,
-    private chRef: ChangeDetectorRef
+    private chRef: ChangeDetectorRef,
+    private route: ActivatedRoute,
+    private router: Router
   ) {
     // this.loadScripts();
+
   }
 
   ngOnInit(): void {
-    const userSub = this.userAdminService
-      .getUser(this.userService.getLoginId())
-      .subscribe(user => {
-        this.user = user;
-        this.pulldata();
-          this.chRef.detectChanges();
-          this.dtTrigger.next();
-
-        userSub.unsubscribe();
-      });
-  }
-
-  pulldata(): void {
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 25,
@@ -81,12 +74,16 @@ export class CTransactionsComponent implements OnInit, OnDestroy {
       buttons: ['copy', 'print', 'csv', 'pdf', 'excel', 'colvis']
     };
         const transactionSub = this.transactionService
-          .getCustomerTransaction(this.user._id)
+          .getCustomerPaid(this.userService.getLoginId())
           .subscribe(transactions => {
             this.transactions = transactions;
+            this.chRef.detectChanges();
+            this.dtTrigger.next();
+
             transactionSub.unsubscribe();
           });
   }
+
   ngOnDestroy(): void {
     this.dtTrigger.unsubscribe();
 

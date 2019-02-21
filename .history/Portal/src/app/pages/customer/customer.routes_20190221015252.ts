@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { TransactionResolverService } from '../../shared/services';
+
 import {
     CustomerComponent,
     CTicketComponent,
@@ -57,6 +59,9 @@ export const appRoutes: Routes = [
     {
         path: 'transactions/paid/:id',
         component: CpaidComponent,
+        resolve: {
+            cres: TransactionResolverService
+        }
     },
     {
         path: 'transactions/unpaid/:id',
@@ -75,6 +80,6 @@ export const appRoutes: Routes = [
     @NgModule({
         imports: [RouterModule.forChild(appRoutes)],
         exports: [RouterModule],
-        providers: []
+        providers: [TransactionResolverService]
       })
       export class CustomerRoutes {}

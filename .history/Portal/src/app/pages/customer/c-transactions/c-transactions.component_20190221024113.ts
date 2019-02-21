@@ -20,6 +20,7 @@ export class CTransactionsComponent implements OnInit, OnDestroy {
   user: UserModel;
   transactions: Transaction[] = [];
   userID;
+  loaded = false;
   dtOptions: any = {};
   dtTrigger: Subject<any> = new Subject();
 
@@ -84,6 +85,7 @@ export class CTransactionsComponent implements OnInit, OnDestroy {
           .getCustomerTransaction(this.user._id)
           .subscribe(transactions => {
             this.transactions = transactions;
+            this.loaded = true;
             transactionSub.unsubscribe();
           });
   }

@@ -1,12 +1,18 @@
 import { Component, OnInit, ChangeDetectorRef, OnDestroy } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Subject } from 'rxjs';
 import * as $ from 'jquery';
 import 'datatables.net';
 import 'datatables.net-bs4';
 
-import { UserService, TransactionService } from '../../../../shared/services';
+import {
+  UserService,
+  UserAdminService,
+  TransactionService,
+} from '../../../../shared/services';
 import { UserModel, Transaction } from '../../../../shared/models';
+
 
 @Component({
   selector: 'app-cunpaid',
@@ -25,11 +31,15 @@ export class CunpaidComponent implements OnInit, OnDestroy {
 
   formatsDate: string[] = ['MM-dd-yyyy'];
 
+
   constructor(
     private userService: UserService,
     private transactionService: TransactionService,
-    private chRef: ChangeDetectorRef
-  ) {}
+
+    private chRef: ChangeDetectorRef,
+
+  ) {
+  }
 
   ngOnInit(): void {
     this.dtOptions = {
@@ -38,18 +48,19 @@ export class CunpaidComponent implements OnInit, OnDestroy {
       dom: 'lBfrtip',
       buttons: ['copy', 'print', 'csv', 'pdf', 'excel', 'colvis']
     };
-    const transactionSub = this.transactionService
-      .getCustomerUnpaid(this.userService.getLoginId())
-      .subscribe(transactions => {
-        this.transactions = transactions;
-        this.chRef.detectChanges();
-        this.dtTrigger.next();
+        const transactionSub = this.transactionService
+          .getCustomerUnpaid(this.userService.getLoginId())
+          .subscribe(transactions => {
+            this.transactions = transactions;
+            this.chRef.detectChanges();
+            this.dtTrigger.next();
 
-        transactionSub.unsubscribe();
-      });
+            transactionSub.unsubscribe();
+          });
   }
 
   ngOnDestroy(): void {
     this.dtTrigger.unsubscribe();
-  }
+
+}
 }

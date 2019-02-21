@@ -115,7 +115,7 @@ export class TransactionService {
       );
   }
 
-  getCustomerPaid(id) {
+  getCustomerPaid(id): Observable<Transaction> {
     return this.http
       .get(
         environment.apiBaseUrl + '/transaction/customer/paid/' + id,

@@ -23,27 +23,15 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/datatables.net-dt/css/jquery.dataTables.css",
-              "node_modules/datatables.net-buttons-dt/css/buttons.dataTables.css",
-              "node_modules/datatables.net-colreorder-dt/css/colReorder.dataTables.css",
-              "node_modules/datatables.net-responsive-dt/css/responsive.dataTables.css",
-              "node_modules/datatables.net-select-dt/css/select.dataTables.css",
               "src/styles.css",
-              "node_modules/font-awesome/css/font-awesome.css",              
+              "node_modules/font-awesome/css/font-awesome.css",
+              "node_modules/datatables.net-dt/css/jquery.dataTables.css",
               "src/styles/app.scss"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.js",
               "node_modules/datatables.net/js/jquery.dataTables.js",
-              "node_modules/jszip/dist/jszip.js",
-              "node_modules/datatables.net-buttons/js/dataTables.buttons.js",
-              "node_modules/datatables.net-buttons/js/buttons.colVis.js",
-              "node_modules/datatables.net-buttons/js/buttons.flash.js",
-              "node_modules/datatables.net-buttons/js/buttons.html5.js",
-              "node_modules/datatables.net-buttons/js/buttons.print.js",
-              "node_modules/datatables.net-colreorder/js/dataTables.colReorder.js",
-              "node_modules/datatables.net-responsive/js/dataTables.responsive.js",
-              "node_modules/datatables.net-select/js/dataTables.select.js",
+              "https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js",
               "node_modules/chart.js/dist/Chart.js"
             ]
           },

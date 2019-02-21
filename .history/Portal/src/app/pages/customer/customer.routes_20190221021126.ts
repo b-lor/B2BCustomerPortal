@@ -75,6 +75,6 @@ export const appRoutes: Routes = [
     @NgModule({
         imports: [RouterModule.forChild(appRoutes)],
         exports: [RouterModule],
-        providers: []
+        providers: [TransactionResolverService]
       })
       export class CustomerRoutes {}
