@@ -23,52 +23,18 @@ export class EmployeeComponent implements OnInit {
 
   ngOnInit() {
 this.generalIssues();
-this.billingIssues();
-this.onlineIssues();
-this.otherIssues();
-this.shippingIssues();
+
+
     }
 
     generalIssues() {
       this.dashboardService.getGeneral().subscribe(
         res => {this.generals = res; }
+
         ,
         err => {}
+
       );
     }
-
-    billingIssues() {
-      this.dashboardService.getBilling().subscribe(
-        res => {this.billings = res; }
-        ,
-        err => {}
-      );
-    }
-
-
-    onlineIssues() {
-      this.dashboardService.getOnline().subscribe(
-        res => {this.onlines = res; }
-        ,
-        err => {}
-      );
-    }
-
-    otherIssues() {
-      this.dashboardService.getOther().subscribe(
-        res => {this.others = res; }
-        ,
-        err => {}
-      );
-    }
-
-    shippingIssues() {
-      this.dashboardService.getShipping().subscribe(
-        res => {this.shippings = res; }
-        ,
-        err => {}
-      );
-    }
-
   }
 

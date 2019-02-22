@@ -1,0 +1,61 @@
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-header text-white bg-primary mb-3">General Issues</div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Ticket ID</th>
+                <th>Date Submitted</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let general of generals">
+                <td><a href="/{{general._id}}"><img src="../../../../assets/images/details.png" width="30" height="30"
+                      title="Details" /></a></td>
+                <td>{{general.ticketId}}</td>
+                <td>{{general.dateSubmitted | date:formatsDate}}</td>
+                <td>{{general.description}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6">
+      <div class="card">
+        <div class="card-header text-white bg-primary mb-3">Billing Issues</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Ticket ID</th>
+                  <th>Date Submitted</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let billing of billings">
+                  <td><a href="/{{billing._id}}"><img src="../../../../assets/images/details.png" width="30" height="30"
+                        title="Details" /></a></td>
+                  <td>{{billing.ticketId}}</td>
+                  <td>{{billing.dateSubmitted | date:formatsDate}}</td>
+                  <td>{{billing.description}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+</div>

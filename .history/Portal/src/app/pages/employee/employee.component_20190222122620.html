@@ -1,0 +1,66 @@
+<div [@routerTransition]>
+  <h2 class="text-muted">Dashboard <small>employee Overview</small></h2>
+
+</div>
+
+<div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <div class="panel fresh-color panel-info">
+                       <!-- Default panel contents -->
+                       <div class="panel-heading">Latest Active Issues</div>
+                      <!-- <div class="panel-body">
+                           <p>Some default panel content here. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                       </div> -->
+                       <!-- Table -->
+                       <table class="table table-responsive">
+                           <thead>
+                               <tr>
+                                   <th>Incident ID</th>
+                                   <th>Title</th>
+                                   <th>Application</th>
+                                   <th>Status</th>
+                               </tr>
+                           </thead>
+                           <tbody>
+                               <tr ng-repeat="x in data ">
+                                   <th><u><a href="/incident-detail/x.incidentID">x.incidentID</a></u></th>
+                                   <td>x.title</td>
+                                   <td>x.application</td>
+                                   <td>x.status</td>
+                               </tr>
+                               
+                           </tbody>
+                       </table>
+       </div>
+   </div>
+
+ <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="panel fresh-color panel-success">
+                           <!-- Default panel contents -->
+                           <div class="panel-heading">Latest Active Change Requests</div>
+                         <!--  <div class="panel-body">
+                               <p>Some default panel content here. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                           </div> -->
+                           <!-- Table -->
+                           <table class="table table-responsive">
+                               <thead>
+                                   <tr>
+                                       <th>Incident ID</th>
+                                       <th>Title</th>
+                                       <th>Application</th>
+                                       <th>Status</th>
+                                   </tr>
+                               </thead>
+                               <tbody>
+                               <tr ng-repeat="y in changes ">
+                                   <th><u><a href="/incident-detail/y.incidentID">y.incidentID</a></u></th>
+                                   <td>y.title</td>
+                                   <td>y.application</td>
+                                   <td>y.status</td>
+                               </tr>
+                                  
+                               </tbody>
+                           </table>
+           </div>
+       </div>
+</d

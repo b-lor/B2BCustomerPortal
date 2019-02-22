@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+          <div class="card-header text-white bg-primary mb-3">General</div>
+        <div class="card-body">
+          <div class="table table-responsive">
+              <table>
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>Ticket ID</th>
+                      <th>Date Submitted</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+      
+                  <tbody>
+                    <tr *ngFor="let general of generals">
+                      <td><a href="/{{general._id}}"><img src="../../../../assets/images/details.png" width="30" height="30" title="Details" /></a></td>
+                      <td>{{general.ticketId}}</td>
+                      <td>{{general.dateSubmitted | date:formatsDate}}</td>
+                      <td>{{general.description}}</td>
+                    </tr>
+                  </tbody>
+      
+      
+                </table>
+          </div>
+
+        
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <div class="card">
+          <div class="card-header">Header</div>
+        <div class="card-body">
+          
+
+        </div>
+      </div>
+    </div>
+  </div>

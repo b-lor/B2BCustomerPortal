@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+          <div class="card-header text-white bg-primary mb-3">Header</div>
+        <div class="card-body">
+          <table class="table table-responsive">
+            <thead>
+              <tr>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr *ngFor="let general of generals">
+                <td>{{general._id}}</td>
+                <td>{{general.ticketId}}</td>
+                <td>{{general.dateSubmitted}}</td>
+                <td>{{general.description}}</td>
+              </tr>
+            </tbody>
+
+
+          </table>
+          
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <div class="card">
+          <div class="card-header">Header</div>
+        <div class="card-body">
+          
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+  </div>
