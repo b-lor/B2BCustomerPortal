@@ -1,0 +1,352 @@
+<nav class="sidebar"  [ngClass]="{sidebarPushRight: isActive, collapsed: collapsed}">
+  
+  <div class="list-group">
+
+    <a href="dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
+      <i class="fa fa-fw fa-dashboard"></i>&nbsp;
+      <span>{{ 'Dashboard' }}</span>
+    </a>
+
+    <div class="nested-menu">
+      <a class="list-group-item" (click)="addTicketClass('pages')">
+        <i class="fa fa-ticket"></i>&nbsp;
+        <span>{{ 'Ticket' }}</span>
+      </a>
+      <li class="nested" [class.expand]="showTicket === 'pages'">
+        <ul class="submenu">
+          <li>
+            <a href="/ticket/add" [routerLinkActive]="['router-link-active']">
+              <i class="fa fa-monument"></i>&nbsp;
+              <span>{{ 'Add Ticket' }}</span>
+            </a>
+          </li>
+          <li>
+            <a href="/ticket/search" [routerLinkActive]="['router-link-active']">
+              <i class="fa fa-monument"></i>&nbsp;
+              <span>{{ 'Search' }}</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="/ticket/daterange" [routerLinkActive]="['router-link-active']">
+              <i class="fa fa-monument"></i>&nbsp;
+              <span>{{ 'Search By Date' }}</span>
+            </a>
+          </li>
+          <li>
+            <a href="/ticket/closed" [routerLinkActive]="['router-link-active']">
+              <i class="fa fa-monument"></i>&nbsp;
+              <span>{{ 'Closed Tickets' }}</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </div>
+
+
+    <div class="nested-menu">
+      <a class="list-group-item" (click)="addUserClass('pages')">
+        <i class="fa fa-users"></i>&nbsp;
+        <span>{{ 'Users' }}</span>
+      </a>
+      <li class="nested" [class.expand]="showUser === 'pages'">
+        <ul class="submenu">
+          <li>
+            <a href="/users" [routerLinkActive]="['router-link-active']">
+              <i class="fa fa-monument"></i>&nbsp;
+              <span>{{ 'List Users' }}</span>
+            </a>
+          </li>
+          <li>
+            <a href="/users/add" [routerLinkActive]="['router-link-active']">
+              <i class="fa fa-monument"></i>&nbsp;
+              <span>{{ 'Add a New User' }}</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </div>
+
+
+    <div class="nested-menu">
+      <a class="list-group-item" (click)="addRoleClass('pages')">
+        <i class="fa fa-user-plus"></i>&nbsp;
+        <span>{{ 'Roles' }}</span>
+      </a>
+      <li class="nested" [class.expand]="showRole === 'pages'">
+        <ul class="submenu">
+          <li>
+            <a href="/roles" [routerLinkActive]="['router-link-active']">
+              <i class="fa fa-monument"></i>&nbsp;
+              <span>{{ 'Roles' }}</span>
+            </a>
+          </li>
+          <li>
+            <a href="roles/add" [routerLinkActive]="['router-link-active']">
+              <i class="fa fa-monument"></i>&nbsp;
+              <span>{{ 'Add a Role' }}</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </div>
+    <div class="header-fields">
+      <a (click)="rltAndLtr()" class="list-group-item">
+        <span><i class="fa fa-arrows-h"></i>&nbsp; RTL/LTR</span>
+      </a>
+      <!-- <div class="nested-menu">
+        <a class="list-group-item" (click)="addExpandClass('languages')">
+          <span><i class="fa fa-language"></i>&nbsp; {{ 'Language'}} <b class="caret"></b></span>
+        </a>
+        <li class="nested" [class.expand]="showMenu === 'languages'">
+          <ul class="submenu">
+            <li>
+              <a href="javascript:void(0)" (click)="changeLang('en')">
+                {{ 'English'}}
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)" (click)="changeLang('fr')">
+                {{ 'French'}}
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)" (click)="changeLang('ur')">
+                {{ 'Urdu'}}
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)" (click)="changeLang('es')">
+                {{ 'Spanish'}}
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)" (click)="changeLang('it')">
+                {{ 'Italian'}}
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)" (click)="changeLang('fa')">
+                {{ 'Farsi'}}
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)" (click)="changeLang('de')">
+                {{ 'German'}}
+              </a>
+            </li>
+          </ul>
+        </li>
+      </div> -->
+      <div class="nested-menu">
+        <a class="list-group-item" (click)="addExpandClass('profile')">
+          <span><i class="fa fa-user"></i>&nbsp; John Smith</span>
+        </a>
+        <li class="nested" [class.expand]="showMenu === 'profile'">
+          <ul class="submenu">
+            <li>
+              <a href="javascript:void(0)">
+                <span><i class="fa fa-fw fa-user"></i> {{ 'Profile'}}</span>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+                <span><i class="fa fa-fw fa-envelope"></i> {{ 'Inbox'}}</span>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+                <span><i class="fa fa-fw fa-gear"></i> {{ 'Settings'}}</span>
+              </a>
+            </li>
+            <li>
+              <a [routerLink]="['/login']" (click)="onLoggedout()">
+                <span><i class="fa fa-fw fa-power-off"></i> {{ 'Log Out'}}</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="toggle-button" [ngClass]="{collapsed: collapsed}" (click)="toggleCollapsed()">
+    <i class="fa fa-fw fa-angle-double-left"></i>&nbsp;
+    <span>{{ 'Collapse Sidebar'}}</span>
+  </div>
+</nav>
+
+<nav class="sidebar" *ngIf="CustomerGuard" [ngClass]="{sidebarPushRight: isActive, collapsed: collapsed}">
+<div class="list-group" >
+
+  <a href="customer/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
+    <i class="fa fa-fw fa-dashboard"></i>&nbsp;
+    <span>{{ 'Dashboard' }}</span>
+  </a>
+
+  <div class="nested-menu">
+    <a class="list-group-item" (click)="addTicketClass('pages')">
+      <i class="fa fa-ticket"></i>&nbsp;
+      <span>{{ 'Tickets' }}</span>
+    </a>
+    <li class="nested" [class.expand]="showTicket === 'pages'">
+      <ul class="submenu">
+        <li>
+          <a href="customer/add" [routerLinkActive]="['router-link-active']">
+            <i class="fa fa-monument"></i>&nbsp;
+            <span>{{ 'Submit a Ticket' }}</span>
+          </a>
+        </li>
+        <li>
+          <a href="customer/ticket" [routerLinkActive]="['router-link-active']">
+            <i class="fa fa-monument"></i>&nbsp;
+            <span>{{ 'View your tickets' }}</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+  </div>
+
+
+  <div class="nested-menu">
+    <a class="list-group-item" (click)="addUserClass('pages')">
+      <i class="fa fa-users"></i>&nbsp;
+      <span>{{ 'Transactions' }}</span>
+    </a>
+    <li class="nested" [class.expand]="showUser === 'pages'">
+      <ul class="submenu">
+        <li>
+          <a href="customer/transactions" [routerLinkActive]="['router-link-active']">
+            <i class="fa fa-monument"></i>&nbsp;
+            <span>{{ 'View History' }}</span>
+          </a>
+        </li>
+        <li>
+          <a href="customer/transactions/paid/{{userId}}" [routerLinkActive]="['router-link-active']">
+            <i class="fa fa-monument"></i>&nbsp;
+            <span>{{ 'View Paid Invoices' }}</span>
+          </a>
+        </li>
+        <li>
+          <a href="customer/transactions/unpaid/{{userId}}" [routerLinkActive]="['router-link-active']">
+            <i class="fa fa-monument"></i>&nbsp;
+            <span>{{ 'View Invoices with balance' }}</span>
+          </a>
+        </li>
+        <li>
+          <a href="customer/transactions/openorders/{{userId}}" [routerLinkActive]="['router-link-active']">
+            <i class="fa fa-monument"></i>&nbsp;
+            <span>{{ 'View Open Orders' }}</span>
+          </a>
+        </li>
+        <li>
+          <a href="/users/add" [routerLinkActive]="['router-link-active']">
+            <i class="fa fa-monument"></i>&nbsp;
+            <span>{{ 'Add a New User' }}</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+  </div>
+
+
+
+  <div class="header-fields">
+    <a (click)="rltAndLtr()" class="list-group-item">
+      <span><i class="fa fa-arrows-h"></i>&nbsp; RTL/LTR</span>
+    </a>
+    <div class="nested-menu">
+      <a class="list-group-item" (click)="addExpandClass('profile')">
+        <span><i class="fa fa-user"></i>&nbsp; John Smith</span>
+      </a>
+      <li class="nested" [class.expand]="showMenu === 'profile'">
+        <ul class="submenu">
+          <li>
+            <a href="javascript:void(0)">
+              <span><i class="fa fa-fw fa-user"></i> {{ 'Profile'}}</span>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">
+              <span><i class="fa fa-fw fa-envelope"></i> {{ 'Inbox'}}</span>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">
+              <span><i class="fa fa-fw fa-gear"></i> {{ 'Settings'}}</span>
+            </a>
+          </li>
+          <li>
+            <a [routerLink]="['/login']" (click)="onLoggedout()">
+              <span><i class="fa fa-fw fa-power-off"></i> {{ 'Log Out'}}</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </div>
+  </div>
+</div>
+<div class="toggle-button" [ngClass]="{collapsed: collapsed}" (click)="toggleCollapsed()">
+  <i class="fa fa-fw fa-angle-double-left"></i>&nbsp;
+  <span>{{ 'Collapse Sidebar'}}</span>
+</div>
+</nav>
+
+<nav class="sidebar" *ngIf="EmployeeGuard" [ngClass]="{sidebarPushRight: isActive, collapsed: collapsed}">
+  
+    <div class="list-group" *ngIf="EmployeeGuard">
+
+        <a href="employee/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
+          <i class="fa fa-fw fa-dashboard"></i>&nbsp;
+          <span>{{ 'Dashboard' }}</span>
+        </a>
+    
+        <a href="employee/ticket" [routerLinkActive]="['router-link-active']" class="list-group-item">
+          <i class="fa fa-fw fa-ticket"></i>&nbsp;
+          <span>{{ 'Tickets' }}</span>
+        </a>
+    
+        <div class="header-fields">
+          <a (click)="rltAndLtr()" class="list-group-item">
+            <span><i class="fa fa-arrows-h"></i>&nbsp; RTL/LTR</span>
+          </a>
+         
+          <div class="nested-menu">
+            <a class="list-group-item" (click)="addExpandClass('profile')">
+              <span><i class="fa fa-user"></i>&nbsp; John Smith</span>
+            </a>
+            <li class="nested" [class.expand]="showMenu === 'profile'">
+              <ul class="submenu">
+                <li>
+                  <a href="javascript:void(0)">
+                    <span><i class="fa fa-fw fa-user"></i> {{ 'Profile'}}</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">
+                    <span><i class="fa fa-fw fa-envelope"></i> {{ 'Inbox'}}</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">
+                    <span><i class="fa fa-fw fa-gear"></i> {{ 'Settings'}}</span>
+                  </a>
+                </li>
+                <li>
+                  <a [routerLink]="['/login']" (click)="onLoggedout()">
+                    <span><i class="fa fa-fw fa-power-off"></i> {{ 'Log Out'}}</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </div>
+        </div>
+      </div>
+    
+      <div class="toggle-button" [ngClass]="{collapsed: collapsed}" (click)="toggleCollapsed()">
+        <i class="fa fa-fw fa-angle-double-left"></i>&nbsp;
+        <span>{{ 'Collapse Sidebar'}}</span>
+      </div>
+    </nav>
+

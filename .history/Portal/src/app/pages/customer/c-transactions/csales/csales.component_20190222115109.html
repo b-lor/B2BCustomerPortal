@@ -1,0 +1,36 @@
+<table datatable [dtOptions]="dtOptions" class="row-border hover" [dtTrigger]="dtTrigger">
+  <thead>
+          <tr>
+              <th></th>
+            <th>Customer</th>
+            <th>salesOrder</th>
+            <th>itemNumber</th>
+            <th>itemDescription</th>
+            <th>productLine</th>
+            <th>unitPrice</th>
+            <th>extAmount</th>
+            <th>qtyOrdered</th>
+            <th>qtyShipped</th>
+            <th>status</th>
+            <th>orderedDate</th>
+            <th>balance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let transaction of transactions">
+              <td><a href="/customer/transactions/{{transaction._id}}"><img src="../../../../assets/images/details.png" width="30" height="30" title="Details"/></a></td>
+              <td>{{transaction.customerNo}}</td>
+              <td>{{transaction.salesOrder}}</td>
+              <td>{{transaction.itemNumber}}</td>
+              <td>{{transaction.itemDescription}}</td>
+              <td>{{transaction.productLine}}</td>
+              <td>{{transaction.unitPrice | currency}}</td>
+              <td>{{transaction.extAmount | currency}}</td>
+              <td>{{transaction.qtyOrdered}}</td>
+              <td>{{transaction.qtyShipped}}</td>
+              <td>{{transaction.status}}</td>
+              <td>{{transaction.orderedDate | date:formatsDate}}</td>
+              <td>{{transaction.balance | currency}}</td>
+          </tr>
+        </tbody>
+      </table>
