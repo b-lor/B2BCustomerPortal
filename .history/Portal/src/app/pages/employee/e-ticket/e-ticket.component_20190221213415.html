@@ -1,0 +1,33 @@
+<table datatable [dtOptions]="dtOptions" class="row-border hover" [dtTrigger]="dtTrigger">
+  <thead>
+          <tr>
+              <th></th>
+              <th>ticketId</th>
+              <th>issue</th>
+              <th>description</th>
+              <th>submittedBy</th>
+              <th>resolution</th>
+              <th>priority</th>
+              <th>status</th>
+              <th>text</th>
+              <th>dateSubmitted</th>
+              <th>dateUpdate</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ticket of tickets">
+            <td><a href="/customer/detail/{{ticket._id}}"><img src="../../../../assets/images/details.png" width="30" height="30"
+              title="Details" /></a></td>
+              <td>{{ ticket.ticketId }}</td>
+              <td>{{ ticket.issue }}</td>
+              <td>{{ ticket.description }}</td>
+              <td>{{ ticket.submittedBy }}</td>
+              <td>{{ ticket.resolution }}</td>
+              <td>{{ ticket.priority }}</td>
+              <td>{{ ticket.status }}</td>
+              <td>{{ ticket.text }}</td>
+              <td>{{ ticket.dateSubmitted | date:formatsDate }}</td>
+              <td>{{ ticket.dateUpdate | date:formatsDate }}</td> 
+            </tr>
+        </tbody>
+      </table>

@@ -1,0 +1,14 @@
+<table datatable [dtOptions]="dtOptions" class="row-border hover" [dtTrigger]="dtTrigger">
+  <thead>
+          <tr>
+              <th>ticketId</th>
+              <th>issue</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ticket of tickets">
+              <td *ngIf= "(ticket.issue == department)">{{ ticket.ticketId }}</td>
+              <td *ngIf= "(ticket.issue == department)">{{ ticket.issue }}</td>
+            </tr>
+        </tbody>
+      </table>

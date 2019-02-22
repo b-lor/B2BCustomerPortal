@@ -1,0 +1,35 @@
+<table datatable [dtOptions]="dtOptions" class="row-border hover" [dtTrigger]="dtTrigger">
+  <thead>
+          <tr>
+              <th></th>
+              <!-- <th>user</th> -->
+              <th>ticketId</th>
+              <th>issue</th>
+              <th>description</th>
+              <th>submittedBy</th>
+              <th>resolution</th>
+              <th>priority</th>
+              <th>status</th>
+              <th>text</th>
+              <th>dateSubmitted</th>
+              <th>dateUpdate</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ticket of tickets">
+            <td *ngIf= "(ticket.issue == department)"><a href="/customer/detail/{{ticket._id}}"><img src="../../../../assets/images/details.png" width="30" height="30"
+              title="Details" /></a></td>
+              <!-- <td *ngIf= "(ticket.issue == department)">{{ ticket.user._id }}</td> -->
+              <td *ngIf= "(ticket.issue == department)">{{ ticket.ticketId }}</td>
+              <td *ngIf= "(ticket.issue == department)">{{ ticket.issue }}</td>
+              <td *ngIf= "(ticket.issue == department)">{{ ticket.description }}</td>
+              <td *ngIf= "(ticket.issue == department)">{{ ticket.submittedBy }}</td>
+              <td *ngIf= "(ticket.issue == department)">{{ ticket.resolution }}</td>
+              <td *ngIf= "(ticket.issue == department)">{{ ticket.priority }}</td>
+              <td *ngIf= "(ticket.issue == department)">{{ ticket.status }}</td>
+              <td *ngIf= "(ticket.issue == department)">{{ ticket.text }}</td>
+              <td *ngIf= "(ticket.issue == department)">{{ ticket.dateSubmitted }}</td>
+              <td *ngIf= "(ticket.issue == department)">{{ ticket.dateUpdate }}</td> 
+            </tr>
+        </tbody>
+      </table>

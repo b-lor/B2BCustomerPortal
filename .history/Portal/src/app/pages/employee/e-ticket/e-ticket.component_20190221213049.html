@@ -1,0 +1,12 @@
+<table datatable [dtOptions]="dtOptions" class="row-border hover" [dtTrigger]="dtTrigger">
+  <thead>
+          <tr>
+              <th>ticketId</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ticket of tickets">
+              <td>{{ ticket.ticketId }}</td>
+            </tr>
+        </tbody>
+      </table>

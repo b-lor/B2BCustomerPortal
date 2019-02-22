@@ -1,0 +1,181 @@
+<!-- <table *ngIf="userDetails" class="table-fill">
+  <thead>
+    <tr>
+      <th colspan="2" class="text-center">User Profile</th>
+    </tr>
+
+  </thead>
+  <tbody>
+    <tr>
+      <td>Email</td>
+      <td>{{userDetails.email}}</td>
+    </tr>
+    <tr>
+      <td>Customer Number</td>
+      <td>{{userDetails.customerNumber}}</td>
+    </tr>
+    <tr>
+    <tr>
+      <td>Company</td>
+      <td>{{userDetails.profile.company}}</td>
+    </tr>
+    <tr>
+      <td>Phone</td>
+      <td>{{userDetails.profile.phone}}</td>
+    </tr>
+
+    <tr>
+      <td>First Name</td>
+      <td>{{userDetails.profile.firstName}}</td>
+    </tr>
+    <tr>
+      <td>Last Name</td>
+      <td>{{userDetails.profile.lastName}}</td>
+    </tr>
+    <tr>
+    <tr>
+      <td>Street</td>
+      <td>{{userDetails.profile.street}}</td>
+    </tr>
+
+    <tr>
+      <td>City</td>
+      <td>{{userDetails.profile.city}}</td>
+    </tr>
+    <tr>
+      <td>State</td>
+      <td>{{userDetails.profile.state}}</td>
+    </tr>
+    <tr>
+    <tr>
+      <td>Zip</td>
+      <td>{{userDetails.profile.zip}}</td>
+    </tr>
+    <tr>
+      <td colspan="2" class="text-center">
+        <input type="button" (click)="onLogout()" value="Logout" />
+      </td>
+    </tr>
+  </tbody>
+</table> -->
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-3 ">
+		     <div class="list-group ">
+              <a href="#" class="list-group-item list-group-item-action active">Dashboard</a>
+              <a href="#" class="list-group-item list-group-item-action">User Management</a>
+              <a href="#" class="list-group-item list-group-item-action">Used</a>
+              <a href="#" class="list-group-item list-group-item-action">Enquiry</a>
+              <a href="#" class="list-group-item list-group-item-action">Dealer</a>
+              <a href="#" class="list-group-item list-group-item-action">Media</a>
+              <a href="#" class="list-group-item list-group-item-action">Post</a>
+              <a href="#" class="list-group-item list-group-item-action">Category</a>
+              <a href="#" class="list-group-item list-group-item-action">New</a>
+              <a href="#" class="list-group-item list-group-item-action">Comments</a>
+              <a href="#" class="list-group-item list-group-item-action">Appearance</a>
+              <a href="#" class="list-group-item list-group-item-action">Reports</a>
+              <a href="#" class="list-group-item list-group-item-action">Settings</a>
+              
+              
+            </div> 
+		</div>
+		<div class="col-md-9">
+		    <div class="card">
+		        <div class="card-body">
+		            <div class="row">
+		                <div class="col-md-12">
+		                    <h4>Your Profile</h4>
+		                    <hr>
+		                </div>
+		            </div>
+		            <div class="row">
+		                <div class="col-md-12">
+		                    <form>
+                            <div class="form-group row">
+                                <label for="name" class="col-4 col-form-label">First Name</label> 
+                                <div class="col-8">
+                                  <input id="name" name="name" placeholder="{{userDetails.profile.firstName}}" class="form-control here" type="text">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="lastname" class="col-4 col-form-label">Last Name</label> 
+                                <div class="col-8">
+                                  <input id="lastname" name="lastname" placeholder="{{userDetails.profile.lastName}}" class="form-control here" type="text">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="username" class="col-4 col-form-label">Email Address</label> 
+                                <div class="col-8">
+                                  <input id="username" name="username" placeholder="{{userDetails.email}}" class="form-control here" required="required" type="text">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="name" class="col-4 col-form-label">Customer Number</label> 
+                                <div class="col-8">
+                                  <input id="name" name="name" placeholder="{{userDetails.customerNumber}}" class="form-control here" type="text">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="lastname" class="col-4 col-form-label">Company</label> 
+                                <div class="col-8">
+                                  <input id="lastname" name="lastname" placeholder="{{userDetails.profile.company}}" class="form-control here" type="text">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="text" class="col-4 col-form-label">Phone</label> 
+                                <div class="col-8">
+                                  <input id="text" name="text" placeholder="{{userDetails.profile.phone}}" class="form-control here" required="required" type="text">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="website" class="col-4 col-form-label">Website</label> 
+                                <div class="col-8">
+                                  <input id="website" name="website" placeholder="website" class="form-control here" type="text">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="publicinfo" class="col-4 col-form-label">Public Info</label> 
+                                <div class="col-8">
+                                  <textarea id="publicinfo" name="publicinfo" cols="40" rows="4" class="form-control"></textarea>
+                                </div>
+                              </div>
+                                  <div class="form-group row">
+                                      <label for="newpass" class="col-4 col-form-label">Street Address</label> 
+                                      <div class="col-8">
+                                        <input id="newpass" name="newpass" placeholder="{{userDetails.profile.street}}" class="form-control here" type="text">
+                                      </div>
+                                    </div> 
+                                    <div class="form-group row">
+                                        <label for="newpass" class="col-4 col-form-label">City</label> 
+                                        <div class="col-8">
+                                          <input id="newpass" name="newpass" placeholder="{{userDetails.profile.city}}" class="form-control here" type="text">
+                                        </div>
+                                      </div> 
+                                      <div class="form-group row">
+                                          <label for="newpass" class="col-4 col-form-label">State</label> 
+                                          <div class="col-8">
+                                            <input id="newpass" name="newpass" placeholder="{{userDetails.profile.state}}" class="form-control here" type="text">
+                                          </div>
+                                        </div> 
+                                        <div class="form-group row">
+                                            <label for="newpass" class="col-4 col-form-label">Zip Code</label> 
+                                            <div class="col-8">
+                                              <input id="newpass" name="newpass" placeholder="{{userDetails.profile.zip}}" class="form-control here" type="text">
+                                            </div>
+                                          </div> 
+
+                              <div class="form-group row">
+                                <div class="offset-4 col-8">
+                                </div>
+                              </div>
+                            </form>
+		                </div>
+		            </div>
+		            
+		        </div>
+		    </div>
+		</div>
+	</div>
+</div>
