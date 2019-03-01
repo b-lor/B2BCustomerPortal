@@ -13,17 +13,17 @@ module.exports.getTransactions = (req, res, next) => {
     });
 }
 
-module.exports.getTransactionById = (req, res, next) => {
+// module.exports.getTransactionById = (req, res, next) => {
 
-    var query = {
-        _id: req.params.id
-    };
-    Transaction.findOne(query).populate('user').sort(
-        ['responseId', 'descending']).exec((err, result) => {
-        console.log(result);
-        return res.status(200).json(result);
-    });
-}
+//     var query = {
+//         _id: req.params.id
+//     };
+//     Transaction.findOne(query).populate('user').sort(
+//         ['responseId', 'descending']).exec((err, result) => {
+//         console.log(result);
+//         return res.status(200).json(result);
+//     });
+// }
 
 module.exports.addTransaction = (req, res, next) => {
 
@@ -116,3 +116,27 @@ module.exports.userTransaction = (req, res, next) => {
 }
 //////// test below
 
+module.exports.salesData = (callback) => {
+    Transaction.aggregate([{
+            $match: {
+                status: "Completed"
+            }
+        },
+        {
+            $group: {
+                _id: {
+                    // date: {
+                    //     $dateToString: {
+                    //         format: "%Y-%m-%d",
+                    //         date: "$shippedDate"
+                    //     }
+                    // },
+                    customer: "$customerNo",
+                    total: {
+                        $sum: "$extAmount"
+                    }
+                }
+            }
+        }
+    ], callback);
+};

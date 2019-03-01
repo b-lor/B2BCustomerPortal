@@ -116,3 +116,27 @@ module.exports.userTransaction = (req, res, next) => {
 }
 //////// test below
 
+module.exports.salesData = (callback) => {
+    Transaction.aggregate([{
+            $match: {
+                status: "Completed"
+            }
+        },
+        {
+            $group: {
+                _id: {
+                    // date: {
+                    //     $dateToString: {
+                    //         format: "%Y-%m-%d",
+                    //         date: "$shippedDate"
+                    //     }
+                    // },
+                    customer: "$customerNo",
+                    total: {
+                        $sum: "$extAmount"
+                    }
+                }
+            }
+        }
+    ], callback);
+};

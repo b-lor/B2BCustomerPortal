@@ -116,3 +116,18 @@ module.exports.userTransaction = (req, res, next) => {
 }
 //////// test below
 
+module.exports.salesData = (callback) => {
+    Transaction.aggregate([{
+            $match: {
+                status: "Completed"
+            }
+        },
+        {
+            $group: {
+                _id: {
+                    customer: "$customerNo",
+                    data: { $push: "$$ROOT" },                }
+            }
+        }
+    ], callback);
+};

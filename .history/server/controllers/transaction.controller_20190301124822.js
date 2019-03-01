@@ -19,7 +19,7 @@ module.exports.getTransactionById = (req, res, next) => {
         _id: req.params.id
     };
     Transaction.findOne(query).populate('user').sort(
-        ['responseId', 'descending']).exec((err, result) => {
+		['responseId', 'descending']).exec((err, result) => {
         console.log(result);
         return res.status(200).json(result);
     });

@@ -19,7 +19,7 @@ module.exports.getTransactionById = (req, res, next) => {
         _id: req.params.id
     };
     Transaction.findOne(query).populate('user').sort(
-        ['responseId', 'descending']).exec((err, result) => {
+		['responseId', 'descending']).exec((err, result) => {
         console.log(result);
         return res.status(200).json(result);
     });
@@ -116,3 +116,12 @@ module.exports.userTransaction = (req, res, next) => {
 }
 //////// test below
 
+module.exports.salesPerDay = (req, res, next) => {
+Transactions.aggregate([
+	{ $match: { status: "Completed" } },
+	{ $group: { _id: { date: { $dateToString: { format: "%Y-%m-%d", date: "$shippedDate" }}, customer: "$customerNo",  total: {$sum: "$extAmount"}}}}
+]).
+then(function (res) {
+    console.log(res);
+})
+};

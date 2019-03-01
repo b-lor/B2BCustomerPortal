@@ -99,6 +99,11 @@ router.get('/customer/sales/:customer_id', function (req, res) {
 
 //// test balance
 
+////////////////////////////////////////////////////
+
+
+const Transactions = mongoose.model('Transaction');
+
 ////// get customer transactions
 
 router.get('/customer/:customer_id', function (req, res) {

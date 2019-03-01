@@ -99,6 +99,11 @@ router.get('/customer/sales/:customer_id', function (req, res) {
 
 //// test balance
 
+////////////////////////////////////////////////////
+
+
+const Transactions = mongoose.model('Transaction');
+
 ////// get customer transactions
 
 router.get('/customer/:customer_id', function (req, res) {
@@ -145,6 +150,121 @@ router.get('/customer/open/:customer_id', function (req, res) {
 
 
 
+////////////////// Test below
+
+router.get('/customer/invoice-balance/:customer_id', function(req, res) {
+
+    var customer_id = 10001;
+    // var customer_id = req.params.customer_id;
+
+    var balanceTotal = function(customer_id, callback){  
+        Transactions.aggregate([
+                    { $match: { 
+                        customerNo: customer_id,
+                        status: "Completed"
+
+                     }},
+                    {
+                        $group: {
+                            _id: "$customerNo",  
+                            total: {$sum: "$balance"}
+                        }
+                    }
+
+                ],
+                function(err, results){
+                    console.log("this is the result: ", results); 
+                    callback(err, results); 
+                });
+    };
+
+    balanceTotal(customer_id, function(err, results) {
+        if (err) {
+            res.send(err);
+        } 
+        res.json(results);
+    }); 
+});
+
+
+router.get('/customer/open-sales/:customer_id', function(req, res) {
+
+    // var customerId = 10001;
+    var customer_id = req.params.customer_id;
+
+    var orderTotal = function(customer_id, callback){  
+        Transactions.aggregate([
+                    { $match: { 
+                        customerNo: customer_id,
+                        status: "Active"
+                        // status: "Completed"
+
+                     }},
+                    {
+                        $group: {
+                            _id: "$customerNo",  
+                            total: {$sum: "$extAmount"}
+                        }
+                    }
+
+                ],
+                function(err, results){
+                    console.log("this is the result: ", results); 
+                    callback(err, results); 
+                });
+    };
+
+    orderTotal(customer_id, function(err, results) {
+        if (err) {
+            res.send(err);
+        } 
+        res.json(results);
+    }); 
+});
+
+
+/// sales test
+
+// router.get('/customer/sales/day', function(req, res){
+// Transactions.aggregate([
+// 	{ $match: { status: "Completed" } },
+// 	{ $group: { _id: { date: { $dateToString: { format: "%Y-%m-%d", date: "$shippedDate" }}, customer: "$customerNo",  total: {$sum: "$extAmount"}}}}
+// ], function (err, result) {
+//     if (err) {
+//         next(err);
+//     } else {
+//         res.json(result);
+//     }
+// })
+// });
+
+
+router.get('/customer/sales/day', function(req, res) {
+    Transactions.aggregate([{
+        $group: {
+            _id: {
+                date: {
+                    $dateToString: {
+                        format: "%m-%d-%Y",
+                        date: "$shippedDate"
+                    }
+                },
+                customer: "$customerNo",
+                total: {
+                    $sum: "$extAmount"
+                }
+            }
+        }
+    }], function (err, result) {
+        if (err) {
+            next (err);
+        } else {
+            res.json(result);
+        }
+    }
+    
+    )
+});
 
 
 
