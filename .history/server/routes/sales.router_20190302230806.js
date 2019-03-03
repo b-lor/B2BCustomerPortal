@@ -59,19 +59,25 @@ router.get('/invoices', function (req, res) {
     var status = "Completed";
 
     var invoices = function (status, callback) {
-        Transactions.aggregate([
-            {
+        Transactions.aggregate([{
                     $match: {
                         status: "Completed"
                     }
                 },
                 {
                     $group: {
-                        _id: "$shippedDate",
+                        _id: {
+                            date: "$shippedDate",
+                            // date: {
+                            //     $dateToString: {
+                            //         format: "%m-%d-%Y",
+                            //         date: "$shippedDate"
+                            //     }
+                            // },
                             total: {
                                 $sum: "$extAmount"
                             }
-                        
+                        }
                     }
                 }
             ],
@@ -147,13 +153,17 @@ router.get('/orders', function (req, res) {
                 },
                 {
                     $group: {
-                        _id: "$orderedDate"
-                            
-                            ,
+                        _id: {
+                            date: {
+                                $dateToString: {
+                                    format: "%m-%d-%Y",
+                                    date: "$orderedDate"
+                                }
+                            },
                             total: {
                                 $sum: "$extAmount"
                             }
-                        
+                        }
                     }
                 },
                 {

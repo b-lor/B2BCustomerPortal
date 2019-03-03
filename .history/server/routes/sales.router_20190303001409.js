@@ -147,13 +147,17 @@ router.get('/orders', function (req, res) {
                 },
                 {
                     $group: {
-                        _id: "$orderedDate"
-                            
-                            ,
+                        _id: {
+                            date: {
+                                $dateToString: {
+                                    format: "%m-%d-%Y",
+                                    date: "$orderedDate"
+                                }
+                            },
                             total: {
                                 $sum: "$extAmount"
                             }
-                        
+                        }
                     }
                 },
                 {

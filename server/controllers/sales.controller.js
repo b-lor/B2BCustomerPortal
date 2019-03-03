@@ -66,3 +66,52 @@ module.exports.getCustomerInvoiceTotal = function (customer_id, callback, limit)
 	Transaction.find(query, callback);
 }
 
+
+
+
+
+
+/////////////////// new test
+
+
+// module.exports.searchTicketByDateRange = function (req, res) {
+
+//     var fromDate = req.body.fromDate;
+//     fromDate = fromDate + " 00:00:00";
+//     var toDate = req.body.toDate;
+//     toDate = toDate + " 23:59:59";
+//     Ticket.find()
+//         .where('dateSubmitted')
+//         .gte(fromDate)
+//         .lte(toDate)
+//         .populate('user')
+//         .exec(function (err, result) {
+//             if (err) return res.status(500).json("Internal Server Error");
+//             res.status(200).json(result);
+//         });
+// }
+
+module.exports.customerInvoiceBalance = function (req, res) {
+
+	var customerNo = req.body.customerNo;
+	console.log(customerNo);
+        Transaction.aggregate([
+                    { $match: {
+                        customerNo: customerNo,
+                        status: "Completed"
+
+                     }},
+                    {
+                        $group: {
+                            _id: "$customerNo",  
+                            total: {$sum: "$balance"}
+                        }
+                    }
+
+                ],
+        function (err, result) {
+            if (err) return res.status(500).json("Internal Server Error");
+            res.status(200).json(result);
+                })
+
+};

@@ -15,7 +15,7 @@ module.exports.getTicketById = (req, res, next) => {
         .exec((err, result) => {
             return res.status(200).json(result);
         });
-}
+};
 
 exports.searchTicketByDateRange = function (req, res) {
 
@@ -32,7 +32,7 @@ exports.searchTicketByDateRange = function (req, res) {
             if (err) return res.status(500).json("Internal Server Error");
             res.status(200).json(result);
         });
-}
+};
 
 exports.searchByPriority = function (req, res) {
 
@@ -47,7 +47,7 @@ exports.searchByPriority = function (req, res) {
             if (err) return res.status(500).json("Internal Server Error");
             res.status(200).json(result);
         });
-}
+};
 
 exports.searchByStatus = function (req, res) {
 
@@ -62,7 +62,7 @@ exports.searchByStatus = function (req, res) {
             if (err) return res.status(500).json("Internal Server Error");
             res.status(200).json(result);
         });
-}
+};
 
 exports.searchByIssue = function (req, res) {
 
@@ -77,7 +77,7 @@ exports.searchByIssue = function (req, res) {
             if (err) return res.status(500).json("Internal Server Error");
             res.status(200).json(result);
         });
-}
+};
 
 module.exports.getTrackerById = (req, res, next) => {
 
@@ -91,7 +91,7 @@ module.exports.getTrackerById = (req, res, next) => {
             console.log(result);
             return res.status(200).json(result);
         });
-}
+};
 
 exports.searchTrackerByDateRange = function (req, res) {
 
@@ -107,4 +107,4 @@ exports.searchTrackerByDateRange = function (req, res) {
             if (err) return res.status(500).json("Internal Server Error");
             res.status(200).json(result);
         });
-}
+};
