@@ -59,7 +59,8 @@ router.get('/invoices', function (req, res) {
     var status = "Completed";
 
     var invoices = function (status, callback) {
-        Transactions.aggregate([{
+        Transactions.aggregate([
+            {
                     $match: {
                         status: "Completed"
                     }
@@ -67,10 +68,10 @@ router.get('/invoices', function (req, res) {
                 {
                     $group: {
                         _id: "$shippedDate",
-                        total: {
-                            $sum: "$extAmount"
-                        }
-
+                            total: {
+                                $sum: "$extAmount"
+                            }
+                        
                     }
                 }
             ],
@@ -147,12 +148,12 @@ router.get('/orders', function (req, res) {
                 {
                     $group: {
                         _id: "$orderedDate"
-
+                            
                             ,
-                        total: {
-                            $sum: "$extAmount"
-                        }
-
+                            total: {
+                                $sum: "$extAmount"
+                            }
+                        
                     }
                 },
                 {
@@ -180,7 +181,7 @@ router.get('/customer/invoice-sales/:customerNo', function (req, res) {
 
     var customer_id = parseInt(req.params.customerNo);
 
-    var sales = function (customer_id, callback) {
+    var balanceTotal = function (customer_id, callback) {
         Transactions.aggregate([{
                     $match: {
                         customerNo: customer_id,
@@ -216,7 +217,7 @@ router.get('/customer/invoice-sales/:customerNo', function (req, res) {
             });
     };
 
-    sales(customer_id, function (err, results) {
+    balanceTotal(customer_id, function (err, results) {
         if (err) {
             res.send(err);
         }
@@ -229,7 +230,7 @@ router.get('/customer/invoice-balance/:customerNo', function (req, res) {
 
     var customer_id = parseInt(req.params.customerNo);
 
-    var balance = function (customer_id, callback) {
+    var balanceTotal = function (customer_id, callback) {
         Transactions.aggregate([{
                     $match: {
                         customerNo: customer_id,
@@ -268,7 +269,7 @@ router.get('/customer/invoice-balance/:customerNo', function (req, res) {
             });
     };
 
-    balance(customer_id, function (err, results) {
+    balanceTotal(customer_id, function (err, results) {
         if (err) {
             res.send(err);
         }
@@ -281,7 +282,7 @@ router.get('/customer/invoice-paid/:customerNo', function (req, res) {
 
     var customer_id = parseInt(req.params.customerNo);
 
-    var paid = function (customer_id, callback) {
+    var balanceTotal = function (customer_id, callback) {
         Transactions.aggregate([{
                     $match: {
                         customerNo: customer_id,
@@ -320,7 +321,7 @@ router.get('/customer/invoice-paid/:customerNo', function (req, res) {
             });
     };
 
-    paid(customer_id, function (err, results) {
+    balanceTotal(customer_id, function (err, results) {
         if (err) {
             res.send(err);
         }
@@ -333,7 +334,7 @@ router.get('/customer/open-sales/:customerNo', function (req, res) {
 
     var customer_id = parseInt(req.params.customerNo);
 
-    var sales = function (customer_id, callback) {
+    var balanceTotal = function (customer_id, callback) {
         Transactions.aggregate([{
                     $match: {
                         customerNo: customer_id,
@@ -369,7 +370,7 @@ router.get('/customer/open-sales/:customerNo', function (req, res) {
             });
     };
 
-    sales(customer_id, function (err, results) {
+    balanceTotal(customer_id, function (err, results) {
         if (err) {
             res.send(err);
         }
@@ -377,160 +378,64 @@ router.get('/customer/open-sales/:customerNo', function (req, res) {
     });
 });
 
-////// invoiced per date range
-router.get('/date/invoice', function (req, res) {
+////// new test
+router.get('/date', function (req, res) {
 
-    var fromDate = new Date(req.body.fromDate);
-    var toDate = new Date(req.body.toDate);
+// var fromDate = new Date(req.body.fromDate);
+// var toDate = new Date(req.body.toDate);
 
-    var status = "Completed";
+var fromDate = 1/1/2018;
+var toDate = 1/31/2018;
 
-    var invoiceDate = function (status, callback) {
-        Transactions.aggregate([{
-                    $match: {
-                        shippedDate: {
-                            $gte: fromDate,
-                            $lte: toDate
+var status = "Completed";
+console.log(fromDate);
+console.log(typeof fromDate);
+console.log(toDate);
+console.log(typeof toDate);
+
+var balanceTotal = function (status, callback) {
+    Transactions.aggregate([{
+                $match: {
+                    dateRange: { $gte: fromDate, $lte: toDate},
+                    status: "Completed"
+                }
+            },
+            {
+                $group: {
+                    _id: {
+                        date: {
+                            $dateToString: {
+                                format: "%m-%d-%Y",
+                                date: "$orderedDate"
+                            }
                         },
-                        status: "Completed"
-                    }
-                },
-                {
-                    $group: {
-                        _id: "$shippedDate",
+                        customer: "$customerNo",
                         total: {
                             $sum: "$extAmount"
                         }
                     }
-                },
-                {
-                    $sort: {
-                        "_id.date": 1
-                    }
                 }
+            },
+            {
+                $sort: {
+                    "_id.date": 1
+                }
+            }
 
-            ],
-            function (err, results) {
-                console.log("this is the result: ", results);
-                callback(err, results);
-            });
-    };
+        ],
+        function (err, results) {
+            console.log("this is the result: ", results);
+            callback(err, results);
+        });
+};
 
-    invoiceDate(status, function (err, results) {
-        if (err) {
-            res.send(err);
-        }
-        res.json(results);
-    });
-
+balanceTotal(status, function (err, results) {
+    if (err) {
+        res.send(err);
+    }
+    res.json(results);
 });
 
-////// sales per month
-router.get('/month', function (req, res) {
-
-    var status = "Completed";
-
-    var monthlySales = function (status, callback) {
-        Transactions.aggregate([{
-                    $project: {
-                        month: {
-                            $month: "$shippedDate"
-                        },
-                        year: {
-                            $year: "$shippedDate"
-                        },
-                        extAmount: 1
-                    }
-                },
-                {
-                    $group: {
-                        _id: {
-                            month: "$month",
-                            year: "$year"
-                        },
-                        total: {
-                            $sum: "$extAmount"
-                        }
-                    }
-                },
-                {
-                    $sort: {
-                        "_id.date": 1
-                    }
-                }
-
-            ],
-            function (err, results) {
-                console.log("this is the result: ", results);
-                callback(err, results);
-            });
-    };
-
-    monthlySales(status, function (err, results) {
-        if (err) {
-            res.send(err);
-        }
-        res.json(results);
-    });
-
 });
-
-////// sales per week
-router.get('/week', function (req, res) {
-
-    var fromDate = new Date(req.body.fromDate);
-    var toDate = new Date(req.body.toDate);
-
-    var status = "Completed";
-
-    var perWeek = function (status, callback) {
-        Transactions.aggregate([{
-                    $project: {
-                        week: {
-                            $week: "$shippedDate"
-                        },
-                        month: {
-                            $month: "$shippedDate"
-                        },
-                        year: {
-                            $year: "$shippedDate"
-                        },
-                        extAmount: 1
-                    }
-                },
-                {
-                    $group: {
-                        _id: {
-                            week: "$week",
-                            month: "$month",
-                            year: "$year"
-                        },
-                        total: {
-                            $sum: "$extAmount"
-                        }
-                    }
-                },
-                {
-                    $sort: {
-                        "_id.date": 1
-                    }
-                }
-
-            ],
-            function (err, results) {
-                console.log("this is the result: ", results);
-                callback(err, results);
-            });
-    };
-
-    perWeek(status, function (err, results) {
-        if (err) {
-            res.send(err);
-        }
-        res.json(results);
-    });
-
-});
-
 
 module.exports = router;
