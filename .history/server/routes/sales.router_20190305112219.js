@@ -70,7 +70,7 @@ router.get('/invoices', function (req, res) {
                 },
                 {
                     $group: {
-                        _id: "$shippedDate",
+                        date: "$shippedDate",
                         total: {
                             $sum: "$extAmount"
                         }

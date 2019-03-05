@@ -7,3 +7,4 @@ export * from './tracker.model';
 export * from './transaction.model';
 export * from './user.model';
 export * from './user.model.admin';
+export * from './sales.model';

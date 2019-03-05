@@ -9,4 +9,5 @@ export * from './user-admin.service';
 export * from './user.service';
 export * from './validate.service';
 export * from './dashboard.service';
+export * from './sales.service';
 

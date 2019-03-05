@@ -11,8 +11,6 @@ const ctrlSales = require('../controllers/sales.controller');
 // sales per day by customer
 router.get('/invoices/customer', function (req, res) {
     var status = "Completed";
-    var fromDate = new Date(req.body.fromDate);
-    var toDate = new Date(req.body.toDate);
 
     var invoices = function (status, callback) {
         Transactions.aggregate([{
@@ -59,8 +57,6 @@ router.get('/invoices/customer', function (req, res) {
 // sales per day by all customers
 router.get('/invoices', function (req, res) {
     var status = "Completed";
-    var fromDate = new Date(req.body.fromDate);
-    var toDate = new Date(req.body.toDate);
 
     var invoices = function (status, callback) {
         Transactions.aggregate([{
@@ -95,8 +91,6 @@ router.get('/invoices', function (req, res) {
 // orders per day by customer
 router.get('/orders/customer', function (req, res) {
     var status = "Active";
-    var fromDate = new Date(req.body.fromDate);
-    var toDate = new Date(req.body.toDate);
 
     var sales = function (status, callback) {
         Transactions.aggregate([{
@@ -143,8 +137,6 @@ router.get('/orders/customer', function (req, res) {
 // orders per day by customer
 router.get('/orders', function (req, res) {
     var status = "Active";
-    var fromDate = new Date(req.body.fromDate);
-    var toDate = new Date(req.body.toDate);
 
     var sales = function (status, callback) {
         Transactions.aggregate([{
@@ -187,8 +179,6 @@ router.get('/orders', function (req, res) {
 router.get('/customer/invoice-sales/:customerNo', function (req, res) {
 
     var customer_id = parseInt(req.params.customerNo);
-    var fromDate = new Date(req.body.fromDate);
-    var toDate = new Date(req.body.toDate);
 
     var sales = function (customer_id, callback) {
         Transactions.aggregate([{
@@ -238,8 +228,6 @@ router.get('/customer/invoice-sales/:customerNo', function (req, res) {
 router.get('/customer/invoice-balance/:customerNo', function (req, res) {
 
     var customer_id = parseInt(req.params.customerNo);
-    var fromDate = new Date(req.body.fromDate);
-    var toDate = new Date(req.body.toDate);
 
     var balance = function (customer_id, callback) {
         Transactions.aggregate([{
@@ -292,8 +280,6 @@ router.get('/customer/invoice-balance/:customerNo', function (req, res) {
 router.get('/customer/invoice-paid/:customerNo', function (req, res) {
 
     var customer_id = parseInt(req.params.customerNo);
-    var fromDate = new Date(req.body.fromDate);
-    var toDate = new Date(req.body.toDate);
 
     var paid = function (customer_id, callback) {
         Transactions.aggregate([{
@@ -346,8 +332,6 @@ router.get('/customer/invoice-paid/:customerNo', function (req, res) {
 router.get('/customer/open-sales/:customerNo', function (req, res) {
 
     var customer_id = parseInt(req.params.customerNo);
-    var fromDate = new Date(req.body.fromDate);
-    var toDate = new Date(req.body.toDate);
 
     var sales = function (customer_id, callback) {
         Transactions.aggregate([{
@@ -445,8 +429,6 @@ router.get('/date/invoice', function (req, res) {
 router.get('/month', function (req, res) {
 
     var status = "Completed";
-    var fromDate = new Date(req.body.fromDate);
-    var toDate = new Date(req.body.toDate);
 
     var monthlySales = function (status, callback) {
         Transactions.aggregate([{
@@ -554,8 +536,6 @@ router.get('/week', function (req, res) {
 router.get('/region/week/:region_id', function (req, res) {
 
     var region_id = req.params.region_id;
-    var fromDate = new Date(req.body.fromDate);
-    var toDate = new Date(req.body.toDate);
 
     var region = function (region_id, callback) {
         Transactions.aggregate([{
@@ -624,8 +604,6 @@ router.get('/region/week/:region_id', function (req, res) {
 router.get('/region/month/:region_id', function (req, res) {
 
     var region_id = req.params.region_id;
-    var fromDate = new Date(req.body.fromDate);
-    var toDate = new Date(req.body.toDate);
 
     var region = function (region_id, callback) {
         Transactions.aggregate([{
@@ -687,48 +665,51 @@ router.get('/region/month/:region_id', function (req, res) {
 });
 
 ////// sales per month by product line
-router.get('/month/productline/:productLine', function (req, res) {
+router.get('/month/:productLine', function (req, res) {
 
     var productLineId = req.params.productLine;
-    var fromDate = new Date(req.body.fromDate);
-    var toDate = new Date(req.body.toDate);
+console.log(productLineId);
+console.log(typeof productLineId);
 
     var monthlySales = function (productLine, callback) {
-        Transactions.aggregate([{
-                    $match: {
-                        productLine: productLineId,
-                        status: "Completed"
-                    }
-                },
+        Transactions.aggregate([
 
-                {
-                    $project: {
-                        month: {
-                            $month: "$shippedDate"
-                        },
-                        year: {
-                            $year: "$shippedDate"
-                        },
-                        extAmount: 1
-                    }
-                },
+            
+            {
+                $match: {
+                    productLine: "Eyewear",
+                    status: "Completed"
+                }
+            },
 
-                {
-                    $group: {
-                        _id: {
-                            month: "$month",
-                            year: "$year"
-                        },
-                        total: {
-                            $sum: "$extAmount"
-                        }
-                    }
-                },
-                {
-                    $sort: {
-                        "_id.date": 1
+              {
+                $project: {
+                    month: {
+                        $month: "$shippedDate"
+                    },
+                    year: {
+                        $year: "$shippedDate"
+                    },
+                    extAmount: 1
+                }
+            },
+
+            {
+                $group: {
+                    _id: {
+                        month: "$month",
+                        year: "$year"
+                    },
+                    total: {
+                        $sum: "$extAmount"
                     }
                 }
+            },
+            {
+                $sort: {
+                    "_id.date": 1
+                }
+            }
 
             ],
             function (err, results) {
@@ -747,266 +728,12 @@ router.get('/month/productline/:productLine', function (req, res) {
 });
 
 ////// sales per week by product line
-router.get('/week/productline/:productLine', function (req, res) {
-
-    var productLineId = req.params.productLine;
-    var fromDate = new Date(req.body.fromDate);
-    var toDate = new Date(req.body.toDate);
-
-    var perWeek = function (status, callback) {
-        Transactions.aggregate([{
-                    $match: {
-                        productLine: productLineId,
-                        status: "Completed"
-                    }
-                },
-                {
-                    $project: {
-                        week: {
-                            $week: "$shippedDate"
-                        },
-                        month: {
-                            $month: "$shippedDate"
-                        },
-                        year: {
-                            $year: "$shippedDate"
-                        },
-                        extAmount: 1
-                    }
-                },
-                {
-                    $group: {
-                        _id: {
-                            week: "$week",
-                            month: "$month",
-                            year: "$year"
-                        },
-                        total: {
-                            $sum: "$extAmount"
-                        }
-                    }
-                },
-                {
-                    $sort: {
-                        "_id.date": 1
-                    }
-                }
-
-            ],
-            function (err, results) {
-                console.log("this is the result: ", results);
-                callback(err, results);
-            });
-    };
-
-    perWeek(productLineId, function (err, results) {
-        if (err) {
-            res.send(err);
-        }
-        res.json(results);
-    });
-
-});
-
-////// sales per month by item
-router.get('/month/item/:itemNumber', function (req, res) {
-
-    var itemNumberId = req.params.itemNumber;
-    var fromDate = new Date(req.body.fromDate);
-    var toDate = new Date(req.body.toDate);
-
-    var monthlySales = function (itemNumber, callback) {
-        Transactions.aggregate([{
-                    $match: {
-                        itemNumber: itemNumberId,
-                        status: "Completed"
-                    }
-                },
-
-                {
-                    $project: {
-                        month: {
-                            $month: "$shippedDate"
-                        },
-                        year: {
-                            $year: "$shippedDate"
-                        },
-                        extAmount: 1
-                    }
-                },
-
-                {
-                    $group: {
-                        _id: {
-                            month: "$month",
-                            year: "$year"
-                        },
-                        total: {
-                            $sum: "$extAmount"
-                        }
-                    }
-                },
-                {
-                    $sort: {
-                        "_id.date": 1
-                    }
-                }
-
-            ],
-            function (err, results) {
-                console.log("this is the result: ", results);
-                callback(err, results);
-            });
-    };
-
-    monthlySales(itemNumberId, function (err, results) {
-        if (err) {
-            res.send(err);
-        }
-        res.json(results);
-    });
-
-});
-
-////// sales per week by product line
-router.get('/week/item/:itemNumber', function (req, res) {
-
-    var itemNumberId = req.params.itemNumber;
-    var fromDate = new Date(req.body.fromDate);
-    var toDate = new Date(req.body.toDate);
-
-    var perWeek = function (status, callback) {
-        Transactions.aggregate([{
-                    $match: {
-                        itemNumber: itemNumberId,
-                        status: "Completed"
-                    }
-                },
-                {
-                    $project: {
-                        week: {
-                            $week: "$shippedDate"
-                        },
-                        month: {
-                            $month: "$shippedDate"
-                        },
-                        year: {
-                            $year: "$shippedDate"
-                        },
-                        extAmount: 1
-                    }
-                },
-                {
-                    $group: {
-                        _id: {
-                            week: "$week",
-                            month: "$month",
-                            year: "$year"
-                        },
-                        total: {
-                            $sum: "$extAmount"
-                        }
-                    }
-                },
-                {
-                    $sort: {
-                        "_id.date": 1
-                    }
-                }
-
-            ],
-            function (err, results) {
-                console.log("this is the result: ", results);
-                callback(err, results);
-            });
-    };
-
-    perWeek(itemNumberId, function (err, results) {
-        if (err) {
-            res.send(err);
-        }
-        res.json(results);
-    });
-
-});
-
-
-////// sales per month by product line
-router.get('/month/byproductline', function (req, res) {
-    var status = "Completed";
-    var fromDate = new Date(req.body.fromDate);
-    var toDate = new Date(req.body.toDate);
-
-    var monthlySales = function (productLine, callback) {
-        Transactions.aggregate([
-            {
-                    $match: {
-                        status: "Completed"
-                    }
-                },
-
-                {
-                    $project: {
-                        month: {
-                            $month: "$shippedDate"
-                        },
-                        year: {
-                            $year: "$shippedDate"
-                        },
-                        productLine: 1,
-                        extAmount: 1
-                    }
-                },
-
-                {
-                    $group: {
-                        _id: {
-                            productLine: "$productLine",
-                            month: "$month",
-                            year: "$year"
-                        },
-                        total: {
-                            $sum: "$extAmount"
-                        }
-                    }
-                },
-                {
-                    $sort: {
-                        "_id.date": 1
-                    }
-                }
-
-            ],
-            function (err, results) {
-                console.log("this is the result: ", results);
-                callback(err, results);
-            });
-    };
-
-    monthlySales(status, function (err, results) {
-        if (err) {
-            res.send(err);
-        }
-        res.json(results);
-    });
-
-});
-
-////// sales per week by product line
-router.get('/week/byproductline/', function (req, res) {
+router.get('/week/productline', function (req, res) {
 
     var status = "Completed";
-    var fromDate = new Date(req.body.fromDate);
-    var toDate = new Date(req.body.toDate);
-
 
     var perWeek = function (status, callback) {
         Transactions.aggregate([{
-                    $match: {
-                        status: "Completed"
-                    }
-                },
-                {
                     $project: {
                         week: {
                             $week: "$shippedDate"
@@ -1017,14 +744,12 @@ router.get('/week/byproductline/', function (req, res) {
                         year: {
                             $year: "$shippedDate"
                         },
-                        productLine: 1,
                         extAmount: 1
                     }
                 },
                 {
                     $group: {
                         _id: {
-                            productLine: "$productLine",
                             week: "$week",
                             month: "$month",
                             year: "$year"
@@ -1055,137 +780,5 @@ router.get('/week/byproductline/', function (req, res) {
     });
 
 });
-
-
-////// sales per month by product line
-router.get('/month/byitem', function (req, res) {
-    var status = "Completed";
-    var fromDate = new Date(req.body.fromDate);
-    var toDate = new Date(req.body.toDate);
-
-
-    var monthlySales = function (productLine, callback) {
-        Transactions.aggregate([
-            {
-                    $match: {
-
-                        status: "Completed"
-                    }
-                },
-
-                {
-                    $project: {
-                        month: {
-                            $month: "$shippedDate"
-                        },
-                        year: {
-                            $year: "$shippedDate"
-                        },
-                        itemNumber: 1,
-                        extAmount: 1
-                    }
-                },
-
-                {
-                    $group: {
-                        _id: {
-                            itemNumber: "$itemNumber",
-                            month: "$month",
-                            year: "$year"
-                        },
-                        total: {
-                            $sum: "$extAmount"
-                        }
-                    }
-                },
-                {
-                    $sort: {
-                        "_id.date": 1
-                    }
-                }
-
-            ],
-            function (err, results) {
-                console.log("this is the result: ", results);
-                callback(err, results);
-            });
-    };
-
-    monthlySales(status, function (err, results) {
-        if (err) {
-            res.send(err);
-        }
-        res.json(results);
-    });
-
-});
-
-////// sales per week by product line
-router.get('/week/byitem/', function (req, res) {
-
-    var status = "Completed";
-    var fromDate = new Date(req.body.fromDate);
-    var toDate = new Date(req.body.toDate);
-
-    var perWeek = function (status, callback) {
-        Transactions.aggregate([{
-                    $match: {
-                        shippedDate: {
-                            $gte: fromDate,
-                            $lte: toDate
-                        },
-                        status: "Completed"
-                    }
-                },
-                {
-                    $project: {
-                        week: {
-                            $week: "$shippedDate"
-                        },
-                        month: {
-                            $month: "$shippedDate"
-                        },
-                        year: {
-                            $year: "$shippedDate"
-                        },
-                        itemNumber: 1,
-                        extAmount: 1
-                    }
-                },
-                {
-                    $group: {
-                        _id: {
-                            itemNumber: "$itemNumber",
-                            week: "$week",
-                            month: "$month",
-                            year: "$year"
-                        },
-                        total: {
-                            $sum: "$extAmount"
-                        }
-                    }
-                },
-                {
-                    $sort: {
-                        "_id.date": 1
-                    }
-                }
-
-            ],
-            function (err, results) {
-                console.log("this is the result: ", results);
-                callback(err, results);
-            });
-    };
-
-    perWeek(status, function (err, results) {
-        if (err) {
-            res.send(err);
-        }
-        res.json(results);
-    });
-
-});
-
 
 module.exports = router;

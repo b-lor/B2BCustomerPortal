@@ -1068,7 +1068,10 @@ router.get('/month/byitem', function (req, res) {
         Transactions.aggregate([
             {
                     $match: {
-
+                        shippedDate: {
+                            $gte: fromDate,
+                            $lte: toDate
+                        },
                         status: "Completed"
                     }
                 },
