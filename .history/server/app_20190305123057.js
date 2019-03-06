@@ -7,8 +7,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const passport = require('passport');
 const cookieParser = require('cookie-parser');
-const Server = require('socket.io');
-const io = new Server();
+const io = require('socket.io')(http);
 
 const rtsIndex = require('./routes/index.router');
 const rtsUser = require('./routes/user.router');

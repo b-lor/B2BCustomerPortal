@@ -12,8 +12,8 @@ export class Sales {
     status: string;
     customerNo: number;
     salespersonNo: number;
-    orderedDate: number | Date;
-    shippedDate: number | Date;
+    orderedDate: number;
+    shippedDate: number;
     balance: number;
     description: string;
     week: string;

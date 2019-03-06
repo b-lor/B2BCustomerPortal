@@ -16,7 +16,6 @@ export class SalesComponent implements OnInit {
   ordersPerCustomer;
   ordersAll;
 
-
   constructor(private salesService: SalesService) { }
 
   ngOnInit() {
@@ -29,8 +28,8 @@ export class SalesComponent implements OnInit {
   invoicesPerCustomerSales() {
     this.salesService.getInvoicesPerCustomer().subscribe(
       res => {this.invoicesPerCustomer = res;
-        console.log('this.invoicesPerCustomer');
-        console.log(this.invoicesPerCustomer);
+        // console.log('this.invoicesPerCustomer');
+        // console.log(this.invoicesPerCustomer);
       }
 
       ,

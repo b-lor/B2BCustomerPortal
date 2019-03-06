@@ -30,7 +30,7 @@ export class SalesComponent implements OnInit {
     this.salesService.getInvoicesPerCustomer().subscribe(
       res => {this.invoicesPerCustomer = res;
         console.log('this.invoicesPerCustomer');
-        console.log(this.invoicesPerCustomer);
+        console.log(this.invoicesPerCustomer._id);
       }
 
       ,

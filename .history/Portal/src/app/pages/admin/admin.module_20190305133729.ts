@@ -10,8 +10,7 @@ import {
   UserEditComponent,
   UserDetailComponent,
   UserTransactionsComponent,
-  SalesComponent,
-  PerDayCustomerComponent
+  SalesComponent
 } from './';
 
 @NgModule({
@@ -21,8 +20,7 @@ import {
     UserEditComponent,
     UserDetailComponent,
     UserTransactionsComponent,
-    SalesComponent,
-    PerDayCustomerComponent],
+    SalesComponent],
   imports: [
     CommonModule,
     AdminRoutes,

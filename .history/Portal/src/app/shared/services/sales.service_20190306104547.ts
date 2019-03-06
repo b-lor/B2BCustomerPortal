@@ -36,7 +36,7 @@ export class SalesService {
     return throwError('Something bad happened; please try again later.');
   }
 
-  private userSales(res: Response) {
+  private userData(res: Response) {
     const body = res;
     return body || {};
   }
@@ -44,24 +44,16 @@ export class SalesService {
   // HttpMethods
 
     // d3 test
-    // getInvoicesPerCustomer() {
-    //   return this.http
-    //     .get<Sales[]>(environment.apiBaseUrl + '/sales/invoices/customer', this.noAuthHeader)
-    //     .pipe(map((response: any) =>
-    //         response.map(sales =>
-    //           new Sales().deserialize(sales)
-    //         )
-    //       )
-    //     );
-    // }
-
-    
-    getInvoicesPerCustomer(): Observable<any> {
-    return this.http.get(environment.apiBaseUrl + '/sales/invoices/customer', httpOptions).pipe(
-      map(this.userSales),
-      catchError(this.handleError)
-    );
-  }
+    getInvoicesPerCustomer() {
+      return this.http
+        .get<Sales[]>(environment.apiBaseUrl + '/sales/invoices/customer', this.noAuthHeader)
+        .pipe(map((response: any) =>
+            response.map(sales =>
+              new Sales().deserialize(sales)
+            )
+          )
+        );
+    }
 
     // getUpdates() {
     //   const socket = socketio(environment.apiBaseUrl);

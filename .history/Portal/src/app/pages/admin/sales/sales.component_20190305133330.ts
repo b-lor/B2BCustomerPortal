@@ -16,6 +16,13 @@ export class SalesComponent implements OnInit {
   ordersPerCustomer;
   ordersAll;
 
+  salesStatus: Sales[];
+  salesStatusPlot: Sales[];
+
+  set SalesStatus(status: Sales[]) {
+    this.salesStatus = status;
+    this.salesStatusPlot = this.salesStatus.slice(0, 20);
+  }
 
   constructor(private salesService: SalesService) { }
 
@@ -29,8 +36,8 @@ export class SalesComponent implements OnInit {
   invoicesPerCustomerSales() {
     this.salesService.getInvoicesPerCustomer().subscribe(
       res => {this.invoicesPerCustomer = res;
-        console.log('this.invoicesPerCustomer');
-        console.log(this.invoicesPerCustomer);
+        // console.log('this.invoicesPerCustomer');
+        // console.log(this.invoicesPerCustomer);
       }
 
       ,

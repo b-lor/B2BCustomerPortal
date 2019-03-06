@@ -57,7 +57,7 @@ export class SalesService {
 
     
     getInvoicesPerCustomer(): Observable<any> {
-    return this.http.get(environment.apiBaseUrl + '/sales/invoices/customer', httpOptions).pipe(
+    return this.http.get(environment.apiBaseUrl + '/dashboard/general', httpOptions).pipe(
       map(this.userSales),
       catchError(this.handleError)
     );
